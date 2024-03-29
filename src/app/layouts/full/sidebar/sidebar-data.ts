@@ -13,22 +13,22 @@ export const navItems: NavItem[] = [
     navCap: 'Ui Components',
   },
   {
-    displayName: 'Badge',
+    displayName: 'Project',
     iconName: 'rosette',
     route: '/ui-components/badge',
   },
   {
-    displayName: 'Chips',
+    displayName: 'Tasks',
     iconName: 'poker-chip',
-    route: '/ui-components/chips',
+    route: '/ui-components/tasks',
   },
   {
-    displayName: 'Lists',
+    displayName: 'Work Logs',
     iconName: 'list',
     route: '/ui-components/lists',
   },
   {
-    displayName: 'Menu',
+    displayName: 'Performance',
     iconName: 'layout-navbar-expand',
     route: '/ui-components/menu',
   },

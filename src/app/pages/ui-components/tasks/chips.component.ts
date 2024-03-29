@@ -18,7 +18,7 @@ export interface Vegetable {
 }
 
 @Component({
-  selector: 'app-chips',
+  selector: 'app-tasks',
   templateUrl: './chips.component.html',
   styleUrls: ['./chips.component.scss'],
 })
@@ -33,9 +33,9 @@ export class AppChipsComponent {
     { name: 'cherry' },
   ];
 
-    // 
+    //
     // Stacked
-    // 
+    //
     availableColors: ChipColor[] = [
       {name: 'Primary', color: 'primary'},
       {name: 'Accent', color: 'accent'},
@@ -49,9 +49,9 @@ export class AppChipsComponent {
     }
   }
 
-  // 
-  //  chips with input
-  // 
+  //
+  //  tasks with input
+  //
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
   fruits: Fruit[] = [{ name: 'Lemon' }, { name: 'Lime' }, { name: 'Apple' }];
@@ -91,7 +91,7 @@ export class AppChipsComponent {
       this.fruits[index].name = value;
     }
 
-  
+
   }
 }
 function isDragDrop(object: any): object is CdkDragDrop<string[]> {

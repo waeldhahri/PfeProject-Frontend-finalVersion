@@ -12,7 +12,7 @@ import { UiComponentsRoutes } from './ui-components.routing';
 
 // ui components
 import { AppBadgeComponent } from './badge/badge.component';
-import { AppChipsComponent } from './chips/chips.component';
+import { AppChipsComponent } from './tasks/chips.component';
 import { AppListsComponent } from './lists/lists.component';
 import { AppMenuComponent } from './menu/menu.component';
 import { AppTooltipsComponent } from './tooltips/tooltips.component';
