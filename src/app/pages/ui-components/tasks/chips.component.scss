@@ -5,3 +5,52 @@
 .example-chip .cdk-drop-list-dragging {
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
+
+
+
+/* CSS pour le selectgroup */
+.form-selectgroup {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-selectgroup-item {
+  display: flex;
+  align-items: center;
+  margin-right: 20px; /* Espacement entre les éléments */
+}
+
+.form-selectgroup-input {
+  display: none; /* Masquer les cases à cocher */
+}
+
+.form-selectgroup-label {
+  padding: 8px 12px; /* Espacement à l'intérieur de chaque élément */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Ajout de transition pour le changement de couleur et d'ombre */
+}
+
+.form-selectgroup-label:hover {
+  background-color: #f0f0f0; /* Couleur de fond au survol */
+}
+
+.form-selectgroup-input:checked + .form-selectgroup-label {
+  background-color: #3498db; /* Couleur de fond pour les éléments sélectionnés (bleu vif) */
+  color: #fff; /* Couleur du texte pour les éléments sélectionnés */
+}
+
+.form-selectgroup-input:checked + .form-selectgroup-label:active {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Ombre plus prononcée lors du clic */
+}
+
+/* Si vous voulez centrer les éléments horizontalement */
+.form-selectgroup {
+  justify-content: center;
+}
+
+/* Si vous voulez aligner les éléments verticalement */
+.form-selectgroup-item {
+  margin-bottom: 10px; /* Espacement entre les lignes */
+}

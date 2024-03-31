@@ -17,6 +17,7 @@ import { AppListsComponent } from './lists/lists.component';
 import { AppMenuComponent } from './menu/menu.component';
 import { AppTooltipsComponent } from './tooltips/tooltips.component';
 import { MatNativeDateModule } from '@angular/material/core';
+import {NgSelect2Module} from "ng-select2";
 
 @NgModule({
   imports: [
@@ -27,13 +28,16 @@ import { MatNativeDateModule } from '@angular/material/core';
     ReactiveFormsModule,
     TablerIconsModule.pick(TablerIcons),
     MatNativeDateModule,
+    NgSelect2Module,
   ],
   declarations: [
     AppBadgeComponent,
     AppChipsComponent,
     AppListsComponent,
-    AppMenuComponent,
+    /*AppMenuComponent,*/
     AppTooltipsComponent,
   ],
+
+
 })
 export class UicomponentsModule {}

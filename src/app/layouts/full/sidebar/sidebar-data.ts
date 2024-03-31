@@ -10,27 +10,30 @@ export const navItems: NavItem[] = [
     route: '/dashboard',
   },
   {
-    navCap: 'Ui Components',
+    navCap: 'KPI s',
+  },
+
+  {
+    displayName: 'Objective',
+    iconName: 'poker-chip',
+    route: '/ui-components/tasks',
+  },
+
+  {
+    displayName: 'Performance',
+    iconName: 'layout-navbar-expand',
+    route: '/ui-components/menu',
   },
   {
     displayName: 'Project',
     iconName: 'rosette',
     route: '/ui-components/badge',
   },
-  {
-    displayName: 'Tasks',
-    iconName: 'poker-chip',
-    route: '/ui-components/tasks',
-  },
+
   {
     displayName: 'Work Logs',
     iconName: 'list',
     route: '/ui-components/lists',
-  },
-  {
-    displayName: 'Performance',
-    iconName: 'layout-navbar-expand',
-    route: '/ui-components/menu',
   },
   {
     displayName: 'Tooltips',
