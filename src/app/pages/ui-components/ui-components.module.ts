@@ -18,6 +18,7 @@ import { AppMenuComponent } from './menu/menu.component';
 import { AppTooltipsComponent } from './tooltips/tooltips.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import {NgSelect2Module} from "ng-select2";
+import { ObjectifsFinalComponent } from './objectifs-final/objectifs-final.component';
 
 @NgModule({
   imports: [
@@ -36,6 +37,7 @@ import {NgSelect2Module} from "ng-select2";
     AppListsComponent,
     /*AppMenuComponent,*/
     AppTooltipsComponent,
+    ObjectifsFinalComponent,
   ],
 
 

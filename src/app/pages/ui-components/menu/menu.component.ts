@@ -20,6 +20,7 @@ import { MatCardModule } from '@angular/material/card';
   standalone: true,
   imports: [RouterOutlet, CommonModule, CanvasJSAngularChartsModule,MatCardModule],
   templateUrl: './menu.component.html',
+  styleUrls:['./menu.component.css'],
 
 })
 
@@ -30,6 +31,7 @@ export class AppMenuComponent {
 
   chartOptions = {
     animationEnabled: true,
+    exportEnabled: true,
     title:{
       text: "Average Monthly Presence"
     },
@@ -107,14 +109,54 @@ export class AppMenuComponent {
         { label: "Nov", y: 5.67 },
         { label: "Dec", y: 6.06 }
       ]
-    }]
+
+    }, {
+      type: "spline",
+      showInLegend: true,
+      name: "Mohamed",
+      dataPoints: [
+        { label: "Jan", y: 3.2 },
+        { label: "Feb", y: 1.11 },
+        { label: "Mar", y: 4.4 },
+        { label: "Apr", y: 4 },
+        { label: "May", y: 3},
+        { label: "Jun", y: 8 },
+        { label: "Jul", y: 3 },
+        { label: "Aug", y: 2 },
+        { label: "Sep", y: 1.2 },
+        { label: "Oct", y: 2.2},
+        { label: "Nov", y: 3.13 },
+        { label: "Dec", y: 1.79 }
+      ]
+    },]
   }
 
 
 
 
 
+  chartOptions2 = {
+    animationEnabled: true,
 
+    exportEnabled: true,
+    title: {
+      text: "Developer Work Week"
+    },
+    subtitles: [{
+      text: "Median hours/week"
+    }],
+    data: [{
+      type: "pie", //change type to column, line, area, doughnut, etc
+      indexLabel: "{name}: {y}%",
+      dataPoints: [
+        { name: "Overhead", y: 9.1 },
+        { name: "Problem Solving", y: 3.7 },
+        { name: "Debugging", y: 36.4 },
+        { name: "Writing Code", y: 30.7 },
+        { name: "Firefighting", y: 20.1 }
+      ]
+    }]
+  }
 
 
 

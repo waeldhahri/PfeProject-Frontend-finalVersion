@@ -20,6 +20,12 @@ export const navItems: NavItem[] = [
   },
 
   {
+    displayName: 'Objectives',
+    iconName: 'poker-chip',
+    route: '/ui-components/objectifs',
+  },
+
+  {
     displayName: 'Performance',
     iconName: 'layout-navbar-expand',
     route: '/ui-components/menu',

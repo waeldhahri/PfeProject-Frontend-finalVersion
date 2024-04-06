@@ -6,6 +6,7 @@ import { AppChipsComponent } from './tasks/chips.component';
 import { AppListsComponent } from './lists/lists.component';
 import { AppMenuComponent } from './menu/menu.component';
 import { AppTooltipsComponent } from './tooltips/tooltips.component';
+import {ObjectifsFinalComponent} from "./objectifs-final/objectifs-final.component";
 
 export const UiComponentsRoutes: Routes = [
   {
@@ -14,6 +15,11 @@ export const UiComponentsRoutes: Routes = [
       {
         path: 'badge',
         component: AppBadgeComponent,
+      },
+
+      {
+        path: 'objectifs',
+        component: ObjectifsFinalComponent,
       },
       {
         path: 'tasks',

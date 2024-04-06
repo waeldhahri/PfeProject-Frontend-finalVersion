@@ -2,8 +2,11 @@
   <mat-card-header>
     <mat-card-title class="m-b-0">Objectives / Create Objective</mat-card-title>
   </mat-card-header>
-  <mat-card-content class="b-t-1">
-    <div class="row">
+
+
+
+  <mat-card-content class="b-t-1" >
+      <div class="row" >
       <div class="col-sm-6 col-lg-6">
 
 
@@ -14,7 +17,7 @@
           </mat-label
           >
           <mat-form-field appearance="outline" class="w-100" color="primary" >
-            <input matInput />
+            <input matInput id="objectifTitle" [(ngModel)]="objective.objectifTitle"/>
           </mat-form-field>
 
 
@@ -33,7 +36,7 @@
         </mat-label
         >
         <mat-form-field appearance="outline" class="w-100" color="primary" >
-          <input matInput />
+          <input matInput  id="objectiveType" [(ngModel)]="objective.objectifType"/>
         </mat-form-field>
 
 
@@ -60,9 +63,11 @@
         >
         <mat-form-field appearance="outline" class="w-25" color="primary" >
           <input matInput [matDatepicker]="startPicker" placeholder="mm/ii/aaaa"
-
+            [(ngModel)]="objective.objectifStart"
           >
-          <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+          <mat-datepicker-toggle matSuffix [for]="startPicker">
+
+          </mat-datepicker-toggle>
           <mat-datepicker #startPicker></mat-datepicker>
 
         </mat-form-field>
@@ -84,7 +89,7 @@
         >
         <mat-form-field appearance="outline" class="w-25" color="primary" >
           <input matInput [matDatepicker]="endPicker"
-                 placeholder="mm/ii/aaaa"
+                 placeholder="mm/ii/aaaa" [(ngModel)]="objective.dateLimite"
           >
           <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
           <mat-datepicker #endPicker></mat-datepicker>
@@ -185,7 +190,7 @@
         </mat-label
         >
         <mat-form-field appearance="outline" class="w-100" color="primary" style="height: 200px;">
-          <input matInput  />
+          <input matInput   [(ngModel)]="objective.description"/>
         </mat-form-field>
 
       </div>
@@ -218,7 +223,7 @@
 
       class="btn-lg mr-3"
 
-
+    (click)="onSubmit()"
 
       style="margin-right: 30px ; width: 150px; "
 
@@ -241,7 +246,10 @@
 </div>
 
   </mat-card-content>
+
+
 </mat-card>
+
 
 
 
