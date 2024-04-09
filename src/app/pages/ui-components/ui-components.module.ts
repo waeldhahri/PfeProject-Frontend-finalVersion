@@ -19,6 +19,8 @@ import { AppTooltipsComponent } from './tooltips/tooltips.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import {NgSelect2Module} from "ng-select2";
 import { ObjectifsFinalComponent } from './objectifs-final/objectifs-final.component';
+import {NgSelectModule} from "@ng-select/ng-select";
+import { OverviewComponent } from './overview/overview.component';
 
 @NgModule({
   imports: [
@@ -29,7 +31,7 @@ import { ObjectifsFinalComponent } from './objectifs-final/objectifs-final.compo
     ReactiveFormsModule,
     TablerIconsModule.pick(TablerIcons),
     MatNativeDateModule,
-    NgSelect2Module,
+
   ],
   declarations: [
     AppBadgeComponent,
@@ -38,6 +40,7 @@ import { ObjectifsFinalComponent } from './objectifs-final/objectifs-final.compo
     /*AppMenuComponent,*/
     AppTooltipsComponent,
     ObjectifsFinalComponent,
+    OverviewComponent,
   ],
 
 

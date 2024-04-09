@@ -35,7 +35,11 @@ export const navItems: NavItem[] = [
     iconName: 'rosette',
     route: '/ui-components/badge',
   },
-
+  {
+    displayName: 'Overview',
+    iconName: 'list',
+    route: '/ui-components/overview',
+  },
   {
     displayName: 'Work Logs',
     iconName: 'list',

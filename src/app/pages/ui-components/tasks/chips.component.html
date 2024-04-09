@@ -120,18 +120,36 @@
 
 
 
-        <mat-form-field appearance="outline" class="w-25" color="primary" >
-          <mat-select placeholder="choose a person">
-            <mat-option value="wael">wael</mat-option>
-            <mat-option value="wassim">wassim</mat-option>
-            <mat-option value="wael">wael</mat-option>
-            <mat-option value="wassim">wassim</mat-option>
-          </mat-select>
-        </mat-form-field>
 
 
+                <mat-form-field appearance="outline" class="w-25" color="primary" >
+                  <mat-select [multiple]="true" placeholder="choose a person">
+
+                    <mat-select>
+                      <input matInput [(ngModel)]="searchText" placeholder="Search...">
+                    </mat-select>
+
+                    <mat-option *ngFor="let person of filteredPersons" [value]="person">
+                      {{ person }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+
+        <!--
+                    <mat-option value="wael">wael</mat-option>
+                    <mat-option value="wassim">wassim</mat-option>
+                    <mat-option value="wael">wael</mat-option>
+                    <mat-option value="wassim">wassim</mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+        -->
 
       </div>
+
+
+
 
 
 
@@ -139,14 +157,7 @@
     </div>
 
 
-    <div class="row">
-      <div class="mb-3 col-sm-6 col-lg-6">
-        <mat-label class="form-label mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
-        >Assigned to
-        </mat-label
-        >
-      </div>
-    </div>
+    <!--
 
       <div class="row mb-3 d-flex justify-content-center ">
 
@@ -169,7 +180,7 @@
           </label>
         </div>
       </div>
-
+-->
 
 
 

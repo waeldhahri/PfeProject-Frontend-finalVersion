@@ -7,6 +7,7 @@ import { AppListsComponent } from './lists/lists.component';
 import { AppMenuComponent } from './menu/menu.component';
 import { AppTooltipsComponent } from './tooltips/tooltips.component';
 import {ObjectifsFinalComponent} from "./objectifs-final/objectifs-final.component";
+import {OverviewComponent} from "./overview/overview.component";
 
 export const UiComponentsRoutes: Routes = [
   {
@@ -24,6 +25,10 @@ export const UiComponentsRoutes: Routes = [
       {
         path: 'tasks',
         component: AppChipsComponent,
+      },
+      {
+        path: 'overview',
+        component: OverviewComponent,
       },
       {
         path: 'lists',

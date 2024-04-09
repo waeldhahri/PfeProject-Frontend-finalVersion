@@ -54,3 +54,29 @@
 .form-selectgroup-item {
   margin-bottom: 10px; /* Espacement entre les lignes */
 }
+
+
+//
+
+.md-image-text-item {
+  position: relative;
+  padding: 15px 0 15px 50px;
+  text-align: left;
+  line-height: normal;
+}
+
+.md-image-text-avatar {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 0;
+  top: 5px;
+}
+
+/* Style pour les avatars */
+.avatar {
+  width: 30px; /* Ajustez la taille de l'avatar selon vos besoins */
+  height: 30px; /* Ajustez la taille de l'avatar selon vos besoins */
+  border-radius: 50%; /* Pour un avatar arrondi */
+  margin-right: 10px; /* Marge à droite de l'avatar pour l'espacement */
+}

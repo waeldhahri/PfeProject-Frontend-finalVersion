@@ -28,6 +28,10 @@ import { AppNavItemComponent } from './layouts/full/sidebar/nav-item/nav-item.co
 import {CommonModule} from "@angular/common";
 import {AppMenuComponent} from "./pages/ui-components/menu/menu.component";
 
+import {MatSelectModule} from "@angular/material/select";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {NgSelectModule} from "@ng-select/ng-select";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +54,7 @@ import {AppMenuComponent} from "./pages/ui-components/menu/menu.component";
     TablerIconsModule.pick(TablerIcons),
     NgScrollbarModule,
     NgSelect2Module, CommonModule,
+    MatSelectModule ,MatFormFieldModule , MatSelectModule ,NgSelectModule
   ],
   exports: [TablerIconsModule],
   bootstrap: [AppComponent],
