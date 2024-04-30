@@ -13,16 +13,12 @@ export class ObjectifsFinalComponent implements OnInit , OnDestroy{
 
 
   objectifs !: Objective[];
-
- deadlines!: Date[] ;
+  deadlines!: Date[] ;
+  deadlinesCounter!: any[] ;
 
 
   endDate!: Date;
 
-  days : string = '00';
-  hours: string = '00';
-  minutes: string = '00';
-  seconds: string = '00';
 
 
    intervalId: any;
@@ -38,7 +34,35 @@ constructor(private objectiveListService:ObjectifListServiceService) {
 
   private getObjectives(){
   this.objectiveListService.getObjectifList().subscribe(data =>{
-    this.objectifs=data ;
+    this.objectifs=data;
+
+    this.objectifs.forEach(o => {
+      o.days='00'
+      o.hours = '00';
+      o.minutes = '00';
+      o.seconds = '00';
+      // o.intervalId =  setInterval(() => {
+      //   const now = new Date().getTime();
+      //   const distance = o.dateLimite.getTime() - now;
+      //
+      //   if (distance > 0) {
+      //     o.days = this.formatTime(Math.floor(distance / (1000 * 60 * 60 * 24)));
+      //     o.hours = this.formatTime(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+      //     o.minutes = this.formatTime(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
+      //     o.seconds = this.formatTime(Math.floor((distance % (1000 * 60)) / 1000));
+      //   } else {
+      //     // Si le temps restant est écoulé, afficher 00:00:00
+      //     o.days='00'
+      //     o.hours = '00';
+      //     o.minutes = '00';
+      //     o.seconds = '00';
+      //   }
+      // }, 1000);
+    })
+
+    this.intervalId =
+
+
     console.log("wael");
   });
   }
@@ -56,7 +80,38 @@ constructor(private objectiveListService:ObjectifListServiceService) {
   ngOnInit(): void {
     this.getObjectives();
 
- this.calculateTime(this.endDate);
+    const endDate = new Date('2024-04-30T00:00:00');
+
+
+    setInterval(() => {
+        const now = new Date().getTime();
+
+        this.objectifs = this.objectifs.map(o => {
+
+          console.log()
+          const distance = new Date(o.dateLimite).getTime() - now;
+
+          if (distance > 0) {
+            o.days = this.formatTime(Math.floor(distance / (1000 * 60 * 60 * 24)));
+            o.hours = this.formatTime(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+            o.minutes = this.formatTime(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
+            o.seconds = this.formatTime(Math.floor((distance % (1000 * 60)) / 1000));
+          } else {
+            // Si le temps restant est écoulé, afficher 00:00:00
+            o.days='00'
+            o.hours = '00';
+            o.minutes = '00';
+            o.seconds = '00';
+          }
+
+          return o;
+        });
+
+
+      }, 1000);
+
+
+ // this.calculateTime(this.endDate);
 
 
 
@@ -79,49 +134,119 @@ constructor(private objectiveListService:ObjectifListServiceService) {
   }
 
 
+   formatDifference(currentDate: Date, futureDate: Date): string {
+    const differenceMs = futureDate.getTime() - currentDate.getTime();
+    const differenceDays = Math.ceil(differenceMs / (1000 * 3600 * 24));
 
+    if (differenceDays === 0) {
+      return 'today';
+    } else if (differenceDays === 1) {
+      return 'tomorrow';
+    } else if (differenceDays < 0) {
+      return 'in the past';
+    } else {
+      return `in ${differenceDays} days`;
+    }
+  }
+/*
+  //calculateTime2( endDate:any) : string {
+ //   console.log(endDate)
+   // const datePortionRegex = /^\d{4}-\d{2}-\d{2}/.exec(endDate.toString());
 
+   // if (datePortionRegex) {
+    //  const datePortion = datePortionRegex[0];
+     // const dateObject = new Date(datePortion);
+    //  const currentDate = new Date();
+      const formattedDifference = this.formatDifference(currentDate, dateObject);
+      return formattedDifference
+    } else {
+     return ''
+    }
 
+  }*/
 
-
-   calculateTime( endDate:Date) : string {
+/*
+  calculateTime3( endDate:Date) : string {
     // Date de fin de votre compte à rebours
     // const endDate = new Date('2024-04-30T00:00:00');
-    console.log(endDate);
+
     // Mettre à jour l'horloge toutes les secondes
     this.intervalId = setInterval(() => {
       const now = new Date().getTime();
 
+      const datePortionRegex = /^\d{4}-\d{2}-\d{2}/.exec(endDate.toString());
+      const dateObject = new Date(datePortionRegex[0]);
+      if (dateObject){
+        const distance= this.endDate.getTime()- now;
 
-      console.log(now);
-
-
-      const distance= this.endDate.getTime()- now;
-
-      console.log(distance);
-      if (distance > 0) {
-        this.days = this.formatTime(Math.floor(distance / (1000 * 60 * 60 * 24)));
-        this.hours = this.formatTime
-        (Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
-        this.minutes = this.formatTime(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
-        this.seconds = this.formatTime(Math.floor((distance % (1000 * 60)) / 1000));
-      } else {
-        // Si le temps restant est écoulé, afficher 00:00:00
-        this.days = '00'
-        this.hours = '00';
-        this.minutes = '00';
-        this.seconds = '00';
-        clearInterval(this.intervalId);
-        const timeElement = document.querySelector('.time');
-        if (timeElement) {
-          timeElement.classList.add('time-is-up');
+        console.log(distance);
+        if (distance > 0) {
+          this.days = this.formatTime(Math.floor(distance / (1000 * 60 * 60 * 24)));
+          this.hours = this.formatTime
+          (Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+          this.minutes = this.formatTime(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
+          this.seconds = this.formatTime(Math.floor((distance % (1000 * 60)) / 1000));
+        } else {
+          // Si le temps restant est écoulé, afficher 00:00:00
+          this.days = '00'
+          this.hours = '00';
+          this.minutes = '00';
+          this.seconds = '00';
+          clearInterval(this.intervalId);
+          const timeElement = document.querySelector('.time');
+          if (timeElement) {
+            timeElement.classList.add('time-is-up');
+          }
         }
+
 
 
       }
     }, 1000);
-     return `${this.days} : ${this.hours} : ${this.minutes} : ${this.seconds} `;
+    return `${this.days} : ${this.hours} : ${this.minutes} : ${this.seconds} `;
   }
+*/
+  //
+  //
+  // calculateTime( endDate:Date) : string {
+  //   // Date de fin de votre compte à rebours
+  //   // const endDate = new Date('2024-04-30T00:00:00');
+  //
+  //   // Mettre à jour l'horloge toutes les secondes
+  //   this.intervalId = setInterval(() => {
+  //     const now = new Date().getTime();
+  //
+  //   //  const datePortionRegex = /^\d{4}-\d{2}-\d{2}/.exec(endDate.toString());
+  //
+  // if (this.endDate){
+  //   const distance= this.endDate.getTime()- now;
+  //
+  //   console.log(distance);
+  //   if (distance > 0) {
+  //     this.days = this.formatTime(Math.floor(distance / (1000 * 60 * 60 * 24)));
+  //     this.hours = this.formatTime
+  //     (Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+  //     this.minutes = this.formatTime(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
+  //     this.seconds = this.formatTime(Math.floor((distance % (1000 * 60)) / 1000));
+  //   } else {
+  //     // Si le temps restant est écoulé, afficher 00:00:00
+  //     this.days = '00'
+  //     this.hours = '00';
+  //     this.minutes = '00';
+  //     this.seconds = '00';
+  //     clearInterval(this.intervalId);
+  //     const timeElement = document.querySelector('.time');
+  //     if (timeElement) {
+  //       timeElement.classList.add('time-is-up');
+  //     }
+  // }
+  //
+  //
+  //
+  //     }
+  //   }, 1000);
+  //    return `${this.days} : ${this.hours} : ${this.minutes} : ${this.seconds} `;
+  // }
 
   ngOnDestroy() {
     // Nettoyer l'intervalle lors de la destruction du composant

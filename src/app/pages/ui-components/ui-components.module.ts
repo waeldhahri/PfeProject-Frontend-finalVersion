@@ -21,18 +21,20 @@ import {NgSelect2Module} from "ng-select2";
 import { ObjectifsFinalComponent } from './objectifs-final/objectifs-final.component';
 import {NgSelectModule} from "@ng-select/ng-select";
 import { OverviewComponent } from './overview/overview.component';
+import {MatLegacyChipsModule} from "@angular/material/legacy-chips";
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forChild(UiComponentsRoutes),
-    MaterialModule,
-    FormsModule,
-    ReactiveFormsModule,
-    TablerIconsModule.pick(TablerIcons),
-    MatNativeDateModule,
+    imports: [
+        CommonModule,
+        RouterModule.forChild(UiComponentsRoutes),
+        MaterialModule,
+        FormsModule,
+        ReactiveFormsModule,
+        TablerIconsModule.pick(TablerIcons),
+        MatNativeDateModule,
+        MatLegacyChipsModule,
 
-  ],
+    ],
   declarations: [
     AppBadgeComponent,
     AppChipsComponent,

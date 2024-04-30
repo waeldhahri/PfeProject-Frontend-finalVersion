@@ -48,21 +48,41 @@
 
 
   <mat-card class="cardWithShadow theme-card" >
+
     <mat-card-header style="background-color: #e4e9f5; border-radius:20px; " >
-      <mat-card-title class="m-b-0">Backlog</mat-card-title>
+      <mat-card-title class="m-b-0  font-weight-normal" >Backlog</mat-card-title>
     </mat-card-header>
 
 
-      <mat-card class="cardWithShadow theme-card " style="margin-top: 10px;">
-        <mat-card-content class="b-t-1">
-        Wael  description totale aaaaaaaa
+    <mat-card class="cardWithShadow theme-card " style="margin-top: 20px;" *ngFor="let objectif of objectifs">
+      <mat-card-content class="b-t-1 ">
+        <div class="d-flex justify-content-between" style="margin-bottom: 20px;">
+          <div class="justify-content-end">
+            <B style="font-size:medium">
+              {{objectif.description}}
+            </B> </div>
+          <div class="d-flex p-l-2">
+            <img
+              src="./assets/images/time.jpg"
+              class="align-middle m-2 "
+              alt="logo" style="height: 30px; width: 30px; "
+            />
+            <div style="margin-top: 5px; margin-left: 5px;">
+              {{ objectif.dateLimite | date }}
+            </div>
+          </div>
+        </div>
+        <div> Wael  description totale aaaaaaaaaaaaaa</div>
+        <div> Wael  description totale aaaaaaaaaaaaaa</div>
+        <div> Wael  description totale aaaaaaaaaaaaaa</div>
 
-        </mat-card-content>
+      </mat-card-content>
 
     </mat-card>
 
 
-    </mat-card>
+
+  </mat-card>
 
  </div>
 
@@ -79,9 +99,27 @@
             </mat-card-header>
 
 
-            <mat-card class="cardWithShadow theme-card " style="margin-top: 10px;">
-              <mat-card-content class="b-t-1">
-                Wael  description totale aaaaaaaaa
+            <mat-card class="cardWithShadow theme-card " style="margin-top: 20px;" *ngFor="let objectif of objectifs">
+              <mat-card-content class="b-t-1 ">
+                <div class="d-flex justify-content-between" style="margin-bottom: 20px;">
+                  <div class="justify-content-end">
+                    <B style="font-size:medium">
+                    {{objectif.description}}
+                  </B> </div>
+                  <div class="d-flex p-l-2">
+                    <img
+                      src="./assets/images/time.jpg"
+                      class="align-middle m-2 "
+                      alt="logo" style="height: 30px; width: 30px; "
+                    />
+                    <div style="margin-top: 5px; margin-left: 5px;">
+                       {{ objectif.dateLimite | date}}
+                    </div>
+                  </div>
+                </div>
+                <div> Wael  description totale aaaaaaaaaaaaaa</div>
+                <div> Wael  description totale aaaaaaaaaaaaaa</div>
+                <div> Wael  description totale aaaaaaaaaaaaaa</div>
 
               </mat-card-content>
 
@@ -102,9 +140,27 @@
             </mat-card-header>
 
 
-            <mat-card class="cardWithShadow theme-card " style="margin-top: 10px;">
-              <mat-card-content class="b-t-1">
-                Wael  description totale aaaaaaaaaaaa
+            <mat-card class="cardWithShadow theme-card " style="margin-top: 20px;" *ngFor="let objectif of objectifs">
+              <mat-card-content class="b-t-1 ">
+                <div class="d-flex justify-content-between" style="margin-bottom: 20px;">
+                  <div class="justify-content-end">
+                    <B style="font-size:medium">
+                      {{objectif.description}}
+                    </B> </div>
+                  <div class="d-flex p-l-2">
+                    <img
+                      src="./assets/images/time.jpg"
+                      class="align-middle m-2 "
+                      alt="logo" style="height: 30px; width: 30px; "
+                    />
+                    <div style="margin-top: 5px; margin-left: 5px;">
+                      {{ objectif.dateLimite | date }}
+                    </div>
+                  </div>
+                </div>
+                <div> Wael  description totale aaaaaaaaaaaaaa</div>
+                <div> Wael  description totale aaaaaaaaaaaaaa</div>
+                <div> Wael  description totale aaaaaaaaaaaaaa</div>
 
               </mat-card-content>
 

@@ -23,6 +23,7 @@ import {
   ApexResponsive,
   NgApexchartsModule,
 } from 'ng-apexcharts';
+import {CanvasJSAngularChartsModule} from "@canvasjs/angular-charts";
 
 interface month {
   value: string;
@@ -147,6 +148,7 @@ const ELEMENT_DATA: productsData[] = [
     NgApexchartsModule,
     MatTableModule,
     CommonModule,
+    CanvasJSAngularChartsModule
   ],
 })
 export class AppDashboardComponent {
@@ -164,6 +166,39 @@ export class AppDashboardComponent {
     { value: 'apr', viewValue: 'April 2023' },
     { value: 'june', viewValue: 'June 2023' },
   ];
+
+  ///
+  chartOptions2 = {
+    animationEnabled: true,
+
+    exportEnabled: true,
+
+
+    data: [{
+      type: "pie", //change type to column, line, area, doughnut, etc
+      indexLabel: "{name}: {y}%",
+      dataPoints: [
+        { name: "Overhead", y: 9.1 },
+        { name: "Problem Solving", y: 3.7 },
+        { name: "Debugging", y: 36.4 },
+        { name: "Writing Code", y: 30.7 },
+        { name: "Firefighting", y: 20.1 }
+      ]
+    }]
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   // recent transaction
   stats: stats[] = [
