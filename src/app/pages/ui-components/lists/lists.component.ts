@@ -39,8 +39,9 @@ export class AppListsComponent {
     },
   ];
 }*/
-import { Component, OnDestroy, OnInit } from '@angular/core';
-
+import { Component, OnDestroy, OnInit ,  ChangeDetectorRef} from '@angular/core';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDrawer, MatSidenavModule} from '@angular/material/sidenav';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import { ElementRef, ViewChild} from '@angular/core';
 import {FormControl} from '@angular/forms';
@@ -49,13 +50,49 @@ import {MatChipInputEvent} from '@angular/material/chips';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 
+
+
+import {Employee} from "../../../models/Employee";
+
+import {EmployeeService} from "../../../services/employee.service";
+
+
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
+
+import {AfterViewInit} from '@angular/core';
+import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import {MatSort, MatSortModule} from '@angular/material/sort';
+import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+
+
+
 @Component({
   selector: 'app-lists',
   templateUrl: './lists.component.html',
 
-  styles: []
+  styleUrls:['./lists.component.css'] ,
+
+
+
 })
-export class AppListsComponent implements OnInit, OnDestroy {
+export class AppListsComponent implements OnInit, OnDestroy,AfterViewInit  {
+  @ViewChild('drawer') drawer!: MatDrawer;
+
+
+
+
+
+
+
+  employees!:Employee[];
+
+
+
+
+
+
   days : string = '00'
   hours: string = '00';
   minutes: string = '00';
@@ -64,11 +101,61 @@ export class AppListsComponent implements OnInit, OnDestroy {
   private intervalId: any;
 
 
+
+  showFiller = false;
+  isClicked= true;
+
   searchText!: string;
   persons: string[] = ['Employe', 'Manager', 'SuperManager'];
   equipes : string[] = ['Team A', 'Team B' , 'Team C', 'Team D' ,'Team F '] ;
 
+
+
+
+
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    //this.employees.map(a->a.username).filter = filterValue.trim().toLowerCase();
+
+
+
+    this.employees.filter( employee=> employee.username.trim().toLowerCase());
+
+    this.equipes.filter(equipe => equipe.toLowerCase().includes(this.searchText.toLowerCase()));
+  }
+
+
+
+
+  constructor(private employee:EmployeeService) {}
+
+
+
+
+  private getEmployees(){
+    this.employee.getEmployeeList().subscribe(data =>{
+      this.employees=data ;
+      console.log("wael");
+    });
+  }
+
+  toggleDrawerAndFiller() {
+    this.isClicked = !this.isClicked;
+    this.drawer.toggle();
+  }
   ngOnInit() {
+
+
+          this.getEmployees();
+
+
+
+
+
+
+
+
 
 
 
@@ -129,6 +216,8 @@ export class AppListsComponent implements OnInit, OnDestroy {
     return this.equipes.filter(equipe => equipe.toLowerCase().includes(this.searchText.toLowerCase()));
   }
 
+  ngAfterViewInit(): void {
+  }
 
 
 

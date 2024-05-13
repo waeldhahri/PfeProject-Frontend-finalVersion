@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import {AsyncPipe, CommonModule, DecimalPipe} from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../../material.module';
 
@@ -22,19 +22,29 @@ import { ObjectifsFinalComponent } from './objectifs-final/objectifs-final.compo
 import {NgSelectModule} from "@ng-select/ng-select";
 import { OverviewComponent } from './overview/overview.component';
 import {MatLegacyChipsModule} from "@angular/material/legacy-chips";
+import { ProfileComponent } from './profile/profile.component';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatTableModule} from "@angular/material/table";
+import {MatSortModule} from "@angular/material/sort";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {NgbdSortableHeader} from "./badge/sortable.directive";
 
 @NgModule({
-    imports: [
-        CommonModule,
-        RouterModule.forChild(UiComponentsRoutes),
-        MaterialModule,
-        FormsModule,
-        ReactiveFormsModule,
-        TablerIconsModule.pick(TablerIcons),
-        MatNativeDateModule,
-        MatLegacyChipsModule,
+  imports: [
+    CommonModule,
+    RouterModule.forChild(UiComponentsRoutes),
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
+    TablerIconsModule.pick(TablerIcons),
+    MatNativeDateModule,
+    MatLegacyChipsModule,MatFormFieldModule, MatInputModule, MatTableModule,
+    MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule,
+    DecimalPipe, FormsModule, AsyncPipe,  NgbdSortableHeader
 
-    ],
+
+  ],
   declarations: [
     AppBadgeComponent,
     AppChipsComponent,
@@ -43,6 +53,8 @@ import {MatLegacyChipsModule} from "@angular/material/legacy-chips";
     AppTooltipsComponent,
     ObjectifsFinalComponent,
     OverviewComponent,
+    ProfileComponent,
+
   ],
 
 

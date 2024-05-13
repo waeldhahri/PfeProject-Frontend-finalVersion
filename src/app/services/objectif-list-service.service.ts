@@ -17,6 +17,11 @@ export class ObjectifListServiceService {
 
   getObjectifList():Observable<Objective[]>{
     return this.httpClient.get<Objective[]>(`${this.baseURL}`);
+
+  }
+
+  getObjectifs(page: number, size: number): Observable<any> {
+    return this.httpClient.get(`http://localhost:8080/objectifs/page?page=${page}&size=${size}`);
   }
 
 

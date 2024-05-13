@@ -10,18 +10,26 @@ import {Time} from "@angular/common";
   styleUrls: ['./objectifs-final.component.scss']
 })
 export class ObjectifsFinalComponent implements OnInit , OnDestroy{
-
+  totalElements: number = 0;
 
   objectifs !: Objective[];
   deadlines!: Date[] ;
   deadlinesCounter!: any[] ;
+  inputVisible: boolean = false;
+  buttonvisible: boolean = true;
 
+  description: string = '';
 
   endDate!: Date;
+
+  currentPage = 0;
+  pageSize = 2;
+  totalItems = 0;
 
 
 
    intervalId: any;
+  selectedObjectif!: Objective;
 
 
 
@@ -33,8 +41,9 @@ constructor(private objectiveListService:ObjectifListServiceService) {
 
 
   private getObjectives(){
-  this.objectiveListService.getObjectifList().subscribe(data =>{
-    this.objectifs=data;
+  this.objectiveListService.getObjectifs(this.currentPage,this.pageSize).subscribe(data =>{
+    this.objectifs=data.content;
+    this.totalItems = data.totalElements;
 
     this.objectifs.forEach(o => {
       o.days='00'
@@ -255,6 +264,30 @@ constructor(private objectiveListService:ObjectifListServiceService) {
 
   private formatTime(time: number): string {
     return time < 10 ? '0' + time : '' + time;
+  }
+
+  toggleInput(objectif: Objective) {
+    this.selectedObjectif = objectif;
+    this.inputVisible = !this.inputVisible;
+    this.buttonvisible=!this.buttonvisible;
+  }
+
+
+
+  sendDescription() {
+    console.log('Description:', this.description);
+    // Clear the description after sending
+    this.description = '';
+    this.buttonvisible=!this.buttonvisible;
+    this.inputVisible = !this.inputVisible;
+
+    // You can add further actions here, like sending the description to a server
+  }
+
+  onPageChange(page: number) {
+    this.currentPage = page ;
+    this.getObjectives();
+
   }
 
 

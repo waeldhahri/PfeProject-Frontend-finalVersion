@@ -8,6 +8,7 @@ import { AppMenuComponent } from './menu/menu.component';
 import { AppTooltipsComponent } from './tooltips/tooltips.component';
 import {ObjectifsFinalComponent} from "./objectifs-final/objectifs-final.component";
 import {OverviewComponent} from "./overview/overview.component";
+import {ProfileComponent} from "./profile/profile.component";
 
 export const UiComponentsRoutes: Routes = [
   {
@@ -42,6 +43,12 @@ export const UiComponentsRoutes: Routes = [
         path: 'tooltips',
         component: AppTooltipsComponent,
       },
+
+      {
+        path:'profile',
+        component:ProfileComponent,
+
+      }
     ],
   },
 ];

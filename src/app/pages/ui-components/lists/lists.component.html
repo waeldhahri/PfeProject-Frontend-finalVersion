@@ -1,11 +1,11 @@
-<mat-card class="cardWithShadow theme-card">
+<mat-card class="cardWithShadow theme-card" *ngIf="isClicked">
   <mat-card-header>
     <mat-card-title class="m-b-0">Register / List of Users
     </mat-card-title>
   </mat-card-header>
 
-  <mat-card-content class="b-t-1" >
-    <div class="row" >
+  <mat-card-content class="b-t-1"  >
+    <div class="row"  >
       <div class="col-sm-6 col-lg-6">
 
 
@@ -195,7 +195,7 @@
 
 
 
-    <div class="row d-flex justify-content-end">
+    <div class="example-sidenav-content row d-flex justify-content-end" >
 
       <button
         mat-flat-button
@@ -204,7 +204,7 @@
 
 
         style="margin-right: 30px; width: 200px;background-color: Green; color: white;"
-        class="btn-lg btn-danger"
+        class="btn-lg btn-danger" (click)="toggleDrawerAndFiller()"
       >
         Show All Users
       </button>
@@ -238,8 +238,106 @@
 
     </div>
 
+
+
+
   </mat-card-content>
+
+
+
+
+
+
+
+
 
 </mat-card>
 
 
+
+
+
+  <mat-card class="cardWithShadow theme-card" >
+    <mat-card-header>
+      <mat-card-title class="m-b-0"> Register / List of Users </mat-card-title>
+    </mat-card-header>
+
+
+    <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    </mat-form-field>
+
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td colspan="2">Larry the Bird</td>
+        <td>@twitter</td>
+      </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+    <mat-drawer-container class="example-container" autosize >
+      <mat-drawer #drawer class="example-sidenav" mode="side" position="end">
+
+
+
+
+
+
+
+
+
+
+
+        <p>Auto-resizing sidenav</p>
+        <div *ngIf="showFiller">
+
+          <p>Lorem, ipsum dolor sit amet consectetur.</p>
+        </div>
+        <button (click)="showFiller = !showFiller" mat-raised-button>
+          Toggle extra text
+        </button>
+
+      </mat-drawer>
+
+
+
+    </mat-drawer-container>
+
+
+
+
+
+
+
+
+
+</mat-card>
