@@ -31,6 +31,11 @@ export class ObjectifListServiceService {
     return this.httpClient.get<Objective[]>(`${this.baseURL2}`);
   }
 
+  private baseURL3="http://localhost:8080/objectifs";
 
+
+  deleteObjectif( id:number):Observable<object>{
+    return this.httpClient.delete<Object>(`${this.baseURL3}/${id}`);
+  }
 
 }

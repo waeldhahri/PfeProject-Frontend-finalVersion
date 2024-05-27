@@ -9,6 +9,7 @@ import { AppTooltipsComponent } from './tooltips/tooltips.component';
 import {ObjectifsFinalComponent} from "./objectifs-final/objectifs-final.component";
 import {OverviewComponent} from "./overview/overview.component";
 import {ProfileComponent} from "./profile/profile.component";
+import {TreeComponent} from "./tree/tree.component";
 
 export const UiComponentsRoutes: Routes = [
   {
@@ -32,7 +33,7 @@ export const UiComponentsRoutes: Routes = [
         component: OverviewComponent,
       },
       {
-        path: 'lists',
+        path: 'register',
         component: AppListsComponent,
       },
       {
@@ -47,6 +48,12 @@ export const UiComponentsRoutes: Routes = [
       {
         path:'profile',
         component:ProfileComponent,
+
+      }
+      ,
+      {
+        path:'tree',
+        component:TreeComponent,
 
       }
     ],

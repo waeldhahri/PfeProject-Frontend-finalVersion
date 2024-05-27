@@ -11,17 +11,19 @@ import * as TablerIcons from 'angular-tabler-icons/icons';
 import { ExtraRoutes } from './extra.routing';
 import { AppIconsComponent } from './icons/icons.component';
 import { AppSamplePageComponent } from './sample-page/sample-page.component';
+import {NgxGraphModule} from "@swimlane/ngx-graph";
 
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forChild(ExtraRoutes),
-    MaterialModule,
-    FormsModule,
-    ReactiveFormsModule,
-    TablerIconsModule.pick(TablerIcons),
-  ],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(ExtraRoutes),
+        MaterialModule,
+        FormsModule,
+        ReactiveFormsModule,
+        TablerIconsModule.pick(TablerIcons),
+        NgxGraphModule,
+    ],
   declarations: [
     AppIconsComponent,
     AppSamplePageComponent

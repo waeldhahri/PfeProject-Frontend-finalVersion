@@ -70,6 +70,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
+import {CanvasJSAngularChartsModule} from "@canvasjs/angular-charts";
 @NgModule({
   imports: [
     CommonModule,
@@ -78,7 +79,15 @@ import {OverlayModule} from '@angular/cdk/overlay';
     NgApexchartsModule,
     RouterModule.forChild(PagesRoutes),
     TablerIconsModule.pick(TablerIcons),
-    MatChipsModule
+    MatChipsModule ,  MatButtonModule,
+    MatMenuModule,
+    MatIconModule,
+    TablerIconsModule,
+    MatCardModule,
+    NgApexchartsModule,
+    MatTableModule,
+    CommonModule,
+    CanvasJSAngularChartsModule
   ],
   exports: [TablerIconsModule,
 

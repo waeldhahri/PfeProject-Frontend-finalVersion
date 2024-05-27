@@ -29,24 +29,29 @@ import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {NgbdSortableHeader} from "./badge/sortable.directive";
+import { TreeComponent } from './tree/tree.component';
+import {OrgChartModule} from "ng2-org-chart";
+import {NgxOrgChartModule} from "ngx-org-chart";
+import {NgApexchartsModule} from "ng-apexcharts";
+import {CanvasJSAngularChartsModule} from "@canvasjs/angular-charts";
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forChild(UiComponentsRoutes),
-    MaterialModule,
-    FormsModule,
-    ReactiveFormsModule,
-    TablerIconsModule.pick(TablerIcons),
-    MatNativeDateModule,
-    MatLegacyChipsModule,MatFormFieldModule, MatInputModule, MatTableModule,
-    MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule,
-    DecimalPipe, FormsModule, AsyncPipe,  NgbdSortableHeader
+    imports: [
+        CommonModule,
+        RouterModule.forChild(UiComponentsRoutes),
+        MaterialModule,
+        FormsModule,
+        ReactiveFormsModule,
+        TablerIconsModule.pick(TablerIcons),
+        MatNativeDateModule,
+        MatLegacyChipsModule, MatFormFieldModule, MatInputModule, MatTableModule,
+        MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule,
+        DecimalPipe, FormsModule, AsyncPipe, NgbdSortableHeader, NgApexchartsModule, CanvasJSAngularChartsModule
 
 
-  ],
+    ],
   declarations: [
-    AppBadgeComponent,
+
     AppChipsComponent,
     AppListsComponent,
     /*AppMenuComponent,*/
@@ -54,6 +59,7 @@ import {NgbdSortableHeader} from "./badge/sortable.directive";
     ObjectifsFinalComponent,
     OverviewComponent,
     ProfileComponent,
+    TreeComponent,AppBadgeComponent
 
   ],
 

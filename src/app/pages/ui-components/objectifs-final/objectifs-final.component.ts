@@ -1,8 +1,13 @@
-import {Component, OnInit, Input, OnDestroy} from '@angular/core';
+import {Component, OnInit, Input, OnDestroy, ViewChild, ElementRef} from '@angular/core';
 import {Objective} from "../../../models/Objective";
 import {ObjectiveService} from "../../../services/objective.service";
 import {ObjectifListServiceService} from "../../../services/objectif-list-service.service";
-import {Time} from "@angular/common";
+import {Location, Time} from "@angular/common";
+import {MatMenuTrigger} from "@angular/material/menu";
+import {MatDialog, MatDialogActions, MatDialogClose, MatDialogContent} from "@angular/material/dialog";
+import {MatButtonModule} from "@angular/material/button";
+import {DialogElementsExampleDialog} from "./DialogElementsExampleDialog";
+import {DialogElementsExampleDialog2} from "./DialogElementsExampleDialog2";
 
 @Component({
   selector: 'app-objectifs-final',
@@ -10,6 +15,10 @@ import {Time} from "@angular/common";
   styleUrls: ['./objectifs-final.component.scss']
 })
 export class ObjectifsFinalComponent implements OnInit , OnDestroy{
+
+
+
+
   totalElements: number = 0;
 
   objectifs !: Objective[];
@@ -23,7 +32,7 @@ export class ObjectifsFinalComponent implements OnInit , OnDestroy{
   endDate!: Date;
 
   currentPage = 0;
-  pageSize = 2;
+  pageSize = 5;
   totalItems = 0;
 
 
@@ -35,7 +44,12 @@ export class ObjectifsFinalComponent implements OnInit , OnDestroy{
 
 
 
-constructor(private objectiveListService:ObjectifListServiceService) {
+  openDialog() {
+    this.dialog.open(DialogElementsExampleDialog);
+  }
+
+
+constructor(private objectiveListService:ObjectifListServiceService, public dialog: MatDialog , private _location: Location,) {
 }
 
 
@@ -256,6 +270,8 @@ constructor(private objectiveListService:ObjectifListServiceService) {
   //   }, 1000);
   //    return `${this.days} : ${this.hours} : ${this.minutes} : ${this.seconds} `;
   // }
+  popupvisible: boolean = false;
+
 
   ngOnDestroy() {
     // Nettoyer l'intervalle lors de la destruction du composant
@@ -281,6 +297,10 @@ constructor(private objectiveListService:ObjectifListServiceService) {
     this.buttonvisible=!this.buttonvisible;
     this.inputVisible = !this.inputVisible;
 
+
+
+    this.dialog.open(DialogElementsExampleDialog);
+
     // You can add further actions here, like sending the description to a server
   }
 
@@ -292,4 +312,20 @@ constructor(private objectiveListService:ObjectifListServiceService) {
 
 
 
+  deleteObjectif(objectif: Objective) {
+    this.objectiveListService.deleteObjectif(objectif.objectifId).subscribe((res)=>{
+      console.log(res);
+    });
+
+
+   this.dialog.open(DialogElementsExampleDialog2);
+
+  }
+
+  showpopup(){
+
+
+    this.dialog.open(DialogElementsExampleDialog2);
+  }
 }
+

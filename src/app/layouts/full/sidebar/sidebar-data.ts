@@ -21,7 +21,7 @@ export const navItems: NavItem[] = [
 
   {
     displayName: 'Objectives',
-    iconName: 'poker-chip',
+    iconName: 'current-location',
     route: '/ui-components/objectifs',
   },
 
@@ -41,9 +41,9 @@ export const navItems: NavItem[] = [
     route: '/ui-components/overview',
   },
   {
-    displayName: 'Work Logs',
-    iconName: 'list',
-    route: '/ui-components/lists',
+    displayName: 'Register',
+    iconName: 'user-plus',
+    route: '/ui-components/register',
   },
   {
     displayName: 'Tooltips',
@@ -63,6 +63,12 @@ export const navItems: NavItem[] = [
     iconName: 'user-plus',
     route: '/authentication/register',
   },
+  {
+    displayName: 'Tree',
+    iconName: 'tree',
+    route: '/ui-components/tree',
+  },
+
   {
     navCap: 'Extra',
   },

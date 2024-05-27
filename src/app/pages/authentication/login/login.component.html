@@ -22,20 +22,20 @@
           </div>
 
 
-          <form class="m-t-30">
+          <div class="m-t-30" [formGroup]="requestForm">
             <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
               >Email Address
             </mat-label
             >
             <mat-form-field appearance="outline" class="w-100" color="primary">
-              <input matInput />
+              <input matInput formControlName="email"/>
             </mat-form-field>
             <!-- password -->
             <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
               >Password</mat-label
             >
             <mat-form-field appearance="outline" class="w-100" color="primary">
-              <input matInput type="password" />
+              <input matInput type="password" formControlName="password"/>
             </mat-form-field>
 
             <div class="d-flex align-items-center m-b-12">
@@ -45,14 +45,15 @@
                 class="text-primary f-w-600 text-decoration-none m-l-auto f-s-14"
                 >Forgot Password ?</a
               >
+
             </div>
 
 
-            <a [routerLink]="['/']" mat-flat-button color="primary" class="w-100">
+            <button  (click)="authenticate()" mat-flat-button color="primary" class="w-100">
               Sign In
-            </a>
+            </button>
             <!-- input -->
-          </form>
+          </div>
           <!--<span class="d-block f-w-500 text-center m-t-24"
             >New to Leoni?
             <a

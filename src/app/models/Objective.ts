@@ -5,7 +5,7 @@ export class Objective {
   objectifTitle !: String;
   objectifType !: String;
 
-  description!:String;
+  description:String ='';
   objectifStart!: Date;
   dateLimite !:Date ;
 
