@@ -34,7 +34,10 @@ export class AppSideLoginComponent {
         showConfirmButton: false,
         timer: 1500
       });
-      this.route.navigate(['/dashboard'])
+      setTimeout(() => {
+        this.route.navigate(['/dashboard']);
+      }, 800);
+      //this.route.navigate(['/dashboard'])
     }, error => {
       console.log(request.email,request.password);
 

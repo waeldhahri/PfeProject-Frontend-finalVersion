@@ -5,7 +5,7 @@
 
 
 
-  <mat-card-content class="b-t-1" >
+  <mat-card-content class="b-t-2" >
       <div class="row" >
       <div class="col-sm-6 col-lg-6">
 
@@ -61,7 +61,7 @@
         >Objective Start Date
         </mat-label
         >
-        <mat-form-field appearance="outline" class="w-25" color="primary" >
+        <mat-form-field appearance="outline"  color="primary" >
           <input matInput [matDatepicker]="startPicker" placeholder="mm/ii/aaaa"
             [(ngModel)]="objective.objectifStart"
           >
@@ -87,7 +87,7 @@
         >Objective End Date
         </mat-label
         >
-        <mat-form-field appearance="outline" class="w-25" color="primary" >
+        <mat-form-field appearance="outline"  color="primary" >
           <input matInput [matDatepicker]="endPicker"
                  placeholder="mm/ii/aaaa" [(ngModel)]="objective.dateLimite"
           >
@@ -122,7 +122,7 @@
 
 
 
-                <mat-form-field appearance="outline" class="w-25" color="primary" >
+                <mat-form-field appearance="outline" color="primary" >
                   <mat-select [multiple]="true" placeholder="choose a person">
 
                     <mat-select>
@@ -223,6 +223,7 @@
 
     style="margin-right: 30px; width: 200px;background-color: Green; color: white;"
     class="btn-lg btn-danger"
+   (click)="goToObjectifList()"
   >
     Show All Objectives
   </button>

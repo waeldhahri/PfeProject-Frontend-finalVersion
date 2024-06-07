@@ -58,7 +58,7 @@ saveOvbjectif(){
 }
 
 goToObjectifList(){
-  this.router.navigate(['/']);
+  this.router.navigate(['/ui-components/objectifs']);
 }
 
 
@@ -113,9 +113,9 @@ console.log(this.objective)
   showWarningPopup() {
     Swal.fire({
       title: 'Attention!',
-      text: 'Vous devez remplir les champs',
+      text: 'You must fill out the fields',
       icon: 'warning',
-      confirmButtonText: 'Oui, je comprends!',
+      confirmButtonText: 'Yes, I understand!',
       customClass:{
         popup:'attention',
 

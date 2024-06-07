@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import {AsyncPipe, CommonModule, DecimalPipe} from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../../material.module';
-
+import { NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
 // icons
 import { TablerIconsModule } from 'angular-tabler-icons';
 import * as TablerIcons from 'angular-tabler-icons/icons';
@@ -34,22 +34,28 @@ import {OrgChartModule} from "ng2-org-chart";
 import {NgxOrgChartModule} from "ngx-org-chart";
 import {NgApexchartsModule} from "ng-apexcharts";
 import {CanvasJSAngularChartsModule} from "@canvasjs/angular-charts";
+import {EditPasswordComponent} from "./edit-password/edit-password.component";
+import {EditProfileComponent} from "./edit-profile/edit-profile.component";
+import {ListEmployeeComponent} from "./list-employee/list-employee.component";
+import {ListProjectManagerComponent} from "./list-project-manager/list-project-manager.component";
+import {DxDataGridModule} from "devextreme-angular";
 
 @NgModule({
-    imports: [
-        CommonModule,
-        RouterModule.forChild(UiComponentsRoutes),
-        MaterialModule,
-        FormsModule,
-        ReactiveFormsModule,
-        TablerIconsModule.pick(TablerIcons),
-        MatNativeDateModule,
-        MatLegacyChipsModule, MatFormFieldModule, MatInputModule, MatTableModule,
-        MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule,
-        DecimalPipe, FormsModule, AsyncPipe, NgbdSortableHeader, NgApexchartsModule, CanvasJSAngularChartsModule
+  imports: [
+    CommonModule,
+    RouterModule.forChild(UiComponentsRoutes),
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
+    TablerIconsModule.pick(TablerIcons),
+    MatNativeDateModule,
+    MatLegacyChipsModule, MatFormFieldModule, MatInputModule, MatTableModule,
+    MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule,
+    DecimalPipe, FormsModule, AsyncPipe, NgbdSortableHeader, NgApexchartsModule,
+    CanvasJSAngularChartsModule, DxDataGridModule,NgbPopoverModule
 
 
-    ],
+  ],
   declarations: [
 
     AppChipsComponent,
@@ -60,7 +66,8 @@ import {CanvasJSAngularChartsModule} from "@canvasjs/angular-charts";
     OverviewComponent,
     ProfileComponent,
     TreeComponent,AppBadgeComponent
-
+,EditPasswordComponent , EditProfileComponent ,ListEmployeeComponent
+    , ListProjectManagerComponent,
   ],
 
 

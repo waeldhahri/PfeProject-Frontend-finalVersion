@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, OnDestroy, ViewChild, ElementRef} from '@angular/core';
+import {Component, OnInit, Input, OnDestroy, ViewChild, ElementRef, ViewEncapsulation} from '@angular/core';
 import {Objective} from "../../../models/Objective";
 import {ObjectiveService} from "../../../services/objective.service";
 import {ObjectifListServiceService} from "../../../services/objectif-list-service.service";
@@ -9,11 +9,22 @@ import {MatButtonModule} from "@angular/material/button";
 import {DialogElementsExampleDialog} from "./DialogElementsExampleDialog";
 import {DialogElementsExampleDialog2} from "./DialogElementsExampleDialog2";
 
+
+import {DxButtonModule, DxButtonTypes} from "devextreme-angular/ui/button";
+import {DxPopupModule, DxScrollViewModule} from "devextreme-angular";
+import {MatCardModule} from "@angular/material/card";
+import {NgApexchartsModule} from "ng-apexcharts";
+
+import { NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
+
 @Component({
   selector: 'app-objectifs-final',
   templateUrl: './objectifs-final.component.html',
-  styleUrls: ['./objectifs-final.component.scss']
+  styleUrls: ['./objectifs-final.component.scss'],
+
 })
+
+
 export class ObjectifsFinalComponent implements OnInit , OnDestroy{
 
 
@@ -326,6 +337,24 @@ constructor(private objectiveListService:ObjectifListServiceService, public dial
 
 
     this.dialog.open(DialogElementsExampleDialog2);
+  }
+
+
+
+  popupVisible = false;
+  popupWithScrollViewVisible = false;
+  bookButtonOptions: DxButtonTypes.Properties = {
+    width: 300,
+    text: 'Understood',
+    type: 'default',
+    stylingMode: 'contained',
+    onClick: () => {
+      this.popupVisible = false;
+      this.popupWithScrollViewVisible = false;
+    },
+  };
+  showPopupWithScrollView() {
+    this.popupWithScrollViewVisible = true;
   }
 }
 

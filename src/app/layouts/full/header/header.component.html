@@ -18,24 +18,39 @@
   <!-- --------------------------------------------------------------- -->
   <!-- profile Dropdown -->
   <!-- --------------------------------------------------------------- -->
-
+<div style="width:60px; height: 60px;margin-right:20px;">
   <button
     mat-icon-button
     [matMenuTriggerFor]="profilemenu"
     aria-label="Notifications" class="m-l-10"
   >
     <img
-      src="/assets/images/profile/user-1.jpg"
+      src="/assets/images/wael.jpg"
       class="rounded-circle object-cover"
-      width="35"
+      width="200" style="width:40px; height: 40px;"
     />
   </button>
+</div>
   <mat-menu #profilemenu="matMenu" xPosition="before" class="topbar-dd cardWithShadow">
     <button mat-menu-item [routerLink]="['/ui-components/profile']">
       <mat-icon class="d-flex align-items-center"
         ><i-tabler name="user" class="icon-18 d-flex"></i-tabler></mat-icon
       >
       My Profile
+
+    </button>
+    <button mat-menu-item [routerLink]="['/ui-components/Editprofile']">
+      <mat-icon class="d-flex align-items-center"
+      ><i-tabler name="user" class="icon-18 d-flex"></i-tabler></mat-icon
+      >
+      Edit Profile
+
+    </button>
+    <button mat-menu-item [routerLink]="['/ui-components/Editpassword']">
+      <mat-icon class="d-flex align-items-center"
+      ><i-tabler name="user" class="icon-18 d-flex"></i-tabler></mat-icon
+      >
+      Edit Password
 
     </button>
     <button mat-menu-item>

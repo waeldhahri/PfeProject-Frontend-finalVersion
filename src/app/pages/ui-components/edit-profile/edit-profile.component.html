@@ -1,0 +1,191 @@
+<mat-card class="cardWithShadow theme-card" >
+  <mat-card-header>
+    <mat-card-title class="m-b-0">Edit Profile
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content class="b-t-1"  >
+    <div class="row"  >
+      <div class="col-sm-6 col-lg-6">
+
+
+
+
+        <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
+        >FullName
+        </mat-label
+        >
+        <mat-form-field appearance="outline" class="w-100" color="primary" >
+          <input matInput id="objectifTitle" />
+        </mat-form-field>
+
+
+
+
+
+      </div>
+
+      <div class="col-sm-6 col-lg-6">
+
+
+
+
+        <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
+        >Email Address
+        </mat-label
+        >
+        <mat-form-field appearance="outline" class="w-100" color="primary" >
+          <input matInput  id="objectiveType" type="email" />
+        </mat-form-field>
+
+
+
+      </div>
+
+    </div>
+
+
+
+
+    <div class="container d-flex">
+
+
+
+      <div class="col-sm-6 col-lg-4">
+
+
+
+
+        <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
+        >Identifier
+        </mat-label
+        >
+        <mat-form-field appearance="outline"  color="primary"
+                        style="width: 300px;">
+          <input matInput  id="identifier" />
+
+
+        </mat-form-field>
+
+
+
+      </div>
+
+
+
+      <div class="col-sm-6 col-lg-4">
+
+
+
+
+        <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
+        >Status
+        </mat-label
+        >
+        <mat-form-field appearance="outline" class="" color="primary"  style="width: 300px;">
+          <mat-select [multiple]="true" placeholder="choose a person">
+
+            <mat-select>
+              <input matInput [(ngModel)]="searchText" placeholder="Search...">
+            </mat-select>
+
+            <mat-option *ngFor="let person of filteredPersons" [value]="person">
+              {{ person }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+    <!--
+
+      <div class="row mb-3 d-flex justify-content-center ">
+
+        <div class="form-selectgroup ">
+          <label class="form-selectgroup-item">
+            <input type="checkbox" name="name"  class="form-selectgroup-input" >
+            <span class="form-selectgroup-label">Wael Dhahri</span>
+          </label>
+          <label class="form-selectgroup-item">
+            <input type="checkbox" name="name"  class="form-selectgroup-input" >
+            <span class="form-selectgroup-label">Wassim Dhahri</span>
+          </label>
+          <label class="form-selectgroup-item">
+            <input type="checkbox" name="name" class="form-selectgroup-input">
+            <span class="form-selectgroup-label">Wael Dhahri</span>
+          </label>
+          <label class="form-selectgroup-item">
+            <input type="checkbox" name="name"  class="form-selectgroup-input">
+            <span class="form-selectgroup-label">Wassim Dhahri</span>
+          </label>
+        </div>
+      </div>
+  -->
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+    <div class="example-sidenav-content row d-flex justify-content-end" >
+
+      <button
+        mat-flat-button
+        color="primary"
+
+
+
+        style="margin-right: 30px; width: 200px;background-color: Green; color: white;"
+        class="btn-lg btn-danger" (click)="toggleDrawerAndFiller()"
+      >
+        Update
+      </button>
+
+
+
+
+
+    </div>
+
+
+
+
+  </mat-card-content>
+
+
+
+
+
+
+
+
+
+</mat-card>
+
+
+
+

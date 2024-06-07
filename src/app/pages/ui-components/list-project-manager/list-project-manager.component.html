@@ -1,0 +1,204 @@
+<mat-card class="cardWithShadow theme-card" >
+  <mat-card-header>
+    <div class="d-flex align-items-center">
+    <mat-card-title class="m-b-0"> Manager List / Edit List of Managers </mat-card-title>
+    <button
+      mat-flat-button
+      color="primary"
+
+
+      class="btn-lg mr-3"
+
+
+      style=" width: 170px;margin-left:570px; "
+
+    >
+      Add new manager
+    </button>
+    </div>
+  </mat-card-header>
+
+  <mat-card-content class="b-t-2" >
+
+    <div class="relative font-inter antialiased" style="margin-left: 75px;">
+
+      <main class="relative min-h-screen flex flex-col justify-center bg-slate-50 overflow-hidden">
+        <div class="w-full max-w-6xl mx-auto px-4 md:px-5 py-24">
+          <div class="flex justify-center">
+
+            <div class="relative font-inter antialiased">
+              <main class="relative min-h-screen flex flex-col justify-center bg-slate-50 overflow-hidden">
+                <div class="w-full max-w-6xl mx-auto px-4 md:px-5 py-24">
+                  <div class="flex justify-center">
+                    <div class="w-full max-w-2xl bg-white shadow-xl rounded-2xl">
+                      <header class="px-4 py-3 border-b border-slate-200">
+                      </header>
+                      <div class="p-3">
+                        <!-- Table -->
+                        <div class="overflow-x-auto">
+                          <!--                        <table class="table-auto w-full w-100 ">-->
+                          <table class="table table-striped table-hover table-auto w-full w-100">
+
+                            <!-- Table header -->
+                            <thead class="text-[13px] text-slate-500/70">
+                            <tr>
+                              <th class="px-5 py-2 first:pl-3 last:pr-3 bg-slate-100 first:rounded-l last:rounded-r last:pl-5 last:sticky last:right-0">
+                                <div class="font-medium text-left">#</div>
+                              </th>
+                              <th class="px-5 py-2 first:pl-3 last:pr-3 bg-slate-100 first:rounded-l last:rounded-r last:pl-5 last:sticky last:right-0">
+                                <div class="font-medium text-left">Full Name</div>
+                              </th>
+                              <th class="px-5 py-2 first:pl-3 last:pr-3 bg-slate-100 first:rounded-l last:rounded-r last:pl-5 last:sticky last:right-0">
+                                <div class="font-medium text-left">Identifiant</div>
+                              </th>
+                              <th class="px-5 py-2 first:pl-3 last:pr-3 bg-slate-100 first:rounded-l last:rounded-r last:pl-5 last:sticky last:right-0">
+                                <div class="font-medium text-left" style="margin-left:60px;">Email</div>
+                              </th>
+                              <th class="px-5 py-2 first:pl-3 last:pr-3 bg-slate-100 first:rounded-l last:rounded-r last:pl-5 last:sticky last:right-0">
+                                <div class="font-medium text-center" style="margin-right:50px;">Action</div>
+                              </th>
+                              <th class="px-5 py-2 first:pl-3 last:pr-3 bg-slate-100 first:rounded-l last:rounded-r last:pl-5 last:sticky last:right-0">
+                                <div class="font-medium text-center" style="margin-right:50px;">Action</div>
+                              </th>
+                            </tr>
+                            </thead>
+                            <!-- Table body -->
+                            <tbody class="text-sm font-medium " >
+                            <!-- Row -->
+
+                            <tr class="border-b border-slate-200">
+                              <td class="px-5 py-3 last:border-none first:pl-3 last:pr-3 last:bg-gradient-to-r last:from-transparent last:to-white last:to-[12px] last:pl-5 last:sticky last:right-0">
+                                <div class="text-slate-500" style="min-width: 50px;">1</div>
+                              </td>
+                              <td class="px-5 py-3 last:border-none first:pl-3 last:pr-3 last:bg-gradient-to-r last:from-transparent last:to-white last:to-[12px] last:pl-5 last:sticky last:right-0">
+                                <div class="text-slate-500" style="min-width: 90px;">Mohamed Zrelli</div>
+                              </td>
+                              <td class="px-5 py-3 last:border-none first:pl-3 last:pr-3 last:bg-gradient-to-r last:from-transparent last:to-white last:to-[12px] last:pl-5 last:sticky last:right-0">
+                                <div class="text-slate-900" style="min-width: 90px;">MA321</div>
+                              </td>
+                              <td class="px-5 py-3 last:border-none first:pl-3
+                            last:pr-3 last:bg-gradient-to-r last:from-transparent
+                             last:to-white last:to-[12px] last:pl-5 last:sticky last:right-0"
+                              >
+                                <div class="text-slate-900" style="min-width: 90px;">Mohamed.zrelli@leoni.com</div>
+                              </td>
+                              <td class="px-5 py-3 last:border-none first:pl-3 last:pr-3 last:bg-gradient-to-r last:from-transparent last:to-white last:to-[12px] last:pl-5 last:sticky last:right-0">
+                                <button mat-flat-button color="primary" style=" width: 130px;
+               background-color:#EBF9F1 ; color:#1F9254" class="btn-lg btn-danger">Edit
+                                </button>
+                              </td>
+                              <td class="px-5 py-3 last:border-none first:pl-3 last:pr-3 last:bg-gradient-to-r last:from-transparent last:to-white last:to-[12px] last:pl-5 last:sticky last:right-0">
+                                <button mat-flat-button style=" width: 130px;  background-color:#FBE7E8 ; color:#A30D11"
+                                        class="btn-lg btn-danger" >Delete
+                                </button>
+                              </td>
+                            </tr>
+                            <tr class="border-b border-slate-200">
+                              <td class="px-5 py-3 last:border-none first:pl-3 last:pr-3 last:bg-gradient-to-r last:from-transparent last:to-white last:to-[12px] last:pl-5 last:sticky last:right-0">
+                                <div class="text-slate-500" style="min-width: 50px;">2</div>
+                              </td>
+                              <td class="px-5 py-3 last:border-none first:pl-3 last:pr-3 last:bg-gradient-to-r last:from-transparent last:to-white last:to-[12px] last:pl-5 last:sticky last:right-0">
+                                <div class="text-slate-500" style="min-width: 90px;">Ahmed Limmem</div>
+                              </td>
+                              <td class="px-5 py-3 last:border-none first:pl-3 last:pr-3 last:bg-gradient-to-r last:from-transparent last:to-white last:to-[12px] last:pl-5 last:sticky last:right-0">
+                                <div class="text-slate-900" style="min-width: 90px;">MA748</div>
+                              </td>
+                              <td class="px-5 py-3 last:border-none first:pl-3
+                            last:pr-3 last:bg-gradient-to-r last:from-transparent
+                             last:to-white last:to-[12px] last:pl-5 last:sticky last:right-0"
+                              >
+                                <div class="text-slate-900" style="min-width: 90px;">Ahmed.Limmem@leoni.com </div>
+                              </td>
+                              <td class="px-5 py-3 last:border-none first:pl-3 last:pr-3 last:bg-gradient-to-r last:from-transparent last:to-white last:to-[12px] last:pl-5 last:sticky last:right-0">
+                                <button mat-flat-button color="primary" style=" width: 130px;
+               background-color:#EBF9F1 ; color:#1F9254" class="btn-lg btn-danger">Edit
+                                </button>
+                              </td>
+                              <td class="px-5 py-3 last:border-none first:pl-3 last:pr-3 last:bg-gradient-to-r last:from-transparent last:to-white last:to-[12px] last:pl-5 last:sticky last:right-0">
+                                <button mat-flat-button style=" width: 130px;  background-color:#FBE7E8 ; color:#A30D11"
+                                        class="btn-lg btn-danger" >Delete
+                                </button>
+                              </td>
+                            </tr>
+
+                            <tr class="border-b border-slate-200">
+                              <td class="px-5 py-3 last:border-none first:pl-3 last:pr-3 last:bg-gradient-to-r last:from-transparent last:to-white last:to-[12px] last:pl-5 last:sticky last:right-0">
+                                <div class="text-slate-500" style="min-width: 50px;">3</div>
+                              </td>
+                              <td class="px-5 py-3 last:border-none first:pl-3 last:pr-3 last:bg-gradient-to-r last:from-transparent last:to-white last:to-[12px] last:pl-5 last:sticky last:right-0">
+                                <div class="text-slate-500" style="min-width: 90px;">Arij el bache</div>
+                              </td>
+                              <td class="px-5 py-3 last:border-none first:pl-3 last:pr-3 last:bg-gradient-to-r last:from-transparent last:to-white last:to-[12px] last:pl-5 last:sticky last:right-0">
+                                <div class="text-slate-900" style="min-width: 90px;">MA147</div>
+                              </td>
+                              <td class="px-5 py-3 last:border-none first:pl-3
+                            last:pr-3 last:bg-gradient-to-r last:from-transparent
+                             last:to-white last:to-[12px] last:pl-5 last:sticky last:right-0"
+                              >
+                                <div class="text-slate-900" style="min-width: 90px;">Arij.elbache@leoni.com</div>
+                              </td>
+                              <td class="px-5 py-3 last:border-none first:pl-3 last:pr-3 last:bg-gradient-to-r last:from-transparent last:to-white last:to-[12px] last:pl-5 last:sticky last:right-0">
+                                <button mat-flat-button color="primary" style=" width: 130px;
+               background-color:#EBF9F1 ; color:#1F9254" class="btn-lg btn-danger">Edit
+                                </button>
+                              </td>
+                              <td class="px-5 py-3 last:border-none first:pl-3 last:pr-3 last:bg-gradient-to-r last:from-transparent last:to-white last:to-[12px] last:pl-5 last:sticky last:right-0">
+                                <button mat-flat-button style=" width: 130px;  background-color:#FBE7E8 ; color:#A30D11"
+                                        class="btn-lg btn-danger" >Delete
+                                </button>
+                              </td>
+                            </tr>
+                            <tr class="border-b border-slate-200">
+                              <td class="px-5 py-3 last:border-none first:pl-3 last:pr-3 last:bg-gradient-to-r last:from-transparent last:to-white last:to-[12px] last:pl-5 last:sticky last:right-0">
+                                <div class="text-slate-500" style="min-width: 50px;">4</div>
+                              </td>
+                              <td class="px-5 py-3 last:border-none first:pl-3 last:pr-3 last:bg-gradient-to-r last:from-transparent last:to-white last:to-[12px] last:pl-5 last:sticky last:right-0">
+                                <div class="text-slate-500" style="min-width: 90px;">Amine edhiff</div>
+                              </td>
+                              <td class="px-5 py-3 last:border-none first:pl-3 last:pr-3 last:bg-gradient-to-r last:from-transparent last:to-white last:to-[12px] last:pl-5 last:sticky last:right-0">
+                                <div class="text-slate-900" style="min-width: 90px;">MA665</div>
+                              </td>
+                              <td class="px-5 py-3 last:border-none first:pl-3
+                            last:pr-3 last:bg-gradient-to-r last:from-transparent
+                             last:to-white last:to-[12px] last:pl-5 last:sticky last:right-0"
+                              >
+                                <div class="text-slate-900" style="min-width: 90px;">Amine.edhiff@leoni.com</div>
+                              </td>
+                              <td class="px-5 py-3 last:border-none first:pl-3 last:pr-3 last:bg-gradient-to-r last:from-transparent last:to-white last:to-[12px] last:pl-5 last:sticky last:right-0">
+                                <button mat-flat-button color="primary" style=" width: 130px;
+               background-color:#EBF9F1 ; color:#1F9254" class="btn-lg btn-danger">Edit
+                                </button>
+                              </td>
+                              <td class="px-5 py-3 last:border-none first:pl-3 last:pr-3 last:bg-gradient-to-r last:from-transparent last:to-white last:to-[12px] last:pl-5 last:sticky last:right-0">
+                                <button mat-flat-button style=" width: 130px;  background-color:#FBE7E8 ; color:#A30D11"
+                                        class="btn-lg btn-danger" >Delete
+                                </button>
+                              </td>
+                            </tr>
+
+                            <!-- Add more rows as needed with the same class -->
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </main>
+            </div>
+
+
+          </div>
+        </div>
+      </main>
+
+
+
+
+
+    </div>
+
+
+  </mat-card-content>
+
+</mat-card>

@@ -7,12 +7,17 @@ import {
   ApexLegend,
   ApexResponsive,
   ChartComponent, ApexStroke, ApexFill, ApexAxisChartSeries
-  , ApexDataLabels, ApexXAxis, ApexYAxis, ApexTooltip,ApexTitleSubtitle, ApexGrid, ApexAnnotations, NgApexchartsModule,ApexMarkers
+  , ApexDataLabels, ApexXAxis,
+  ApexYAxis, ApexTooltip,ApexTitleSubtitle, ApexGrid,
+  ApexAnnotations, NgApexchartsModule,ApexMarkers
 
 } from "ng-apexcharts";
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import Swal from "sweetalert2";
+import {MatDialog, MatDialogActions, MatDialogClose, MatDialogContent} from "@angular/material/dialog";
+import {DxButtonModule, DxButtonTypes} from "devextreme-angular/ui/button";
+import {DxPopupModule, DxScrollViewModule} from "devextreme-angular";
 
 export type ChartOptions = {
   series: ApexNonAxisChartSeries;
@@ -108,7 +113,10 @@ export type ChartOptions7 = {
   imports: [
     MatCardModule,
     NgApexchartsModule,
-    MatButtonModule
+    MatButtonModule,
+    DxPopupModule,
+    DxScrollViewModule,
+    DxButtonModule
   ]
 })
 export class  AppDashboardComponent{
@@ -592,6 +600,32 @@ export class  AppDashboardComponent{
       }
     });
   }
+
+
+
+
+
+
+  popupVisible = false;
+  popupWithScrollViewVisible = false;
+  bookButtonOptions: DxButtonTypes.Properties = {
+    width: 300,
+    text: 'Understood',
+    type: 'default',
+    stylingMode: 'contained',
+    onClick: () => {
+      this.popupVisible = false;
+      this.popupWithScrollViewVisible = false;
+    },
+  };
+  showPopupWithScrollView() {
+    this.popupWithScrollViewVisible = true;
+  }
+
+
+
+
+
 }
 
 

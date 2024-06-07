@@ -32,6 +32,7 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {NgSelectModule} from "@ng-select/ng-select";
 import {AuthInterceptor} from "./interceptor/auth.interceptor";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,7 @@ import {AuthInterceptor} from "./interceptor/auth.interceptor";
     TablerIconsModule.pick(TablerIcons),
     NgScrollbarModule,
     NgSelect2Module, CommonModule,
-    MatSelectModule ,MatFormFieldModule , MatSelectModule ,NgSelectModule
+    MatSelectModule ,MatFormFieldModule , MatSelectModule ,NgSelectModule, NgbModule
   ],
   exports: [TablerIconsModule],
   bootstrap: [AppComponent],

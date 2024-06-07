@@ -18,10 +18,21 @@
           <path d="M9 16a5 5 0 1 1 6 0a3.5 3.5 0 0 0 -1 3a2 2 0 0 1 -4 0a3.5 3.5 0 0 0 -1 -3"/>
           <path d="M9.7 17l4.6 0"/>
         </svg>
-        <mat-card-title class="m-b-0" style="margin-top: 8px; margin-right: 50px; height: 15px; margin-left: 10px;
+        <mat-card-title class="m-b-0" style="margin-top: 8px;
+         margin-right: 50px; height: 15px; margin-left: 10px;width:700px;
             font-size:20px;" >
-          {{objectif.description}}
+          {{objectif.objectifTitle}}
         </mat-card-title>
+
+        <button mat-flat-button class="btn-lg mr-3"
+                style="margin-left:20px;width: 150px;border-radius: 10px;
+                background-color:#01A2F9 ; color:#FFFFFF" placement="start"
+                ngbPopover="{{objectif.description}}"
+                popoverTitle="{{objectif.objectifTitle}}"
+                popoverClass="large-popover"
+        >
+          Description
+        </button>
       </div>
 
 
@@ -125,7 +136,7 @@
                class=" row justify-content-center">
             <textarea matInput placeholder="Enter comment" [(ngModel)]="description" rows="5"></textarea>
             <button mat-raised-button color="accent" (click)="sendDescription()"
-                    style="margin-left: 140px;margin-top:15px;"
+                    style="margin-top:15px;"
 
 
             >Send

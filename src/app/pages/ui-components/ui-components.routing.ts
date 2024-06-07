@@ -10,6 +10,10 @@ import {ObjectifsFinalComponent} from "./objectifs-final/objectifs-final.compone
 import {OverviewComponent} from "./overview/overview.component";
 import {ProfileComponent} from "./profile/profile.component";
 import {TreeComponent} from "./tree/tree.component";
+import {EditPasswordComponent} from "./edit-password/edit-password.component";
+import {EditProfileComponent} from "./edit-profile/edit-profile.component";
+import {ListEmployeeComponent} from "./list-employee/list-employee.component";
+import {ListProjectManagerComponent} from "./list-project-manager/list-project-manager.component";
 
 export const UiComponentsRoutes: Routes = [
   {
@@ -52,8 +56,25 @@ export const UiComponentsRoutes: Routes = [
       }
       ,
       {
-        path:'tree',
-        component:TreeComponent,
+        path:'Editpassword',
+        component:EditPasswordComponent
+      }
+      ,
+      {
+        path:'Editprofile',
+        component:EditProfileComponent
+      }
+
+      ,
+      {
+        path:'employelist',
+        component:ListEmployeeComponent,
+
+      }
+      ,
+      {
+        path:'managerlist',
+        component:ListProjectManagerComponent,
 
       }
     ],

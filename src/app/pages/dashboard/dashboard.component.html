@@ -16,8 +16,9 @@
             [responsive]="chartOptions.responsive"
           ></apx-chart>
         </div>
-      </mat-card-content><div class="d-flex justify-content-center ">
-      <button mat-flat-button color="primary"  class="btn-lg mr-3" (click)="onSubmit2()"
+      </mat-card-content>
+      <div class="d-flex justify-content-center ">
+      <button mat-flat-button color="primary"  class="btn-lg mr-3" (click)="showPopupWithScrollView()"
               style="margin-bottom: 10px;width: 150px;border-radius: 10px;" >
         Details
       </button>
@@ -30,7 +31,7 @@
     <!-- organizational-chart.component.html -->
     <mat-card class="cardWithShadow ">
 
-      <mat-card-content style="height: 426px; ">
+      <mat-card-content style="height: 410px; ">
         <!--The content below is only a placeholder and can be replaced.-->
         <!--The content below is only a placeholder and can be replaced.-->
         <div id="chart2" style="margin-top: 20px;" >
@@ -44,6 +45,12 @@
           ></apx-chart>
         </div>
       </mat-card-content>
+      <div class="d-flex justify-content-center ">
+        <button mat-flat-button color="primary"  class="btn-lg mr-3" (click)="showPopupWithScrollView()"
+                style="margin-bottom: 10px;width: 150px;border-radius: 10px;" >
+          Details
+        </button>
+      </div>
     </mat-card>
 
   </div>
@@ -69,6 +76,12 @@
           ></apx-chart>
         </div>
       </mat-card-content>
+      <div class="d-flex justify-content-center ">
+        <button mat-flat-button color="primary"  class="btn-lg mr-3" (click)="showPopupWithScrollView()"
+                style="margin-bottom: 10px;width: 150px;border-radius: 10px;" >
+          Details
+        </button>
+      </div>
     </mat-card>
 
   </div>
@@ -92,6 +105,12 @@
           ></apx-chart>
         </div>
       </mat-card-content>
+      <div class="d-flex justify-content-center ">
+        <button mat-flat-button color="primary"  class="btn-lg mr-3" (click)="showPopupWithScrollView()"
+                style="margin-bottom: 10px;width: 150px;border-radius: 10px;" >
+          Details
+        </button>
+      </div>
     </mat-card>
   </div>
 
@@ -133,6 +152,12 @@
           ></apx-chart>
         </div>
       </mat-card-content>
+      <div class="d-flex justify-content-center ">
+        <button mat-flat-button color="primary"  class="btn-lg mr-3" (click)="showPopupWithScrollView()"
+                style="margin-bottom: 10px;width: 150px;border-radius: 10px;" >
+          Details
+        </button>
+      </div>
     </mat-card>
 
   </div>
@@ -165,7 +190,50 @@
 
 
 
-
+<dx-popup
+  [width]="450"
+  [height]="450"
+  [hideOnOutsideClick]="true"
+  [showCloseButton]="true"
+  [(visible)]="popupWithScrollViewVisible"
+  title="Developer Work Week"
+>
+  <div *dxTemplate="let data of 'content'">
+    <dx-scroll-view width="100%" height="100%">
+      <div class="caption">Description</div>
+      In the heart of LA's business district, the Downtown Inn has a welcoming
+      staff and award winning restaurants that remain open 24 hours a day. Use
+      our conference room facilities to conduct meetings and have a drink at our
+      beautiful rooftop bar.
+      <br /><br />
+      <div class="content">
+        <div>
+          <div class="caption">Features</div>
+          <div>Concierge</div>
+          <div>Restaurant</div>
+          <div>Valet Parking</div>
+          <div>Fitness Center</div>
+          <div>Sauna</div>
+          <div>Airport Shuttle</div>
+        </div>
+        <div>
+          <div class="caption">Rooms</div>
+          <div>Climate control</div>
+          <div>Air conditioning</div>
+          <div>Coffee/tea maker</div>
+          <div>Iron/ironing</div>
+        </div>
+      </div>
+    </dx-scroll-view>
+  </div>
+  <dxi-toolbar-item
+    widget="dxButton"
+    toolbar="bottom"
+    location="center"
+    [options]="bookButtonOptions"
+  >
+  </dxi-toolbar-item>
+</dx-popup>
 
 
 

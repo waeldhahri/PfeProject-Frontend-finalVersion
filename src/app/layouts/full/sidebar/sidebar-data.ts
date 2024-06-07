@@ -40,16 +40,7 @@ export const navItems: NavItem[] = [
     iconName: 'list',
     route: '/ui-components/overview',
   },
-  {
-    displayName: 'Register',
-    iconName: 'user-plus',
-    route: '/ui-components/register',
-  },
-  {
-    displayName: 'Tooltips',
-    iconName: 'tooltip',
-    route: '/ui-components/tooltips',
-  },
+
   {
     navCap: 'Auth',
   },
@@ -58,28 +49,24 @@ export const navItems: NavItem[] = [
     iconName: 'lock',
     route: '/authentication/login',
   },
+
+  {
+    navCap: 'Human Resource',
+  },
   {
     displayName: 'Register',
     iconName: 'user-plus',
-    route: '/authentication/register',
+    route: '/ui-components/register',
   },
   {
-    displayName: 'Tree',
-    iconName: 'tree',
-    route: '/ui-components/tree',
+    displayName: 'Employee List',
+    iconName: 'list',
+    route: '/ui-components/employelist',
+  },
+  {
+    displayName: 'Project Manager List',
+    iconName: 'list',
+    route: '/ui-components/managerlist',
   },
 
-  {
-    navCap: 'Extra',
-  },
-  {
-    displayName: 'Icons',
-    iconName: 'mood-smile',
-    route: '/extra/icons',
-  },
-  {
-    displayName: 'Sample Page',
-    iconName: 'aperture',
-    route: '/extra/sample-page',
-  },
 ];

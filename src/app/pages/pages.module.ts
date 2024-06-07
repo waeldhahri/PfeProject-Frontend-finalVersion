@@ -71,6 +71,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 import {CanvasJSAngularChartsModule} from "@canvasjs/angular-charts";
+import {PopupComponent} from "./dashboard/popup.component";
+
 @NgModule({
   imports: [
     CommonModule,
@@ -87,7 +89,9 @@ import {CanvasJSAngularChartsModule} from "@canvasjs/angular-charts";
     NgApexchartsModule,
     MatTableModule,
     CommonModule,
-    CanvasJSAngularChartsModule
+    CanvasJSAngularChartsModule ,
+
+
   ],
   exports: [TablerIconsModule,
 
@@ -142,5 +146,9 @@ import {CanvasJSAngularChartsModule} from "@canvasjs/angular-charts";
 
 
   ],
+
+
+
 })
 export class PagesModule {}
+
