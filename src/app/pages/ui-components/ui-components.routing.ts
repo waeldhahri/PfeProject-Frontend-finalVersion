@@ -14,6 +14,7 @@ import {EditPasswordComponent} from "./edit-password/edit-password.component";
 import {EditProfileComponent} from "./edit-profile/edit-profile.component";
 import {ListEmployeeComponent} from "./list-employee/list-employee.component";
 import {ListProjectManagerComponent} from "./list-project-manager/list-project-manager.component";
+import {authGuard} from "../../guard/auth.guard";
 
 export const UiComponentsRoutes: Routes = [
   {
@@ -22,59 +23,94 @@ export const UiComponentsRoutes: Routes = [
       {
         path: 'badge',
         component: AppBadgeComponent,
+        canActivate:[authGuard],
+        data: {
+          permission : ["ADMIN", "SUPERADMIN"]
+        }
       },
 
       {
         path: 'objectifs',
         component: ObjectifsFinalComponent,
+        canActivate:[authGuard],
+        data: {
+          permission : ["ADMIN", "SUPERADMIN"]
+        }
       },
       {
         path: 'tasks',
         component: AppChipsComponent,
+        canActivate:[authGuard],data: {
+          permission : ["ADMIN", "SUPERADMIN"]
+        }
       },
       {
         path: 'overview',
         component: OverviewComponent,
+        canActivate:[authGuard],data: {
+          permission : ["ADMIN", "SUPERADMIN"]
+        }
       },
       {
         path: 'register',
         component: AppListsComponent,
+        canActivate:[authGuard],data: {
+          permission : ["ADMIN", "SUPERADMIN"]
+        }
       },
       {
         path: 'menu',
         component: AppMenuComponent,
+        canActivate:[authGuard],data: {
+          permission : ["ADMIN", "SUPERADMIN"]
+        }
       },
       {
         path: 'tooltips',
         component: AppTooltipsComponent,
+        canActivate:[authGuard],data: {
+          permission : ["ADMIN", "SUPERADMIN"]
+        }
+
       },
 
       {
         path:'profile',
         component:ProfileComponent,
+        canActivate:[authGuard],data: {
+          permission : ["ADMIN", "SUPERADMIN"]
+        }
 
       }
       ,
       {
         path:'Editpassword',
-        component:EditPasswordComponent
+        component:EditPasswordComponent,canActivate:[authGuard],data: {
+          permission : ["ADMIN", "SUPERADMIN"]
+        }
       }
       ,
       {
         path:'Editprofile',
-        component:EditProfileComponent
+        component:EditProfileComponent,canActivate:[authGuard],data: {
+          permission : ["ADMIN", "SUPERADMIN"]
+        }
       }
 
       ,
       {
         path:'employelist',
-        component:ListEmployeeComponent,
+        component:ListEmployeeComponent,canActivate:[authGuard],data: {
+          permission : ["ADMIN", "SUPERADMIN"]
+        }
 
       }
       ,
       {
         path:'managerlist',
-        component:ListProjectManagerComponent,
+        component:ListProjectManagerComponent,canActivate:[authGuard],data: {
+          permission : ["ADMIN", "SUPERADMIN"]
+        }
 
       }
     ],

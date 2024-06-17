@@ -106,7 +106,8 @@ export class AppListsComponent implements OnInit, OnDestroy,AfterViewInit  {
   isClicked= true;
 
   searchText!: string;
-  persons: string[] = ['Employe', 'Manager', 'SuperManager'];
+  persons: any[] = [{name: 'Employe',role: 'USER'}, {name: 'Manager',role: 'ADMIN'}
+    ,{name: 'HR',role: 'SUPERADMIN'}];
   equipes : string[] = ['Team A', 'Team B' , 'Team C', 'Team D' ,'Team F '] ;
 
 
@@ -141,8 +142,7 @@ export class AppListsComponent implements OnInit, OnDestroy,AfterViewInit  {
   }
 
   toggleDrawerAndFiller() {
-    this.isClicked = !this.isClicked;
-    this.drawer.toggle();
+
   }
   ngOnInit() {
 
@@ -326,4 +326,7 @@ export class AppListsComponent implements OnInit, OnDestroy,AfterViewInit  {
 
 */
 
+  addUser() {
+
+  }
 }

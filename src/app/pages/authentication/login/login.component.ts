@@ -4,6 +4,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {local} from "d3";
 import {Route, Router} from "@angular/router";
 import Swal from "sweetalert2";
+import {EmployeeService} from "../../../services/employee.service";
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,8 @@ export class AppSideLoginComponent {
     password: new FormControl(''),
   });
 
-  constructor(private loginService: LoginService, private route: Router) {
+  constructor(private loginService: LoginService, private empolyeService: EmployeeService,
+              private route: Router) {
   }
 
   authenticate() {
@@ -37,7 +39,9 @@ export class AppSideLoginComponent {
       setTimeout(() => {
         this.route.navigate(['/dashboard']);
       }, 800);
-      //this.route.navigate(['/dashboard'])
+      this.empolyeService.getEmployeeByEmail(request.email).subscribe(res => {
+        localStorage.setItem("role", JSON.stringify(res.roles.name));
+      })
     }, error => {
       console.log(request.email,request.password);
 

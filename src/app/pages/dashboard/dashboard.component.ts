@@ -191,7 +191,7 @@ export class  AppDashboardComponent{
 
 
     this.chartOptions2 = {
-      series: [14, 23, 21, 17, 28,10],
+      series: [30, 18, 21, 36, 28,25],
       labels: ["LTN2", "LTN3", "LTN4", "LTN5","LTN6","LTN7"],
       chart: {
         type: "polarArea"

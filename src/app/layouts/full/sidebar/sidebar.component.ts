@@ -11,5 +11,8 @@ export class SidebarComponent implements OnInit {
 
   constructor(public navService: NavService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+   const role: string = JSON.parse( localStorage.getItem("role")|| '{}');
+    this.navItems = this.navItems.filter(data => data.roles?.includes(role));
+  }
 }

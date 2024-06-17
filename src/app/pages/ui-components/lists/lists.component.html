@@ -47,7 +47,7 @@
         >Identifier
         </mat-label
         >
-        <mat-form-field appearance="outline" class="w-25" color="primary"
+        <mat-form-field appearance="outline" color="primary"
                         style="width: 300px;">
           <input matInput id="identifier"/>
 
@@ -73,7 +73,7 @@
             </mat-select>
 
             <mat-option *ngFor="let person of filteredPersons" [value]="person">
-              {{ person }}
+              {{ person.name }}
             </mat-option>
           </mat-select>
         </mat-form-field>
@@ -172,7 +172,7 @@
 
 
         style="margin-right: 30px ; width: 150px; "
-
+        (click)="addUser()"
       >
         Add new user
       </button>

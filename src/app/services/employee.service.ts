@@ -17,9 +17,15 @@ export class EmployeeService {
 
 
 
+
+
   getEmployeeList():Observable<Employee[]>{
     return this.httpClient.get<Employee[]>(`${this.baseURL}`);
 
+  }
+
+  getEmployeeByEmail(email:string):Observable<Employee>{
+    return this.httpClient.get<Employee>(`${this.baseURL}/email/${email}`);
   }
 }
 

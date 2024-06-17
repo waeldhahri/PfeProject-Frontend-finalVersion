@@ -1,3 +1,4 @@
+import {Role} from "./role";
 
 export class Employee {
 
@@ -14,6 +15,8 @@ export class Employee {
   createDate!:Date;
 
   lastModifiedDate!:Date;
+
+  roles!: Role;
 
 
 }

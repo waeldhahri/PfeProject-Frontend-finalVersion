@@ -12,7 +12,7 @@
       class="btn-lg mr-3"
 
 
-      style=" width: 170px;margin-left:550px; "
+      style=" width: 170px;margin-left:540px; "
 
     >
       Add new employee
@@ -21,7 +21,7 @@
   </mat-card-header>
 <mat-card-content class="b-t-2" >
 
-  <div class="relative font-inter antialiased">
+  <!--<div class="relative font-inter antialiased">
 
     <main class="relative min-h-screen flex flex-col justify-center bg-slate-50 overflow-hidden">
       <div class="w-full max-w-6xl mx-auto px-4 md:px-5 py-24">
@@ -35,12 +35,12 @@
                     <header class="px-4 py-3 border-b border-slate-200">
                     </header>
                     <div class="p-3">
-                      <!-- Table -->
+                      &lt;!&ndash; Table &ndash;&gt;
                       <div class="overflow-x-auto">
-<!--                        <table class="table-auto w-full w-100 ">-->
+&lt;!&ndash;                        <table class="table-auto w-full w-100 ">&ndash;&gt;
                         <table class="table table-striped  table-auto w-full w-100">
 
-                        <!-- Table header -->
+                        &lt;!&ndash; Table header &ndash;&gt;
                           <thead class="text-[13px] text-slate-500/70">
                           <tr>
                             <th class="px-5 py-2 first:pl-3 last:pr-3 bg-slate-100 first:rounded-l last:rounded-r last:pl-5 last:sticky last:right-0">
@@ -63,9 +63,9 @@
                             </th>
                           </tr>
                           </thead>
-                          <!-- Table body -->
+                          &lt;!&ndash; Table body &ndash;&gt;
                           <tbody class="text-sm font-medium">
-                          <!-- Row -->
+                          &lt;!&ndash; Row &ndash;&gt;
 
                           <tr class="border-b border-slate-200">
                             <td class="px-5 py-3 last:border-none first:pl-3 last:pr-3 last:bg-gradient-to-r last:from-transparent last:to-white last:to-[12px] last:pl-5 last:sticky last:right-0">
@@ -230,7 +230,7 @@
                               </button>
                             </td>
                           </tr>
-                          <!-- Add more rows as needed with the same class -->
+                          &lt;!&ndash; Add more rows as needed with the same class &ndash;&gt;
                           </tbody>
                         </table>
                       </div>
@@ -250,9 +250,93 @@
 
 
 
-  </div>
-
-
+  </div>-->
+  <table class="table table-hover table-bordered">
+    <thead>
+    <tr class="align-item-center">
+      <th scope="col">#</th>
+      <th scope="col">Full Name</th>
+      <th scope="col"> Identifiant</th>
+      <th scope="col">Email</th>
+      <th scope="col "  >Action</th>
+      <th scope="col " >Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Wael Dhahri</td>
+      <td>IT321</td>
+      <td>Waeldhahri3@gmail.com</td>
+      <td>  <button mat-flat-button color="primary" style=" width: 130px;
+             background-color:#EBF9F1 ; color:#1F9254" class="btn-lg btn-danger">Edit
+      </button></td>
+      <td> <button mat-flat-button style=" width: 130px;  background-color:#FBE7E8 ; color:#A30D11"
+                   class="btn-lg btn-danger" >Delete
+      </button></td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Wassim Charrana</td>
+      <td>IT744</td>
+      <td>Wassim.chaarana@leoni.com</td>
+      <td>  <button mat-flat-button color="primary" style=" width: 130px;
+             background-color:#EBF9F1 ; color:#1F9254" class="btn-lg btn-danger">Edit
+      </button></td>
+      <td> <button mat-flat-button style=" width: 130px;  background-color:#FBE7E8 ; color:#A30D11"
+                   class="btn-lg btn-danger" >Delete
+      </button></td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td >Mohamed Aouichaoui</td>
+      <td>PR124</td>
+      <td>Mohamed.Aouichaoui@leoni.com</td>
+      <td>  <button mat-flat-button color="primary" style=" width: 130px;
+             background-color:#EBF9F1 ; color:#1F9254" class="btn-lg btn-danger">Edit
+      </button></td>
+      <td> <button mat-flat-button style=" width: 130px;  background-color:#FBE7E8 ; color:#A30D11"
+                   class="btn-lg btn-danger" >Delete
+      </button></td>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>Amine Jbelli</td>
+      <td>IT665</td>
+      <td>Amine.Jbelli@leoni.com</td>
+      <td>  <button mat-flat-button color="primary" style=" width: 130px;
+             background-color:#EBF9F1 ; color:#1F9254" class="btn-lg btn-danger">Edit
+      </button></td>
+      <td> <button mat-flat-button style=" width: 130px;  background-color:#FBE7E8 ; color:#A30D11"
+                   class="btn-lg btn-danger" >Delete
+      </button></td>
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td>Oussema Bahri</td>
+      <td>IT142</td>
+      <td>Oussema.bahri@leoni.com</td>
+      <td>  <button mat-flat-button color="primary" style=" width: 130px;
+             background-color:#EBF9F1 ; color:#1F9254" class="btn-lg btn-danger">Edit
+      </button></td>
+      <td> <button mat-flat-button style=" width: 130px;  background-color:#FBE7E8 ; color:#A30D11"
+                   class="btn-lg btn-danger" >Delete
+      </button></td>
+    </tr>
+    <tr>
+      <th scope="row">6</th>
+      <td >Ahmed Zrelli</td>
+      <td>VW302</td>
+      <td>Ahmed.Zrelli@leoni.com</td>
+      <td>  <button mat-flat-button color="primary" style=" width: 130px;
+             background-color:#EBF9F1 ; color:#1F9254" class="btn-lg btn-danger">Edit
+      </button></td>
+      <td> <button mat-flat-button style=" width: 130px;  background-color:#FBE7E8 ; color:#A30D11"
+                   class="btn-lg btn-danger" >Delete
+      </button></td>
+    </tr>
+    </tbody>
+  </table>
 </mat-card-content>
 
 </mat-card>
