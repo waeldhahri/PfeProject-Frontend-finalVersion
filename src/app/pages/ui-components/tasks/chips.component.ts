@@ -19,9 +19,9 @@ import Swal from "sweetalert2";
 export class AppChipsComponent implements OnInit{
 
 
- objective :  Objective = new Objective();
+  objective :  Objective = new Objective();
 
-  searchText!: string;
+  searchText!: string[];
   persons: string[] = ['Wassim Chaaranna', 'Mohamed Zrelli', 'Mohamed Gharbi', 'Amine Fatnassi'];
 
 constructor(private objectifSevice :ObjectiveService ,
@@ -33,17 +33,6 @@ constructor(private objectifSevice :ObjectiveService ,
 
 
   ngOnInit(){
-
-
-this.filteredPersons;
-
-
-
-
-
-
-
-
 
     };
 
@@ -63,8 +52,9 @@ goToObjectifList(){
 
 
 onSubmit(){
+  if (this.searchText && this.searchText.length != 0)
+    this.objective.assigned = this.searchText.join("\n")
 console.log(this.objective)
-
   this.checkObjective();
   //this.dialog.open(DialogElementsExampleDialog3);
 
@@ -80,17 +70,6 @@ console.log(this.objective)
       this.saveOvbjectif();
       this.showSuccessPopup();
     }
-  }
-
-  get filteredPersons() {
-    if (!this.searchText) {
-      return this.persons;
-    }
-    return this.persons.filter(person => person.toLowerCase().includes(this.searchText.toLowerCase()));
-  }
-
-  filterOptions(value: string) {
-    this.searchText = value;
   }
 
   showSuccessPopup() {

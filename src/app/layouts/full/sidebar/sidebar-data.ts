@@ -20,7 +20,7 @@ export const navItems: NavItem[] = [
     displayName: 'Objective',
     iconName: 'poker-chip',
     route: '/ui-components/tasks',
-    roles:["USER","ADMIN","SUPERADMIN"]
+    roles:["ADMIN","SUPERADMIN"]
 
   },
 

@@ -33,6 +33,16 @@
         >
           Description
         </button>
+
+        <button mat-flat-button class="btn-lg mr-3"
+                style="margin-left:20px;width: 150px;border-radius: 10px;margin-right:20px;
+                background-color:#01A2F9 ; color:#FFFFFF" placement="top"
+                ngbPopover="{{objectif.assigned}}"
+                popoverTitle="Assigned To"
+                popoverClass="large-popover"
+        >
+          Assigned To
+        </button>
       </div>
 
 
@@ -45,7 +55,7 @@
             <div class="d-flex flex-row " style="margin-top:20px;">
               <button mat-flat-button style="margin-right: 20px; width: 100px;
               background-color:#FBE7E8 ; color:#A30D11"
-                      class="btn-lg btn-danger" (click)="deleteObjectif(objectif)" >Canceled
+                      class="btn-lg btn-danger" (click)="deleteObjectif(objectif)" *ngIf="hasautority()" >Canceled
               </button>
               <button mat-flat-button color="primary" style="margin-right: 20px; width: 100px;
                background-color:#EBF9F1 ; color:#1F9254" class="btn-lg btn-danger">Compeled

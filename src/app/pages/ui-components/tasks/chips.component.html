@@ -123,13 +123,13 @@
 
 
                 <mat-form-field appearance="outline" color="primary" >
-                  <mat-select [multiple]="true" placeholder="choose a person">
+                  <mat-select [multiple]="true" placeholder="choose a person" [(ngModel)]="searchText">
 
                     <mat-select>
-                      <input matInput [(ngModel)]="searchText" placeholder="Search...">
+                      <input matInput placeholder="Search...">
                     </mat-select>
 
-                    <mat-option *ngFor="let person of filteredPersons" [value]="person">
+                    <mat-option *ngFor="let person of persons" [value]="person">
                       {{ person }}
                     </mat-option>
                   </mat-select>

@@ -18,5 +18,7 @@ export class Employee {
 
   roles!: Role;
 
+  name!:String;
+
 
 }

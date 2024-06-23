@@ -14,5 +14,6 @@ export class Objective {
   minutes?: string = '00';
   seconds?: string = '00';
   intervalId?: any;
+  assigned!:String;
 
 }

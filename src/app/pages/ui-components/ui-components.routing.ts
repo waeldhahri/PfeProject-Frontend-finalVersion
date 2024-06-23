@@ -34,7 +34,7 @@ export const UiComponentsRoutes: Routes = [
         component: ObjectifsFinalComponent,
         canActivate:[authGuard],
         data: {
-          permission : ["ADMIN", "SUPERADMIN"]
+          permission : ["USER","ADMIN", "SUPERADMIN"]
         }
       },
       {
@@ -48,7 +48,7 @@ export const UiComponentsRoutes: Routes = [
         path: 'overview',
         component: OverviewComponent,
         canActivate:[authGuard],data: {
-          permission : ["ADMIN", "SUPERADMIN"]
+          permission : ["USER","ADMIN", "SUPERADMIN"]
         }
       },
       {
@@ -78,7 +78,7 @@ export const UiComponentsRoutes: Routes = [
         path:'profile',
         component:ProfileComponent,
         canActivate:[authGuard],data: {
-          permission : ["ADMIN", "SUPERADMIN"]
+          permission : ["USER","ADMIN", "SUPERADMIN"]
         }
 
       }
@@ -86,14 +86,14 @@ export const UiComponentsRoutes: Routes = [
       {
         path:'Editpassword',
         component:EditPasswordComponent,canActivate:[authGuard],data: {
-          permission : ["ADMIN", "SUPERADMIN"]
+          permission : ["USER","ADMIN", "SUPERADMIN"]
         }
       }
       ,
       {
         path:'Editprofile',
         component:EditProfileComponent,canActivate:[authGuard],data: {
-          permission : ["ADMIN", "SUPERADMIN"]
+          permission : ["USER","ADMIN", "SUPERADMIN"]
         }
       }
 

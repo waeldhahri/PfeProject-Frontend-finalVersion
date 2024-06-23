@@ -14,7 +14,7 @@
         </mat-label
         >
         <mat-form-field appearance="outline" class="w-100" color="primary">
-          <input matInput id="objectifTitle"/>
+          <input matInput id="objectifTitle" [(ngModel)]="newemploye.username"/>
         </mat-form-field>
 
 
@@ -28,7 +28,7 @@
         </mat-label
         >
         <mat-form-field appearance="outline" class="w-100" color="primary">
-          <input matInput id="objectiveType" type="email"/>
+          <input matInput id="objectiveType" type="email" [(ngModel)]="newemploye.email"/>
         </mat-form-field>
 
 
@@ -49,7 +49,7 @@
         >
         <mat-form-field appearance="outline" color="primary"
                         style="width: 300px;">
-          <input matInput id="identifier"/>
+          <input matInput id="identifier" [(ngModel)]="newemploye.identifiant"/>
 
 
         </mat-form-field>
@@ -66,13 +66,13 @@
         </mat-label
         >
         <mat-form-field appearance="outline" class="" color="primary" style="width: 300px;">
-          <mat-select [multiple]="true" placeholder="Choose a Status">
+          <mat-select [multiple]="false" placeholder="Choose a Status" [(ngModel)]="searchText">
 
             <mat-select>
-              <input matInput [(ngModel)]="searchText" placeholder="Search...">
+              <input matInput  placeholder="Search...">
             </mat-select>
 
-            <mat-option *ngFor="let person of filteredPersons" [value]="person">
+            <mat-option *ngFor="let person of persons" [value]="person">
               {{ person.name }}
             </mat-option>
           </mat-select>
@@ -98,7 +98,7 @@
               <input matInput [(ngModel)]="searchText" placeholder="Search...">
             </mat-select>
 
-            <mat-option *ngFor="let equipe of filteredEquipes" [value]="equipe">
+            <mat-option *ngFor="let equipe of equipes" [value]="equipe">
               {{ equipe }}
             </mat-option>
           </mat-select>
@@ -172,7 +172,7 @@
 
 
         style="margin-right: 30px ; width: 150px; "
-        (click)="addUser()"
+        (click)="onSubmit()"
       >
         Add new user
       </button>

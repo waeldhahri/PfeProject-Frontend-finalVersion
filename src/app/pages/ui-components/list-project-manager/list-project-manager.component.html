@@ -12,6 +12,7 @@
 
       style=" width: 170px;margin-left:540px; "
 
+      (click)="goToregister()"
     >
       Add new manager
     </button>
@@ -32,6 +33,19 @@
       </tr>
       </thead>
       <tbody>
+      <tr *ngFor="let employe of employes ; let i = index ">
+        <th scope="row">{{i+1}}</th>
+        <td>{{employe.name}}</td>
+        <td>{{employe.identifiant}}</td>
+        <td>{{employe.email}}</td>
+        <td>  <button mat-flat-button color="primary" style=" width: 130px;
+             background-color:#EBF9F1 ; color:#1F9254"
+                      class="btn-lg btn-danger" (click)="gotoupdateprofile()">Edit
+        </button></td>
+        <td> <button mat-flat-button style=" width: 130px;  background-color:#FBE7E8 ; color:#A30D11"
+                     class="btn-lg btn-danger" >Delete
+        </button></td>
+      </tr>
       <tr>
         <th scope="row">1</th>
         <td>Mohamed Zrelli</td>

@@ -39,6 +39,7 @@ export class ObjectifsFinalComponent implements OnInit , OnDestroy{
   buttonvisible: boolean = true;
 
   description: string = '';
+  assigned:string='';
 
   endDate!: Date;
 
@@ -112,7 +113,9 @@ constructor(private objectiveListService:ObjectifListServiceService, public dial
 
 
   ngOnInit(): void {
+    this.filterObjectifs();
     this.getObjectives();
+
 
     const endDate = new Date('2024-04-30T00:00:00');
 
@@ -355,6 +358,19 @@ constructor(private objectiveListService:ObjectifListServiceService, public dial
   };
   showPopupWithScrollView() {
     this.popupWithScrollViewVisible = true;
+  }
+
+  hasautority() {
+    const role = JSON.parse(localStorage.getItem("role") || '{}');
+    return role == "ADMIN" || role=="SUPERADMIN" ;
+
+  }
+
+  filterObjectifs(){
+    const role = JSON.parse(localStorage.getItem("role") || '{}');
+    if (role == "USER") {
+      this.pageSize=2;
+    }
   }
 }
 

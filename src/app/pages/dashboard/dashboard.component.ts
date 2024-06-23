@@ -607,7 +607,20 @@ export class  AppDashboardComponent{
 
 
   popupVisible = false;
+
   popupWithScrollViewVisible = false;
+  popupWithScrollViewVisible2 = false;
+  popupWithScrollViewVisible3 = false;
+  popupWithScrollViewVisible4 = false;
+  popupWithScrollViewVisible5 = false;
+  popupWithScrollViewVisible6 = false;
+  popupWithScrollViewVisible7 = false;
+  popupWithScrollViewVisible8 = false;
+
+
+
+
+
   bookButtonOptions: DxButtonTypes.Properties = {
     width: 300,
     text: 'Understood',
@@ -618,8 +631,71 @@ export class  AppDashboardComponent{
       this.popupWithScrollViewVisible = false;
     },
   };
+
+
+  bookButtonOptions2: DxButtonTypes.Properties = {
+    width: 300,
+    text: 'Understood',
+    type: 'default',
+    stylingMode: 'contained',
+    onClick: () => {
+      this.popupVisible = false;
+      this.popupWithScrollViewVisible2 = false;
+    },
+  };
+
+  bookButtonOptions3: DxButtonTypes.Properties = {
+    width: 300,
+    text: 'Understood',
+    type: 'default',
+    stylingMode: 'contained',
+    onClick: () => {
+      this.popupVisible = false;
+      this.popupWithScrollViewVisible2 = false;
+    },
+  };
+
+  bookButtonOptions4: DxButtonTypes.Properties = {
+    width: 300,
+    text: 'Understood',
+    type: 'default',
+    stylingMode: 'contained',
+    onClick: () => {
+      this.popupVisible = false;
+      this.popupWithScrollViewVisible2 = false;
+    },
+  };
+
+  bookButtonOptions5: DxButtonTypes.Properties = {
+    width: 300,
+    text: 'Understood',
+    type: 'default',
+    stylingMode: 'contained',
+    onClick: () => {
+      this.popupVisible = false;
+      this.popupWithScrollViewVisible2 = false;
+    },
+  };
+
+
   showPopupWithScrollView() {
     this.popupWithScrollViewVisible = true;
+  }
+
+  showPopupWithScrollView2() {
+    this.popupWithScrollViewVisible2 = true;
+  }
+
+  showPopupWithScrollView3() {
+    this.popupWithScrollViewVisible2 = true;
+  }
+
+  showPopupWithScrollView4() {
+    this.popupWithScrollViewVisible2 = true;
+  }
+
+  showPopupWithScrollView5() {
+    this.popupWithScrollViewVisible2 = true;
   }
 
 

@@ -66,6 +66,11 @@ import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatSort, MatSortModule} from '@angular/material/sort';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 
+import Swal from "sweetalert2";
+import {Router} from "@angular/router";
+import {Objective} from "../../../models/Objective";
+import {RegistrarRequest} from "../../../models/registrar-request";
+
 
 
 @Component({
@@ -83,6 +88,7 @@ export class AppListsComponent implements OnInit, OnDestroy,AfterViewInit  {
 
 
 
+  newemploye :  RegistrarRequest = new RegistrarRequest();
 
 
 
@@ -105,10 +111,10 @@ export class AppListsComponent implements OnInit, OnDestroy,AfterViewInit  {
   showFiller = false;
   isClicked= true;
 
-  searchText!: string;
+  searchText!: any;
   persons: any[] = [{name: 'Employe',role: 'USER'}, {name: 'Manager',role: 'ADMIN'}
     ,{name: 'HR',role: 'SUPERADMIN'}];
-  equipes : string[] = ['Team A', 'Team B' , 'Team C', 'Team D' ,'Team F '] ;
+  equipes : string[] = ['LTN 2', 'LTN 3' , 'LTN 4', 'LTN 5' ,'LTN 6'] ;
 
 
 
@@ -129,7 +135,7 @@ export class AppListsComponent implements OnInit, OnDestroy,AfterViewInit  {
 
 
 
-  constructor(private employee:EmployeeService) {}
+  constructor(private employee:EmployeeService , private router:Router) {}
 
 
 
@@ -141,23 +147,88 @@ export class AppListsComponent implements OnInit, OnDestroy,AfterViewInit  {
     });
   }
 
+
+
+  saveUSER(){
+    this.employee.createUser(this.newemploye).subscribe(data =>{
+          console.log(data);
+        //this.router.navigate(['/ui-components/register']);
+      this.newemploye = new RegistrarRequest();
+      this.searchText = null;
+        },
+
+        error => console.log(error));
+  }
+
+  onSubmit(){
+
+    this.onSearchTextChange();
+    console.log(this.newemploye)
+    this.checkUser();
+    //this.dialog.open(DialogElementsExampleDialog3);
+
+
+  }
+  checkUser() {
+    if (!this.newemploye.identifiant) {
+      this.showWarningPopup();
+    } else {
+      this.saveUSER();
+      this.showSuccessPopup();
+    }
+  }
+
+  showSuccessPopup() {
+    Swal.fire({
+      title: 'Success!',
+      text: 'Your USER has been added successfully.',
+      icon: 'success',
+      confirmButtonText: 'OK',
+      customClass: {
+        popup: 'my-popup',
+        title: 'my-title'}
+    }).then((result) => {
+      if (result.isConfirmed) {
+        //this.handleOkAction();
+      }
+
+    });
+  }
+
+  showWarningPopup() {
+    Swal.fire({
+      title: 'Attention!',
+      text: 'You must fill out the fields',
+      icon: 'warning',
+      confirmButtonText: 'Yes, I understand!',
+      customClass:{
+        popup:'attention',
+
+      }
+    });
+  }
+
+
+
+
+
+
+  handleOkAction() {
+
+    // Par exemple, rediriger vers une autre page
+    // this.router.navigate(['/another-page']);
+
+    window.location.reload();
+  }
+
+
+
+
+
   toggleDrawerAndFiller() {
 
   }
   ngOnInit() {
-
-
-          this.getEmployees();
-
-
-
-
-
-
-
-
-
-
 
     this.filteredPersons;
     this.filteredEquipes;
@@ -201,7 +272,7 @@ export class AppListsComponent implements OnInit, OnDestroy,AfterViewInit  {
     if (!this.searchText) {
       return this.persons;
     }
-    return this.persons.filter(person => person.toLowerCase().includes(this.searchText.toLowerCase()));
+    return this.persons.filter(person => person.name == this.searchText);
   }
 
   filterOptions(value: string) {
@@ -329,4 +400,11 @@ export class AppListsComponent implements OnInit, OnDestroy,AfterViewInit  {
   addUser() {
 
   }
+
+  onSearchTextChange() {
+        // ** Nouvelle méthode ajoutée pour mettre à jour newemploye.roles **
+    if (this.searchText)
+      this.newemploye.role = this.searchText.role;
+  }
+
 }
