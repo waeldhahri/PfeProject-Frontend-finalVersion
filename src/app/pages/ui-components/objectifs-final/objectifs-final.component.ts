@@ -61,7 +61,8 @@ export class ObjectifsFinalComponent implements OnInit , OnDestroy{
   }
 
 
-constructor(private objectiveListService:ObjectifListServiceService, public dialog: MatDialog , private _location: Location,) {
+constructor(private objectiveListService:ObjectifListServiceService,
+            public dialog: MatDialog , private _location: Location,) {
 }
 
 

@@ -25,7 +25,7 @@ export const UiComponentsRoutes: Routes = [
         component: AppBadgeComponent,
         canActivate:[authGuard],
         data: {
-          permission : ["ADMIN", "SUPERADMIN"]
+          permission : ["USER","ADMIN", "SUPERADMIN"]
         }
       },
 

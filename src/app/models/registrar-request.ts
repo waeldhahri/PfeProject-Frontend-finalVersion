@@ -8,4 +8,6 @@ export class RegistrarRequest {
   email !:String ;
 
   role!: string;
+
+  bloc2!:String;
 }

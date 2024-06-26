@@ -258,6 +258,7 @@
       <th scope="col">Full Name</th>
       <th scope="col"> Identifiant</th>
       <th scope="col">Email</th>
+      <th scope="col">Bloc</th>
       <th scope="col "  >Action</th>
       <th scope="col " >Action</th>
     </tr>
@@ -268,86 +269,16 @@
       <td>{{employe.name}}</td>
       <td>{{employe.identifiant}}</td>
       <td>{{employe.email}}</td>
+      <td>{{employe.bloc2}}</td>
       <td>  <button mat-flat-button color="primary" style=" width: 130px;
              background-color:#EBF9F1 ; color:#1F9254"
                     class="btn-lg btn-danger" (click)="gotoupdateprofile()">Edit
       </button></td>
       <td> <button mat-flat-button style=" width: 130px;  background-color:#FBE7E8 ; color:#A30D11"
-                   class="btn-lg btn-danger" >Delete
+                   class="btn-lg btn-danger"(click)="deleteEmployee(employe)" >Delete
       </button></td>
     </tr>
-    <tr>
-      <th scope="row">1</th>
-      <td>Wael Dhahri</td>
-      <td>IT321</td>
-      <td>Waeldhahri3@gmail.com</td>
-      <td>  <button mat-flat-button color="primary" style=" width: 130px;
-             background-color:#EBF9F1 ; color:#1F9254" class="btn-lg btn-danger">Edit
-      </button></td>
-      <td> <button mat-flat-button style=" width: 130px;  background-color:#FBE7E8 ; color:#A30D11"
-                   class="btn-lg btn-danger" >Delete
-      </button></td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Wassim Charrana</td>
-      <td>IT744</td>
-      <td>Wassim.chaarana@leoni.com</td>
-      <td>  <button mat-flat-button color="primary" style=" width: 130px;
-             background-color:#EBF9F1 ; color:#1F9254" class="btn-lg btn-danger">Edit
-      </button></td>
-      <td> <button mat-flat-button style=" width: 130px;  background-color:#FBE7E8 ; color:#A30D11"
-                   class="btn-lg btn-danger" >Delete
-      </button></td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td >Mohamed Aouichaoui</td>
-      <td>PR124</td>
-      <td>Mohamed.Aouichaoui@leoni.com</td>
-      <td>  <button mat-flat-button color="primary" style=" width: 130px;
-             background-color:#EBF9F1 ; color:#1F9254" class="btn-lg btn-danger">Edit
-      </button></td>
-      <td> <button mat-flat-button style=" width: 130px;  background-color:#FBE7E8 ; color:#A30D11"
-                   class="btn-lg btn-danger" >Delete
-      </button></td>
-    </tr>
-    <tr>
-      <th scope="row">4</th>
-      <td>Amine Jbelli</td>
-      <td>IT665</td>
-      <td>Amine.Jbelli@leoni.com</td>
-      <td>  <button mat-flat-button color="primary" style=" width: 130px;
-             background-color:#EBF9F1 ; color:#1F9254" class="btn-lg btn-danger">Edit
-      </button></td>
-      <td> <button mat-flat-button style=" width: 130px;  background-color:#FBE7E8 ; color:#A30D11"
-                   class="btn-lg btn-danger" >Delete
-      </button></td>
-    </tr>
-    <tr>
-      <th scope="row">5</th>
-      <td>Oussema Bahri</td>
-      <td>IT142</td>
-      <td>Oussema.bahri@leoni.com</td>
-      <td>  <button mat-flat-button color="primary" style=" width: 130px;
-             background-color:#EBF9F1 ; color:#1F9254" class="btn-lg btn-danger">Edit
-      </button></td>
-      <td> <button mat-flat-button style=" width: 130px;  background-color:#FBE7E8 ; color:#A30D11"
-                   class="btn-lg btn-danger" >Delete
-      </button></td>
-    </tr>
-    <tr>
-      <th scope="row">6</th>
-      <td >Ahmed Zrelli</td>
-      <td>VW302</td>
-      <td>Ahmed.Zrelli@leoni.com</td>
-      <td>  <button mat-flat-button color="primary" style=" width: 130px;
-             background-color:#EBF9F1 ; color:#1F9254" class="btn-lg btn-danger">Edit
-      </button></td>
-      <td> <button mat-flat-button style=" width: 130px;  background-color:#FBE7E8 ; color:#A30D11"
-                   class="btn-lg btn-danger" >Delete
-      </button></td>
-    </tr>
+
     </tbody>
   </table>
 </mat-card-content>

@@ -92,10 +92,10 @@
 
 
         <mat-form-field appearance="outline" class="" color="primary" style="width: 300px;">
-          <mat-select [multiple]="true" placeholder="Choose a Team">
+          <mat-select [multiple]="false" placeholder="Choose a Team" [(ngModel)]="searchText2" >
 
             <mat-select>
-              <input matInput [(ngModel)]="searchText" placeholder="Search...">
+              <input matInput placeholder="Search...">
             </mat-select>
 
             <mat-option *ngFor="let equipe of equipes" [value]="equipe">

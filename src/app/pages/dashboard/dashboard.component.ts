@@ -102,6 +102,61 @@ export type ChartOptions7 = {
   legend: ApexLegend;
 };
 
+export type ChartOptions8 = {
+  series: ApexAxisChartSeries;
+  chart: ApexChart;
+  dataLabels: ApexDataLabels;
+  plotOptions: ApexPlotOptions;
+  responsive: ApexResponsive[];
+  xaxis: ApexXAxis;
+  legend: ApexLegend;
+  fill: ApexFill;
+};
+export type ChartOptions9= {
+  series: ApexAxisChartSeries;
+  chart: ApexChart;
+  dataLabels: ApexDataLabels;
+  plotOptions: ApexPlotOptions;
+  xaxis: ApexXAxis;
+  yaxis: ApexYAxis;
+  stroke: ApexStroke;
+  title: ApexTitleSubtitle;
+  tooltip: ApexTooltip;
+  fill: ApexFill;
+  legend: ApexLegend;
+};
+
+export type ChartOptions10 = {
+  series: ApexAxisChartSeries;
+  chart: ApexChart;
+  xaxis: ApexXAxis;
+  stroke: ApexStroke;
+  dataLabels: ApexDataLabels;
+  markers: ApexMarkers;
+  colors: string[];
+  yaxis: ApexYAxis;
+  grid: ApexGrid;
+  legend: ApexLegend;
+  title: ApexTitleSubtitle;
+};
+
+export type ChartOptions11 = {
+  series: ApexAxisChartSeries | any;
+  chart: any; //ApexChart;
+  dataLabels: ApexDataLabels| any;
+  markers: ApexMarkers | any;
+  title: ApexTitleSubtitle| any;
+  fill: ApexFill;
+  yaxis: ApexYAxis| any;
+  xaxis: ApexXAxis| any;
+  tooltip: ApexTooltip| any;
+  stroke: ApexStroke| any;
+  grid: any; //ApexGrid;
+  colors: any;
+  toolbar: any;
+};
+
+
 
 @Component({
   selector: 'app-dashboard',
@@ -129,6 +184,59 @@ export class  AppDashboardComponent{
   public chartOptions5: Partial<ChartOptions5>| any;
   public chartOptions6: Partial<ChartOptions6>| any;
   public chartOptions7: Partial<ChartOptions7>| any;
+  public chartOptions8: Partial<ChartOptions8> | any;
+  public chartOptions9: Partial<ChartOptions9> | any;
+  public chartOptions10: Partial<ChartOptions10> | any;
+
+
+
+  public chart1options: Partial<ChartOptions11>| any;
+  public chart2options: Partial<ChartOptions11>| any;
+  public chart3options: Partial<ChartOptions11>| any;
+  public chart4options: Partial<ChartOptions11>| any;
+  public commonOptions: Partial<ChartOptions11> = {
+    dataLabels: {
+      enabled: false
+    },
+    stroke: {
+      curve: "straight"
+    },
+    toolbar: {
+      tools: {
+        selection: false
+      }
+    },
+    markers: {
+      size: 6,
+      hover: {
+        size: 10
+      }
+    },
+    tooltip: {
+      followCursor: false,
+      theme: "dark",
+      x: {
+        show: false
+      },
+      marker: {
+        show: false
+      },
+      y: {
+        title: {
+          formatter: function() {
+            return "";
+          }
+        }
+      }
+    },
+    grid: {
+      clipMarkers: false
+    },
+    xaxis: {
+      type: "datetime"
+    }
+  };
+
 
   constructor() {
     this.chartOptions = {
@@ -570,7 +678,199 @@ export class  AppDashboardComponent{
     };
 
 
+    this.chartOptions8= {
+      series: [
+        {
+          name: "LTN 2",
+          data: [44, 55, 41, 67, 22, 43]
+        },
+        {
+          name: "LTN 3",
+          data: [13, 23, 20, 8, 13, 27]
+        },
+        {
+          name: "LTN 4",
+          data: [11, 17, 15, 15, 21, 14]
+        }, {
+          name: "LTN 5",
+          data: [11, 17, 15, 15, 21, 14]
+        }
+      ],
+      chart: {
+        type: "bar",
+        height: 350,
+        stacked: true,
+        stackType: "100%"
+      },
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            legend: {
+              position: "bottom",
+              offsetX: -10,
+              offsetY: 0
+            }
+          }
+        }
+      ],
+      xaxis: {
+        categories: [
+          "2023 S1",
+          "2023 S2",
+          "2023 S3",
+          "2023 S4",
+          "2024 S1",
+          "2024 S2",
 
+        ]
+      },
+      fill: {
+        opacity: 1
+      },
+      legend: {
+        position: "right",
+        offsetX: 0,
+        offsetY: 50
+      }
+    };
+
+    this.chartOptions9 = {
+      series: [
+        {
+          name: "LTN 2",
+          data: [44, 55, 41, 37, 22, 43, 21]
+        },
+        {
+          name: "LTN 3",
+          data: [53, 32, 33, 52, 13, 43, 32]
+        },
+        {
+          name: "LTN 4",
+          data: [12, 17, 11, 9, 15, 11, 20]
+        },
+        {
+          name: "LTN 5",
+          data: [9, 7, 5, 8, 6, 9, 4]
+        }
+      ],
+      chart: {
+        type: "bar",
+        height: 350,
+        stacked: true
+      },
+      plotOptions: {
+        bar: {
+          horizontal: true
+        }
+      },
+      stroke: {
+        width: 1,
+        colors: ["#fff"]
+      },
+      xaxis: {
+        categories: ["JANUARY", "February", "MARS", "APRIL", "MAY", "JUNI"],
+        labels: {
+          formatter: function(val : any) {
+            return val ;
+          }
+        }
+      },
+      yaxis: {
+        title: {
+          text: undefined
+        }
+      },
+      tooltip: {
+        y: {
+          formatter: function(val :any) {
+            return val + "K";
+          }
+        }
+      },
+      fill: {
+        opacity: 1
+      },
+      legend: {
+        position: "top",
+        horizontalAlign: "left",
+        offsetX: 40
+      }
+    };
+
+    this.chartOptions10 = {
+      series: [
+        {
+          name: "LTN 2",
+          data: [28, 29, 33, 36, 32, 32, 33]
+        },
+        {
+          name: "LTN 3",
+          data: [12, 11, 14, 18, 17, 13, 13]
+        },  {
+          name: "LTN 4",
+          data: [15, 20, 10, 27, 37, 32, 14]
+        },
+        {
+          name: "LTN 5",
+          data: [20, 16, 13, 10, 40, 9, 19]
+        }
+      ],
+      chart: {
+        height: 350,
+        type: "line",
+        dropShadow: {
+          enabled: true,
+          color: "#000",
+          top: 18,
+          left: 7,
+          blur: 10,
+          opacity: 0.2
+        },
+        toolbar: {
+          show: false
+        }
+      },
+      colors: ["#06222c","#77B6EA", "#bb7474","#218643"],
+      dataLabels: {
+        enabled: true
+      },
+      stroke: {
+        curve: "smooth"
+      },
+
+      grid: {
+        borderColor: "#e7e7e7",
+        row: {
+          colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
+          opacity: 0.5
+        }
+      },
+      markers: {
+        size: 1
+      },
+      xaxis: {
+        categories: ["01/05", "07/05", "14/05", "21/05", "28/05", "01/06", "07/06"],
+        title: {
+          text: "WEEK"
+        }
+      },
+      yaxis: {
+        title: {
+          text: "DURATION OF MEET"
+        },
+        min: 5,
+        max: 40
+      },
+      legend: {
+        position: "top",
+        horizontalAlign: "right",
+        floating: true,
+        offsetY: -25,
+        offsetX: -5
+      }
+    };
+    this.initCharts();
 
   }
 
@@ -603,6 +903,141 @@ export class  AppDashboardComponent{
 
 
 
+  public initCharts(): void {
+    this.chart1options = {
+      series: [
+        {
+          name: "chart1",
+          data: this.generateDayWiseTimeSeries(
+            new Date("11 Feb 2017").getTime(),
+            20,
+            {
+              min: 10,
+              max: 60
+            }
+          )
+        }
+      ],
+      chart: {
+        id: "fb",
+        group: "social",
+        type: "line",
+        height: 160
+      },
+      colors: ["#008FFB"],
+      yaxis: {
+        tickAmount: 2,
+        labels: {
+          minWidth: 40
+        }
+      }
+    };
+
+    this.chart2options = {
+      series: [
+        {
+          name: "chart2",
+          data: this.generateDayWiseTimeSeries(
+            new Date("11 Feb 2017").getTime(),
+            20,
+            {
+              min: 10,
+              max: 30
+            }
+          )
+        }
+      ],
+      chart: {
+        id: "tw",
+        group: "social",
+        type: "line",
+        height: 160
+      },
+      colors: ["#546E7A"],
+      yaxis: {
+        tickAmount: 2,
+        labels: {
+          minWidth: 40
+        }
+      }
+    };
+
+    this.chart3options = {
+      series: [
+        {
+          name: "chart3",
+          data: this.generateDayWiseTimeSeries(
+            new Date("11 Feb 2017").getTime(),
+            20,
+            {
+              min: 10,
+              max: 60
+            }
+          )
+        }
+      ],
+      chart: {
+        id: "yt",
+        group: "social",
+        type: "area",
+        height: 160
+      },
+      colors: ["#00E396"],
+      yaxis: {
+        tickAmount: 2,
+        labels: {
+          minWidth: 40
+        }
+      }
+    };
+    this.chart4options = {
+      series: [
+        {
+          name: "chart4",
+          data: this.generateDayWiseTimeSeries(
+            new Date("11 Feb 2017").getTime(),
+            20,
+            {
+              min: 10,
+              max: 60
+            }
+          )
+        }
+      ],
+      chart: {
+        id: "yt",
+        group: "social",
+        type: "area",
+        height: 160
+      },
+      colors: ["#e30066"],
+      yaxis: {
+        tickAmount: 2,
+        labels: {
+          minWidth: 40
+        }
+      }
+    };
+  }
+
+  public generateDayWiseTimeSeries(baseval :any, count :any, yrange :any): any[] {
+    let i = 0;
+    let series :any = [];
+    while (i < count) {
+      var x = baseval;
+      var y =
+        Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
+
+      series.push([x, y]);
+      baseval += 86400000;
+      i++;
+    }
+    return series;
+  }
+
+
+
+
 
 
 
@@ -616,6 +1051,7 @@ export class  AppDashboardComponent{
   popupWithScrollViewVisible6 = false;
   popupWithScrollViewVisible7 = false;
   popupWithScrollViewVisible8 = false;
+  popupWithScrollViewVisible9 = false;
 
 
 
@@ -651,7 +1087,7 @@ export class  AppDashboardComponent{
     stylingMode: 'contained',
     onClick: () => {
       this.popupVisible = false;
-      this.popupWithScrollViewVisible2 = false;
+      this.popupWithScrollViewVisible3 = false;
     },
   };
 
@@ -662,7 +1098,7 @@ export class  AppDashboardComponent{
     stylingMode: 'contained',
     onClick: () => {
       this.popupVisible = false;
-      this.popupWithScrollViewVisible2 = false;
+      this.popupWithScrollViewVisible4 = false;
     },
   };
 
@@ -673,7 +1109,7 @@ export class  AppDashboardComponent{
     stylingMode: 'contained',
     onClick: () => {
       this.popupVisible = false;
-      this.popupWithScrollViewVisible2 = false;
+      this.popupWithScrollViewVisible5 = false;
     },
   };
 
@@ -687,17 +1123,19 @@ export class  AppDashboardComponent{
   }
 
   showPopupWithScrollView3() {
-    this.popupWithScrollViewVisible2 = true;
+    this.popupWithScrollViewVisible3 = true;
   }
 
   showPopupWithScrollView4() {
-    this.popupWithScrollViewVisible2 = true;
+    this.popupWithScrollViewVisible4= true;
   }
 
   showPopupWithScrollView5() {
-    this.popupWithScrollViewVisible2 = true;
+    this.popupWithScrollViewVisible5 = true;
   }
-
+  showPopupWithScrollView6() {
+    this.popupWithScrollViewVisible6 = true;
+  }
 
 
 

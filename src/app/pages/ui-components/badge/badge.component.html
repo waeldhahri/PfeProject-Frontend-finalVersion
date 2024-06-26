@@ -52,5 +52,82 @@
 </mat-card>
 
 
+<div class="row">
 
 
+  <div class="col-lg-6">
+    <mat-card class=" cardWithShadow ">
+      <mat-card-content >
+        <mat-card-title>Developer Work Week</mat-card-title>
+        <div id="chart">
+          <apx-chart
+            [series]="chartOptions4.series"
+            [chart]="chartOptions4.chart"
+            [dataLabels]="chartOptions4.dataLabels"
+            [stroke]="chartOptions4.stroke"
+            [colors]="chartOptions4.colors"
+            [title]="chartOptions4.title"
+            [subtitle]="chartOptions4.subtitle"
+            [plotOptions]="chartOptions4.plotOptions"
+            [yaxis]="chartOptions4.yaxis"
+            [xaxis]="chartOptions4.xaxis"
+            [tooltip]="chartOptions4.tooltip"
+          ></apx-chart>
+        </div>
+      </mat-card-content>
+      <div class="d-flex justify-content-center ">
+        <button mat-flat-button color="primary"  class="btn-lg mr-3" (click)="showPopupWithScrollView()"
+                style="margin-bottom: 10px;width: 150px;border-radius: 10px;" >
+          Details
+        </button>
+      </div>
+    </mat-card>
+
+  </div>
+  <div class="col-lg-6">
+    <mat-card class=" cardWithShadow ">
+      <mat-card-content >
+        <mat-card-title>Average Team Tasks Completed Per Week</mat-card-title>
+        <!--The content below is only a placeholder and can be replaced.-->
+        <div id="chart">
+          <apx-chart
+            [series]="chartOptions5.series"
+            [chart]="chartOptions5.chart"
+            [fill]="chartOptions5.fill"
+            [legend]="chartOptions5.legend"
+            [plotOptions]="chartOptions5.plotOptions"
+            [xaxis]="chartOptions5.xaxis"
+          ></apx-chart>
+        </div>
+      </mat-card-content>
+      <div class="d-flex justify-content-center ">
+        <button mat-flat-button color="primary"  class="btn-lg mr-3" (click)="showPopupWithScrollView()"
+                style="margin-bottom: 10px;width: 150px;border-radius: 10px;" >
+          Details
+        </button>
+      </div>
+    </mat-card>
+
+  </div>
+</div>
+
+<!--<mat-card class="cardWithShadow">
+  <mat-card-content>
+    &lt;!&ndash;The content below is only a placeholder and can be replaced.&ndash;&gt;
+    &lt;!&ndash;The content below is only a placeholder and can be replaced.&ndash;&gt;
+    <div id="chart3">
+      <apx-chart
+        [series]="chartOptions3.series"
+        [chart]="chartOptions3.chart"
+        [xaxis]="chartOptions3.xaxis"
+        [dataLabels]="chartOptions3.dataLabels"
+        [yaxis]="chartOptions3.yaxis"
+        [legend]="chartOptions3.legend"
+        [fill]="chartOptions3.fill"
+        [markers]="chartOptions3.markers"
+        [title]="chartOptions3.title"
+        [tooltip]="chartOptions3.tooltip"
+      ></apx-chart>
+    </div>
+  </mat-card-content>
+</mat-card>-->

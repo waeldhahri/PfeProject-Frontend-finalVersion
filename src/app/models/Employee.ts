@@ -20,5 +20,7 @@ export class Employee {
 
   name!:String;
 
+  bloc2!:String;
+
 
 }

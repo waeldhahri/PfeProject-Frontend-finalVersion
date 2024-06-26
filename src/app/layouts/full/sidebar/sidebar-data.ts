@@ -40,15 +40,15 @@ export const navItems: NavItem[] = [
     roles:["USER","ADMIN","SUPERADMIN"]
   },
 
-  {
+/*  {
     displayName: 'Performance',
     iconName: 'layout-navbar-expand',
     route: '/ui-components/menu',
     roles:["USER","ADMIN","SUPERADMIN"]
-  },
+  },*/
   {
-    displayName: 'Project',
-    iconName: 'rosette',
+    displayName: 'Performance',
+    iconName: 'layout-navbar-expand',
     route: '/ui-components/badge',
     roles:["USER","ADMIN","SUPERADMIN"]
   },

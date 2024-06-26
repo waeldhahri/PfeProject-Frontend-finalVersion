@@ -56,12 +56,150 @@
 
   </div>
 
+</div>
+  <mat-card class="cardWithShadow">
+    <mat-card-content>
+      <mat-card-title>Average Team Meeting Duration per Week</mat-card-title>
+      <!--The content below is only a placeholder and can be replaced.-->
+      <!--The content below is only a placeholder and can be replaced.-->
+      <div id="chart7">
+        <apx-chart
+          [series]="chartOptions10.series"
+          [chart]="chartOptions10.chart"
+          [xaxis]="chartOptions10.xaxis"
+          [stroke]="chartOptions10.stroke"
+          [colors]="chartOptions10.colors"
+          [dataLabels]="chartOptions10.dataLabels"
+          [legend]="chartOptions10.legend"
+          [markers]="chartOptions10.markers"
+          [grid]="chartOptions10.grid"
+          [yaxis]="chartOptions10.yaxis"
+          [title]="chartOptions10.title"
+        ></apx-chart>
+      </div>
+    </mat-card-content>
+  </mat-card>
+<div class="row">
 
   <div class="col-lg-6">
     <mat-card class="cardWithShadow ">
       <mat-card-content>
         <!--The content below is only a placeholder and can be replaced.-->
         <!--The content below is only a placeholder and can be replaced.-->
+        <mat-card-title>Average Team Member Satisfaction Score </mat-card-title>
+        <div id="chart">
+          <apx-chart
+            [series]="chartOptions8.series"
+            [chart]="chartOptions8.chart"
+            [dataLabels]="chartOptions8.dataLabels"
+            [plotOptions]="chartOptions8.plotOptions"
+            [responsive]="chartOptions8.responsive"
+            [xaxis]="chartOptions8.xaxis"
+            [legend]="chartOptions8.legend"
+            [fill]="chartOptions8.fill"
+          ></apx-chart>
+        </div>
+
+      </mat-card-content>
+      <div class="d-flex justify-content-center ">
+        <button mat-flat-button color="primary"  class="btn-lg mr-3" (click)="showPopupWithScrollView3()"
+                style="margin-bottom: 10px;width: 150px;border-radius: 10px;" >
+          Details
+        </button>
+      </div>
+    </mat-card>
+
+  </div>
+
+  <div class="col-lg-6">
+    <mat-card class="cardWithShadow ">
+      <mat-card-content>
+        <!--The content below is only a placeholder and can be replaced.-->
+        <!--The content below is only a placeholder and can be replaced.-->
+        <mat-card-title>Average Number of Security Incidents Per Month</mat-card-title>
+        <div id="chart">
+          <apx-chart
+            [series]="chartOptions9.series"
+            [chart]="chartOptions9.chart"
+            [dataLabels]="chartOptions9.dataLabels"
+            [plotOptions]="chartOptions9.plotOptions"
+            [xaxis]="chartOptions9.xaxis"
+            [stroke]="chartOptions9.stroke"
+            [fill]="chartOptions9.fill"
+            [yaxis]="chartOptions9.yaxis"
+            [title]="chartOptions9.title"
+            [tooltip]="chartOptions9.tooltip"
+            [legend]="chartOptions9.legend"
+          ></apx-chart>
+        </div>
+
+      </mat-card-content>
+      <div class="d-flex justify-content-center ">
+        <button mat-flat-button color="primary"  class="btn-lg mr-3" (click)="showPopupWithScrollView4()"
+                style="margin-bottom: 10px;width: 150px;border-radius: 10px;" >
+          Details
+        </button>
+      </div>
+    </mat-card>
+
+  </div>
+
+</div>
+
+<mat-card class="cardWithShadow">
+  <mat-card-content>
+    <mat-card-title>Average Monthly Presence</mat-card-title>
+    <!--The content below is only a placeholder and can be replaced.-->
+    <!--The content below is only a placeholder and can be replaced.-->
+    <div id="chart7">
+      <apx-chart
+        [series]="chart1options.series"
+        [chart]="chart1options.chart"
+        [colors]="chart1options.colors"
+        [yaxis]="chart1options.yaxis"
+        [dataLabels]="commonOptions.dataLabels"
+        [markers]="commonOptions.markers"
+        [stroke]="commonOptions.stroke"
+        [grid]="commonOptions.grid"
+        [xaxis]="commonOptions.xaxis"
+        [tooltip]="commonOptions.tooltip"
+      ></apx-chart>
+      <apx-chart
+        [series]="chart2options.series"
+        [chart]="chart2options.chart"
+        [colors]="chart2options.colors"
+        [yaxis]="chart2options.yaxis"
+        [dataLabels]="commonOptions.dataLabels"
+        [markers]="commonOptions.markers"
+        [stroke]="commonOptions.stroke"
+        [grid]="commonOptions.grid"
+        [xaxis]="commonOptions.xaxis"
+        [tooltip]="commonOptions.tooltip"
+      ></apx-chart>
+      <apx-chart
+        [series]="chart3options.series"
+        [chart]="chart3options.chart"
+        [colors]="chart3options.colors"
+        [yaxis]="chart3options.yaxis"
+        [dataLabels]="commonOptions.dataLabels"
+        [markers]="commonOptions.markers"
+        [stroke]="commonOptions.stroke"
+        [grid]="commonOptions.grid"
+        [xaxis]="commonOptions.xaxis"
+        [tooltip]="commonOptions.tooltip"
+      ></apx-chart>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+
+
+<!--<div class="row">
+  <div class="col-lg-6">
+    <mat-card class="cardWithShadow ">
+      <mat-card-content>
+        &lt;!&ndash;The content below is only a placeholder and can be replaced.&ndash;&gt;
+        &lt;!&ndash;The content below is only a placeholder and can be replaced.&ndash;&gt;
         <div id="chart3">
           <apx-chart
             [series]="chartOptions3.series"
@@ -89,8 +227,8 @@
   <div class="col-lg-6">
     <mat-card class="cardWithShadow ">
       <mat-card-content>
-        <!--The content below is only a placeholder and can be replaced.-->
-        <!--The content below is only a placeholder and can be replaced.-->
+        &lt;!&ndash;The content below is only a placeholder and can be replaced.&ndash;&gt;
+        &lt;!&ndash;The content below is only a placeholder and can be replaced.&ndash;&gt;
         <div id="chart4">
           <apx-chart
             [series]="chartOptions4.series"
@@ -118,8 +256,8 @@
   <div class="col-lg-6">
     <mat-card class="cardWithShadow">
       <mat-card-content>
-        <!--The content below is only a placeholder and can be replaced.-->
-        <!--The content below is only a placeholder and can be replaced.-->
+        &lt;!&ndash;The content below is only a placeholder and can be replaced.&ndash;&gt;
+        &lt;!&ndash;The content below is only a placeholder and can be replaced.&ndash;&gt;
         <div id="chart5">
           <apx-chart
             [series]="chartOptions5.series"
@@ -136,8 +274,8 @@
   <div class="col-lg-6">
     <mat-card class="cardWithShadow">
       <mat-card-content>
-        <!--The content below is only a placeholder and can be replaced.-->
-        <!--The content below is only a placeholder and can be replaced.-->
+        &lt;!&ndash;The content below is only a placeholder and can be replaced.&ndash;&gt;
+        &lt;!&ndash;The content below is only a placeholder and can be replaced.&ndash;&gt;
         <div id="chart5">
           <apx-chart
             [series]="chartOptions7.series"
@@ -163,15 +301,15 @@
 
   </div>
 
-</div>
+</div>-->
 
 
 
 
-<mat-card class="cardWithShadow">
+<!--<mat-card class="cardWithShadow">
   <mat-card-content>
-    <!--The content below is only a placeholder and can be replaced.-->
-    <!--The content below is only a placeholder and can be replaced.-->
+    &lt;!&ndash;The content below is only a placeholder and can be replaced.&ndash;&gt;
+    &lt;!&ndash;The content below is only a placeholder and can be replaced.&ndash;&gt;
     <div id="chart6">
       <apx-chart
         [series]="chartOptions6.series"
@@ -187,7 +325,7 @@
       ></apx-chart>
     </div>
   </mat-card-content>
-</mat-card>
+</mat-card>-->
 
 
 
@@ -234,6 +372,124 @@
   [hideOnOutsideClick]="true"
   [showCloseButton]="true"
   [(visible)]="popupWithScrollViewVisible2"
+  title="Average Team Work Week"
+>
+  <div *dxTemplate="let data of 'content'">
+    <dx-scroll-view width="100%" height="100%">
+      <div class="caption">Description</div>
+      The KPI "Average Team Work Week" measures the average number of hours worked by the IT team of LEONI each week. This KPI helps to assess the workload, efficiency, and potential burnout of the team over time. It provides insights into whether the team
+      is working within a sustainable range or if adjustments need to be made to workload distribution.
+      <br /><br />
+      <div class="content">
+        Calculation Methodology
+        To calculate this KPI, use the following formulaire:
+
+        <div><B>AverageTeamWorkWeek
+          =</B></div>
+        <br /><br />
+
+        <div class="d-flex justify-content-center"><B>TotalNumberofHoursWorked</B></div>
+        <div class="d-flex justify-content-center"> ---------------------------------------------</div>
+        <div class="d-flex justify-content-center"><B> NumberofWeeks</B></div>
+        Where:
+<div>
+        * Total Number of Hours Worked: The sum of hours worked by all team members over a specified period.
+</div>
+        <div>
+        * Number of Weeks: The total number of weeks over which the hours are aggregated.
+      </div>
+      </div>
+    </dx-scroll-view>
+  </div>
+  <dxi-toolbar-item
+    widget="dxButton"
+    toolbar="bottom"
+    location="center"
+    [options]="bookButtonOptions2"
+  >
+  </dxi-toolbar-item>
+</dx-popup>
+
+
+
+<dx-popup
+  [width]="500"
+  [height]="450"
+  [hideOnOutsideClick]="true"
+  [showCloseButton]="true"
+  [(visible)]="popupWithScrollViewVisible3"
+  title="Average Team Member Satisfaction Score"
+>
+  <div *dxTemplate="let data of 'content'">
+    <dx-scroll-view width="100%" height="100%">
+      <div class="caption">Description</div>
+      The KPI "Average Team Member Satisfaction Score" measures the average satisfaction level of team members within an IT or engineering team over a specific period. This KPI helps to gauge the overall morale, engagement, and well-being of the team members
+      , which can directly impact productivity and retention rates.
+      <br /><br />
+      <div class="content">
+        Calculation Methodology
+        To calculate this KPI, use the following formulaire:
+
+        <div><B>Average Team Member Satisfaction Score
+          =</B></div>
+        <br /><br />
+
+        <div class="d-flex justify-content-center"><B>SatisfactionScores</B></div>
+        <div class="d-flex justify-content-center"> ---------------------------------------------</div>
+        <div class="d-flex justify-content-center"><B> Number of Team Members</B></div>
+      </div>
+    </dx-scroll-view>
+  </div>
+  <dxi-toolbar-item
+    widget="dxButton"
+    toolbar="bottom"
+    location="center"
+    [options]="bookButtonOptions3"
+  >
+  </dxi-toolbar-item>
+</dx-popup>
+<dx-popup
+  [width]="500"
+  [height]="450"
+  [hideOnOutsideClick]="true"
+  [showCloseButton]="true"
+  [(visible)]="popupWithScrollViewVisible4"
+  title="Average Number of Security Incidents Per Month"
+>
+  <div *dxTemplate="let data of 'content'">
+    <dx-scroll-view width="100%" height="100%">
+      <div class="caption">Description</div>The KPI "Average Number of Security Incidents Per Month" measures the average number of security incidents that occur within an organization each month. This KPI helps to evaluate the effectiveness of the security measures
+      in place and identify trends or areas of concern that may require additional attention.
+      <br /><br />
+      <div class="content">
+        Calculation Methodology
+        To calculate this KPI, use the following formulaire:
+
+        <div><B>Average Number of Security Incidents Per Month
+          =</B></div>
+        <br /><br />
+
+        <div class="d-flex justify-content-center"><B>TotalNumberofSecurityIncidents
+        </B></div>
+        <div class="d-flex justify-content-center"> ---------------------------------------------</div>
+        <div class="d-flex justify-content-center"><B> Number of Months </B></div>
+      </div>
+    </dx-scroll-view>
+  </div>
+  <dxi-toolbar-item
+    widget="dxButton"
+    toolbar="bottom"
+    location="center"
+    [options]="bookButtonOptions4"
+  >
+  </dxi-toolbar-item>
+</dx-popup>
+<dx-popup
+  [width]="500"
+  [height]="450"
+  [hideOnOutsideClick]="true"
+  [showCloseButton]="true"
+  [(visible)]="popupWithScrollViewVisible5"
   title="Average Team Tasks Completed Per Week"
 >
   <div *dxTemplate="let data of 'content'">
@@ -264,15 +520,12 @@
   >
   </dxi-toolbar-item>
 </dx-popup>
-
-
-
 <dx-popup
   [width]="500"
   [height]="450"
   [hideOnOutsideClick]="true"
   [showCloseButton]="true"
-  [(visible)]="popupWithScrollViewVisible2"
+  [(visible)]="popupWithScrollViewVisible6"
   title="Average Team Tasks Completed Per Week"
 >
   <div *dxTemplate="let data of 'content'">
@@ -299,115 +552,7 @@
     widget="dxButton"
     toolbar="bottom"
     location="center"
-    [options]="bookButtonOptions2"
-  >
-  </dxi-toolbar-item>
-</dx-popup>
-<dx-popup
-  [width]="500"
-  [height]="450"
-  [hideOnOutsideClick]="true"
-  [showCloseButton]="true"
-  [(visible)]="popupWithScrollViewVisible2"
-  title="Average Team Tasks Completed Per Week"
->
-  <div *dxTemplate="let data of 'content'">
-    <dx-scroll-view width="100%" height="100%">
-      <div class="caption">Wael</div>
-      The KPI "Average Team Tasks Completed Per Week" measures the average number of tasks completed by an IT team or engineering team each week. This KPI helps to assess
-      the productivity and efficiency of the team on a weekly basis.
-      <br /><br />
-      <div class="content">
-        Calculation Methodology
-        To calculate this KPI, use the following formulaire:
-
-        <div><B>AverageTeamTasksCompletedPerWeek
-          =</B></div>
-        <br /><br />
-
-        <div class="d-flex justify-content-center"><B>TotalNumberofTasksCompleted</B></div>
-        <div class="d-flex justify-content-center"> ---------------------------------------------</div>
-        <div class="d-flex justify-content-center"><B> NumberofWeeks</B></div>
-      </div>
-    </dx-scroll-view>
-  </div>
-  <dxi-toolbar-item
-    widget="dxButton"
-    toolbar="bottom"
-    location="center"
-    [options]="bookButtonOptions2"
-  >
-  </dxi-toolbar-item>
-</dx-popup>
-<dx-popup
-  [width]="500"
-  [height]="450"
-  [hideOnOutsideClick]="true"
-  [showCloseButton]="true"
-  [(visible)]="popupWithScrollViewVisible2"
-  title="Average Team Tasks Completed Per Week"
->
-  <div *dxTemplate="let data of 'content'">
-    <dx-scroll-view width="100%" height="100%">
-      <div class="caption">Wael</div>
-      The KPI "Average Team Tasks Completed Per Week" measures the average number of tasks completed by an IT team or engineering team each week. This KPI helps to assess
-      the productivity and efficiency of the team on a weekly basis.
-      <br /><br />
-      <div class="content">
-        Calculation Methodology
-        To calculate this KPI, use the following formulaire:
-
-        <div><B>AverageTeamTasksCompletedPerWeek
-          =</B></div>
-        <br /><br />
-
-        <div class="d-flex justify-content-center"><B>TotalNumberofTasksCompleted</B></div>
-        <div class="d-flex justify-content-center"> ---------------------------------------------</div>
-        <div class="d-flex justify-content-center"><B> NumberofWeeks</B></div>
-      </div>
-    </dx-scroll-view>
-  </div>
-  <dxi-toolbar-item
-    widget="dxButton"
-    toolbar="bottom"
-    location="center"
-    [options]="bookButtonOptions2"
-  >
-  </dxi-toolbar-item>
-</dx-popup>
-<dx-popup
-  [width]="500"
-  [height]="450"
-  [hideOnOutsideClick]="true"
-  [showCloseButton]="true"
-  [(visible)]="popupWithScrollViewVisible2"
-  title="Average Team Tasks Completed Per Week"
->
-  <div *dxTemplate="let data of 'content'">
-    <dx-scroll-view width="100%" height="100%">
-      <div class="caption">Wael</div>
-      The KPI "Average Team Tasks Completed Per Week" measures the average number of tasks completed by an IT team or engineering team each week. This KPI helps to assess
-      the productivity and efficiency of the team on a weekly basis.
-      <br /><br />
-      <div class="content">
-        Calculation Methodology
-        To calculate this KPI, use the following formulaire:
-
-        <div><B>AverageTeamTasksCompletedPerWeek
-          =</B></div>
-        <br /><br />
-
-        <div class="d-flex justify-content-center"><B>TotalNumberofTasksCompleted</B></div>
-        <div class="d-flex justify-content-center"> ---------------------------------------------</div>
-        <div class="d-flex justify-content-center"><B> NumberofWeeks</B></div>
-      </div>
-    </dx-scroll-view>
-  </div>
-  <dxi-toolbar-item
-    widget="dxButton"
-    toolbar="bottom"
-    location="center"
-    [options]="bookButtonOptions2"
+    [options]="bookButtonOptions"
   >
   </dxi-toolbar-item>
 </dx-popup>

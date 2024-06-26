@@ -1,12 +1,21 @@
 import {Component, OnInit, ViewChild , ElementRef} from '@angular/core';
-
-import Swal from 'sweetalert2';
+import { dataSeries } from "./data-series";
+import * as moment from "moment";
 import {
-  ApexChart, ApexAxisChartSeries, ApexXAxis,
-  ApexStroke, ApexGrid, ApexDataLabels, ApexTooltip,
-  ApexMarkers, ApexTitleSubtitle, ApexFill, ApexYAxis,
-  ApexLegend, ApexPlotOptions, ChartComponent
-} from 'ng-apexcharts';
+  ApexNonAxisChartSeries,
+  ApexPlotOptions,
+  ApexChart,
+  ApexLegend,
+  ApexResponsive,
+  ChartComponent, ApexStroke, ApexFill, ApexAxisChartSeries
+  , ApexDataLabels, ApexXAxis,
+  ApexYAxis, ApexTooltip,ApexTitleSubtitle, ApexGrid,
+  ApexAnnotations, NgApexchartsModule,ApexMarkers,
+
+} from "ng-apexcharts";
+import Swal from 'sweetalert2';
+import {DxButtonTypes} from "devextreme-angular/ui/button";
+
 
 
 
@@ -28,7 +37,48 @@ export type ChartOptions = {
   plotOptions?: ApexPlotOptions;
   labels?: string[];
 };
+export type ChartOptions2= {
+  series: ApexNonAxisChartSeries;
+  chart: ApexChart;
+  responsive: ApexResponsive[];
+  labels: any;
+  stroke: ApexStroke;
+  fill: ApexFill;
+};
 
+export type ChartOptions3 = {
+  series: ApexAxisChartSeries;
+  chart: ApexChart;
+  xaxis: ApexXAxis;
+  dataLabels: ApexDataLabels;
+  yaxis: ApexYAxis;
+  legend: ApexLegend;
+  fill: ApexFill;
+  markers: ApexMarkers;
+  title: ApexTitleSubtitle;
+  tooltip: ApexTooltip;
+};
+export type ChartOptions4 = {
+  series: ApexAxisChartSeries;
+  chart: ApexChart;
+  xaxis: ApexXAxis;
+  stroke: ApexStroke;
+  dataLabels: ApexDataLabels;
+  plotOptions: ApexPlotOptions;
+  yaxis: ApexYAxis;
+  tooltip: ApexTooltip;
+  colors: string[];
+  title: ApexTitleSubtitle;
+  subtitle: ApexTitleSubtitle;
+};
+export type ChartOptions5 = {
+  series: ApexAxisChartSeries;
+  chart: ApexChart;
+  fill: ApexFill;
+  legend: ApexLegend;
+  xaxis: ApexXAxis;
+  plotOptions: ApexPlotOptions;
+};
 
 @Component({
   selector: 'app-badge',
@@ -47,9 +97,12 @@ export class AppBadgeComponent  {
   public optionsBar: Partial<ChartOptions>| any;
   public optionsArea: Partial<ChartOptions>| any;
 
+  public chartOptions2: Partial<ChartOptions2> | any;
+  public chartOptions3: Partial<ChartOptions3> | any;
 
 
-
+  public chartOptions4: Partial<ChartOptions4> | any;
+  public chartOptions5: Partial<ChartOptions5> | any;
 
 
 
@@ -519,15 +572,380 @@ export class AppBadgeComponent  {
       }
     };
 
+    this.chartOptions2 = {
+      series: [30, 18, 21, 36, 28,25],
+      labels: ["LTN2", "LTN3", "LTN4", "LTN5","LTN6","LTN7"],
+      chart: {
+        type: "polarArea"
+      },
+      stroke: {
+        colors: ["#fff"]
+      },
+      fill: {
+        opacity: 1
+      },
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
 
 
+    this.chartOptions3 = {
+      series: [
+        {
+          name: "PRODUCT A",
+          data: this.generateDataSets(0)
+        },
+        {
+          name: "PRODUCT B",
+          data: this.generateDataSets(1)
+        },
+        {
+          name: "PRODUCT C",
+          data: this.generateDataSets(2)
+        }
+      ],
+      chart: {
+        type: "area",
+        stacked: false,
+        height: 350,
+        zoom: {
+          enabled: false
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      markers: {
+        size: 0
+      },
+      fill: {
+        type: "gradient",
+        gradient: {
+          shadeIntensity: 1,
+          inverseColors: false,
+          opacityFrom: 0.45,
+          opacityTo: 0.05,
+          stops: [20, 100, 100, 100]
+        }
+      },
+      yaxis: {
+        labels: {
+          style: {
+            color: "#8e8da4"
+          },
+          offsetX: 0,
+          formatter: function(val:any) {
+            return (val / 1000000).toFixed(2);
+          }
+        },
+        axisBorder: {
+          show: false
+        },
+        axisTicks: {
+          show: false
+        }
+      },
+      xaxis: {
+        type: "datetime",
+        tickAmount: 8,
+        min: new Date("01/01/2014").getTime(),
+        max: new Date("01/20/2014").getTime(),
+        labels: {
+          rotate: -15,
+          rotateAlways: true,
+          formatter: function(val:any, timestamp:any) {
+            return moment(new Date(timestamp)).format("DD MMM YYYY");
+          }
+        }
+      },
+      title: {
+        text: "Irregular Data in Time Series",
+        align: "left",
+        offsetX: 14
+      },
+      tooltip: {
+        shared: true
+      },
+      legend: {
+        position: "top",
+        horizontalAlign: "right",
+        offsetX: -10
+      }
+    };
+    this.chartOptions4 = {
+      series: [
+        {
+          data: [50, 43, 15, 33, 20, 18]
+        }
+      ],
+      chart: {
+        type: "bar",
+        height: 380
+      },
+      plotOptions: {
+        bar: {
+          barHeight: "100%",
+          distributed: true,
+          horizontal: true,
+          dataLabels: {
+            position: "bottom"
+          }
+        }
+      },
+      colors: [
+        "#33b2df",
+        "#546E7A",
+        "#d4526e",
+        "#13d8aa",
+        "#A5978B",
+        "#2b908f",
+        /*"#f9a3a4",
+        "#90ee7e",
+        "#f48024",
+        "#69d2e7"*/
+      ],
+      dataLabels: {
+        enabled: true,
+        textAnchor: "start",
+        style: {
+          colors: ["#fff"]
+        },
+        formatter: function(val: any, opt : any) {
+          return opt.w.globals.labels[opt.dataPointIndex] + ":  " + val;
+        },
+        offsetX: 0,
+        dropShadow: {
+          enabled: true
+        }
+      },
+      stroke: {
+        width: 1,
+        colors: ["#fff"]
+      },
+      xaxis: {
+        categories: [
+          "Mohamed Zrelli",
+          "Wael Dhahri",
+          "Wassim chaarana",
+          "Achref Fajjeri",
+          "Raslen Harrabi",
+          "Amine Fatnassi",
+        ]
+      },
+      yaxis: {
+        labels: {
+          show: false
+        }
+      },
 
 
-
+      tooltip: {
+        theme: "dark",
+        x: {
+          show: false
+        },
+        y: {
+          title: {
+            formatter: function() {
+              return "";
+            }
+          }
+        }
+      }
+    };
+    this.chartOptions5 = {
+      series: [
+        {
+          name: "Wassim Chaaraana",
+          data: [
+            {
+              x: "Design",
+              y: [
+                new Date("2024-03-05").getTime(),
+                new Date("2024-03-08").getTime()
+              ]
+            },
+            {
+              x: "Code",
+              y: [
+                new Date("2024-03-02").getTime(),
+                new Date("2024-03-05").getTime()
+              ]
+            },
+            {
+              x: "Code",
+              y: [
+                new Date("2024-03-05").getTime(),
+                new Date("2024-03-07").getTime()
+              ]
+            },
+            {
+              x: "Test",
+              y: [
+                new Date("2024-03-03").getTime(),
+                new Date("2024-03-09").getTime()
+              ]
+            },
+            {
+              x: "Test",
+              y: [
+                new Date("2024-03-08").getTime(),
+                new Date("2024-03-11").getTime()
+              ]
+            },
+            {
+              x: "Validation",
+              y: [
+                new Date("2024-03-11").getTime(),
+                new Date("2024-03-16").getTime()
+              ]
+            },
+            {
+              x: "Design",
+              y: [
+                new Date("2024-03-01").getTime(),
+                new Date("2024-03-03").getTime()
+              ]
+            }
+          ]
+        },
+        {
+          name: "Mohamed Zrelli",
+          data: [
+            {
+              x: "Design",
+              y: [
+                new Date("2024-03-02").getTime(),
+                new Date("2024-03-05").getTime()
+              ]
+            },
+            {
+              x: "Test",
+              y: [
+                new Date("2024-03-06").getTime(),
+                new Date("2024-03-16").getTime()
+              ]
+            },
+            {
+              x: "Code",
+              y: [
+                new Date("2024-03-03").getTime(),
+                new Date("2024-03-07").getTime()
+              ]
+            },
+            {
+              x: "Deployment",
+              y: [
+                new Date("2024-03-20").getTime(),
+                new Date("2024-03-22").getTime()
+              ]
+            },
+            {
+              x: "Design",
+              y: [
+                new Date("2024-03-10").getTime(),
+                new Date("2024-03-16").getTime()
+              ]
+            }
+          ]
+        },
+        {
+          name: "Wael Dhahri",
+          data: [
+            {
+              x: "Code",
+              y: [
+                new Date("2024-03-10").getTime(),
+                new Date("2024-03-17").getTime()
+              ]
+            },
+            {
+              x: "Validation",
+              y: [
+                new Date("2024-03-05").getTime(),
+                new Date("2024-03-09").getTime()
+              ]
+            }
+          ]
+        }
+      ],
+      chart: {
+        height: 450,
+        type: "rangeBar"
+      },
+      plotOptions: {
+        bar: {
+          horizontal: true,
+          barHeight: "80%"
+        }
+      },
+      xaxis: {
+        type: "datetime"
+      },
+      fill: {
+        type: "gradient",
+        gradient: {
+          shade: "light",
+          type: "vertical",
+          shadeIntensity: 0.25,
+          gradientToColors: undefined,
+          inverseColors: true,
+          opacityFrom: 1,
+          opacityTo: 1,
+          stops: [50, 0, 100, 100]
+        }
+      },
+      legend: {
+        position: "top",
+        horizontalAlign: "left"
+      }
+    };
 
   }
 
 
+  public generateDataSets = function(t:any) {
+    var ts1 = 1388534400000;
+    var ts2 = 1388620800000;
+    var ts3 = 1389052800000;
+
+    var dataSet : any = [[], [], []];
+
+    for (let i = 0; i < 12; i++) {
+      ts1 = ts1 + 86400000;
+      const innerArr  = [ts1, dataSeries[2][i].value];
+      dataSet[0].push(innerArr);
+    }
+    for (let i = 0; i < 18; i++) {
+      ts2 = ts2 + 86400000;
+      const innerArr = [ts2, dataSeries[1][i].value];
+      dataSet[1].push(innerArr);
+    }
+    for (let i = 0; i < 12; i++) {
+      ts3 = ts3 + 86400000;
+      const innerArr = [ts3, dataSeries[0][i].value];
+      dataSet[2].push(innerArr);
+    }
+
+    if (t === 0) {
+      return dataSet[0];
+    } else if (t === 1) {
+      return dataSet[1];
+    } else {
+      return dataSet[2];
+    }
+  };
 
 
 
@@ -674,6 +1092,27 @@ export class AppBadgeComponent  {
 
 
 
+  popupVisible = false;
+
+  popupWithScrollViewVisible = false;
+  popupWithScrollViewVisible2 = false;
+  bookButtonOptions: DxButtonTypes.Properties = {
+    width: 300,
+    text: 'Understood',
+    type: 'default',
+    stylingMode: 'contained',
+    onClick: () => {
+      this.popupVisible = false;
+      this.popupWithScrollViewVisible = false;
+    },
+  };
+  showPopupWithScrollView() {
+    this.popupWithScrollViewVisible = true;
+  }
+
+  showPopupWithScrollView2() {
+    this.popupWithScrollViewVisible2 = true;
+  }
 
 }
 

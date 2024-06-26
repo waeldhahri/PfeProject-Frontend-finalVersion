@@ -112,6 +112,8 @@ export class AppListsComponent implements OnInit, OnDestroy,AfterViewInit  {
   isClicked= true;
 
   searchText!: any;
+  searchText2!: any;
+
   persons: any[] = [{name: 'Employe',role: 'USER'}, {name: 'Manager',role: 'ADMIN'}
     ,{name: 'HR',role: 'SUPERADMIN'}];
   equipes : string[] = ['LTN 2', 'LTN 3' , 'LTN 4', 'LTN 5' ,'LTN 6'] ;
@@ -155,6 +157,7 @@ export class AppListsComponent implements OnInit, OnDestroy,AfterViewInit  {
         //this.router.navigate(['/ui-components/register']);
       this.newemploye = new RegistrarRequest();
       this.searchText = null;
+      this.searchText2=null;
         },
 
         error => console.log(error));
@@ -163,6 +166,7 @@ export class AppListsComponent implements OnInit, OnDestroy,AfterViewInit  {
   onSubmit(){
 
     this.onSearchTextChange();
+    this.onSearchTextChange2();
     console.log(this.newemploye)
     this.checkUser();
     //this.dialog.open(DialogElementsExampleDialog3);
@@ -407,4 +411,11 @@ export class AppListsComponent implements OnInit, OnDestroy,AfterViewInit  {
       this.newemploye.role = this.searchText.role;
   }
 
+
+
+  onSearchTextChange2() {
+    // ** Nouvelle méthode ajoutée pour mettre à jour newemploye.roles **
+    if (this.searchText2)
+      this.newemploye.bloc2 = this.searchText2;
+  }
 }
