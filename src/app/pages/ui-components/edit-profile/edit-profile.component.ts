@@ -2,7 +2,7 @@ import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular
 import { MatDrawer } from '@angular/material/sidenav';
 import { Employee } from 'src/app/models/Employee';
 import { EmployeeService } from 'src/app/services/employee.service';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import Swal from "sweetalert2";
 
@@ -42,9 +42,10 @@ export class EditProfileComponent
 
     searchText!: any;
 
-  persons: any[] = [{name: 'Employe',role: 'USER'}, {name: 'Manager',role: 'ADMIN'}
-    ,{name: 'HR',role: 'SUPERADMIN'}];
-    equipes : string[] = ['Team A', 'Team B' , 'Team C', 'Team D' ,'Team F '] ;
+  persons: any[] = [{libelle: 'Employe',name: 'USER', id: 1}, {libelle: 'Manager',name: 'ADMIN', id: 2}
+    ,{libelle: 'HR',name: 'SUPERADMIN', id: 3}];
+  equipes : string[] = ['LTN 2', 'LTN 3' , 'LTN 4', 'LTN 5' ,'LTN 6'] ;
+    selectedEmploye!: Employee;
 
 
 
@@ -65,13 +66,14 @@ export class EditProfileComponent
 
 
 
-    constructor(private employee:EmployeeService, private route: ActivatedRoute , private fb: FormBuilder) {}
+    constructor(private employeeService:EmployeeService, private route: ActivatedRoute , private fb: FormBuilder,
+                private router: Router) {}
 
 
 
 
     private getEmployees(){
-      this.employee.getEmployeeList().subscribe(data =>{
+      this.employeeService.getEmployeeList().subscribe(data =>{
         this.employees=data ;
         console.log("wael");
       });
@@ -98,15 +100,19 @@ export class EditProfileComponent
       });
 
       if (employeeId) {
-        this.employee.getEmployeeById(employeeId).subscribe(employee => {
+        this.employeeService.getEmployeeById(employeeId).subscribe(employee => {
+          this.selectedEmploye = employee;
           this.editProfileForm = this.fb.group({
             name: [employee.name],
             email: [employee.email],
             identifiant : [employee.identifiant],
-            bloc2: [employee.bloc2],
-            roles: [employee.roles],
+            bloc2: this.equipes.find(data => data == employee.bloc2),
+            status: [this.persons.find(data => data.name == employee.roles.name)]
+
           });
+          console.log(employee)
         });
+
       }
 
             this.getEmployees();
@@ -184,7 +190,7 @@ export class EditProfileComponent
   onSubmit2(): void {
     const employeeId : any = this.route.snapshot.paramMap.get('id');
     if (this.editProfileForm.valid) {
-      this.employee.updateEmployee(employeeId , this.editProfileForm.value).subscribe(() => {
+      this.employeeService.updateEmployee(employeeId , this.editProfileForm.value).subscribe(() => {
         // Handle successful update
       });
     }
@@ -227,14 +233,33 @@ export class EditProfileComponent
     }).then((result) => {
       if (result.isConfirmed) {
         //this.handleOkAction();
-        window.location.reload();
+        //window.location.reload();
       }
 
     });
   }
 
   update() {
-    this.showSuccessPopup();
+      let employe = this.buildEmploye();
+      this.employeeService.updateEmployee(this.selectedEmploye.employeeId, employe).subscribe(res => {
+        this.showSuccessPopup();
+        switch (employe?.roles?.name) {
+          case 'USER': this.router.navigate(['/ui-components/employelist']); break
+          case 'ADMIN': this.router.navigate(['/ui-components/managerlist']); break;
+          case 'SUPERADMIN': this.router.navigate(['/ui-components/register']); break;        }
+        console.log(res)
+      })
 
+
+  }
+
+  private buildEmploye() {
+    let employe = new Employee();
+    employe.username = this.editProfileForm.value['name']
+    employe.email = this.editProfileForm.value['email']
+    employe.identifiant = this.editProfileForm.value['identifiant']
+    employe.roles = this.editProfileForm.value['status']
+    employe.bloc2 = this.editProfileForm.value['bloc2']
+    return employe;
   }
 }

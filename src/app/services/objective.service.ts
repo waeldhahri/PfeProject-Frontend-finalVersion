@@ -27,7 +27,7 @@ export class ObjectiveService {
   getobjectifById(objectifId: any): Observable<Objective>{
     return this.httpClient.get<Objective>(`${this.baseURL}/${objectifId}`);
   }
-  updateobjectif(objectifId: string, objectif: Objective): Observable<void> {
+  updateobjectif(objectifId: number, objectif: Objective): Observable<void> {
     return this.httpClient.put<void>(`${this.baseURL}/${objectifId}`, objectif);
   }
 }
