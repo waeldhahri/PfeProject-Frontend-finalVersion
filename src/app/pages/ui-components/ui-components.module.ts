@@ -38,7 +38,8 @@ import {EditPasswordComponent} from "./edit-password/edit-password.component";
 import {EditProfileComponent} from "./edit-profile/edit-profile.component";
 import {ListEmployeeComponent} from "./list-employee/list-employee.component";
 import {ListProjectManagerComponent} from "./list-project-manager/list-project-manager.component";
-import {DxDataGridModule} from "devextreme-angular";
+import {DxDataGridModule, DxPopupModule, DxScrollViewModule} from "devextreme-angular";
+import { UpdateObjectifComponent } from './update-objectif/update-objectif.component';
 
 @NgModule({
   imports: [
@@ -52,7 +53,7 @@ import {DxDataGridModule} from "devextreme-angular";
     MatLegacyChipsModule, MatFormFieldModule, MatInputModule, MatTableModule,
     MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule,
     DecimalPipe, FormsModule, AsyncPipe, NgbdSortableHeader, NgApexchartsModule,
-    CanvasJSAngularChartsModule, DxDataGridModule,NgbPopoverModule
+    CanvasJSAngularChartsModule, DxDataGridModule, NgbPopoverModule, DxPopupModule, DxScrollViewModule
 
 
   ],
@@ -67,7 +68,7 @@ import {DxDataGridModule} from "devextreme-angular";
     ProfileComponent,
     TreeComponent,AppBadgeComponent
 ,EditPasswordComponent , EditProfileComponent ,ListEmployeeComponent
-    , ListProjectManagerComponent,
+    , ListProjectManagerComponent, UpdateObjectifComponent,
   ],
 
 

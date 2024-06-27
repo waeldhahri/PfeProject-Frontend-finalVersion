@@ -37,10 +37,10 @@ export class ListProjectManagerComponent implements OnInit {
   }
 
 
-  gotoupdateprofile() {
-    this.router.navigate(['/ui-components/Editprofile']);
+  gotoupdateprofile(employeeId: any): void  {
+    this.router.navigate(['/ui-components/Editprofile',employeeId]);
+    console.log(employeeId);
   }
-
 
 
   deleteEmployee(employe: Employee) {

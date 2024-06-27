@@ -16,6 +16,7 @@ import {MatCardModule} from "@angular/material/card";
 import {NgApexchartsModule} from "ng-apexcharts";
 
 import { NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-objectifs-final',
@@ -62,7 +63,7 @@ export class ObjectifsFinalComponent implements OnInit , OnDestroy{
 
 
 constructor(private objectiveListService:ObjectifListServiceService,
-            public dialog: MatDialog , private _location: Location,) {
+            public dialog: MatDialog , private _location: Location, private router:Router) {
 }
 
 
@@ -363,15 +364,20 @@ constructor(private objectiveListService:ObjectifListServiceService,
 
   hasautority() {
     const role = JSON.parse(localStorage.getItem("role") || '{}');
-    return role == "ADMIN" || role=="SUPERADMIN" ;
+    return role == "ADMIN" || role == "SUPERADMIN" ;
 
   }
 
   filterObjectifs(){
     const role = JSON.parse(localStorage.getItem("role") || '{}');
     if (role == "USER") {
-      this.pageSize=2;
+      this.pageSize=1;
     }
+  }
+
+  gotoupdateobjectif(objectifId: any): void  {
+    this.router.navigate(['/ui-components/updateObjectif',objectifId]);
+    console.log(objectifId);
   }
 }
 

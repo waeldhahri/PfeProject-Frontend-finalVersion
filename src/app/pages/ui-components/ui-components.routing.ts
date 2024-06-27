@@ -15,6 +15,7 @@ import {EditProfileComponent} from "./edit-profile/edit-profile.component";
 import {ListEmployeeComponent} from "./list-employee/list-employee.component";
 import {ListProjectManagerComponent} from "./list-project-manager/list-project-manager.component";
 import {authGuard} from "../../guard/auth.guard";
+import {UpdateObjectifComponent} from "./update-objectif/update-objectif.component";
 
 export const UiComponentsRoutes: Routes = [
   {
@@ -42,6 +43,13 @@ export const UiComponentsRoutes: Routes = [
         component: AppChipsComponent,
         canActivate:[authGuard],data: {
           permission : ["ADMIN", "SUPERADMIN"]
+        }
+      },
+      {
+        path: 'updateObjectif/:objectifId',
+        component: UpdateObjectifComponent,
+        canActivate:[authGuard],data: {
+          permission : ["SUPERADMIN"]
         }
       },
       {
@@ -91,7 +99,7 @@ export const UiComponentsRoutes: Routes = [
       }
       ,
       {
-        path:'Editprofile',
+        path:'Editprofile/:employeeId',
         component:EditProfileComponent,canActivate:[authGuard],data: {
           permission : ["USER","ADMIN", "SUPERADMIN"]
         }

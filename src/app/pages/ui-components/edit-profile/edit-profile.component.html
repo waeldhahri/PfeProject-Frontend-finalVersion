@@ -5,6 +5,7 @@
   </mat-card-header>
 
   <mat-card-content class="b-t-1"  >
+    <form [formGroup]="editProfileForm" >
     <div class="row"  >
       <div class="col-sm-6 col-lg-6">
 
@@ -16,7 +17,7 @@
         </mat-label
         >
         <mat-form-field appearance="outline" class="w-100" color="primary" >
-          <input matInput id="objectifTitle" />
+          <input matInput id="name" formControlName="name" />
         </mat-form-field>
 
 
@@ -35,7 +36,7 @@
         </mat-label
         >
         <mat-form-field appearance="outline" class="w-100" color="primary" >
-          <input matInput  id="objectiveType" type="email" />
+          <input matInput  id="objectiveType" type="email" formControlName="email"  />
         </mat-form-field>
 
 
@@ -47,66 +48,85 @@
 
 
 
-    <div class="container d-flex">
-
+    <div class="container d-flex justify-content-sm-end">
 
 
       <div class="col-sm-6 col-lg-4">
-
-
 
 
         <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
         >Identifier
         </mat-label
         >
-        <mat-form-field appearance="outline"  color="primary"
+        <mat-form-field appearance="outline" color="primary"
                         style="width: 300px;">
-          <input matInput  id="identifier" />
+          <input matInput id="identifier" formControlName="identifiant"  />
 
 
         </mat-form-field>
 
 
-
       </div>
 
 
-
       <div class="col-sm-6 col-lg-4">
-
-
 
 
         <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
         >Status
         </mat-label
         >
-        <mat-form-field appearance="outline" class="" color="primary"  style="width: 300px;">
-          <mat-select [multiple]="true" placeholder="choose a person">
+        <mat-form-field appearance="outline" class="" color="primary" style="width: 300px;">
+          <mat-select [multiple]="false" placeholder="Choose a Status" >
 
-            <mat-select>
-              <input matInput [(ngModel)]="searchText" placeholder="Search...">
+            <mat-select >
+              <input matInput  placeholder="Search..." formControlName="roles.name">
             </mat-select>
 
-            <mat-option *ngFor="let person of filteredPersons" [value]="person">
-              {{ person }}
+            <mat-option *ngFor="let person of persons" [value]="person">
+              {{ person.name }}
             </mat-option>
           </mat-select>
         </mat-form-field>
 
 
-
       </div>
 
 
+      <div class="col-sm-6 col-lg-4">
 
 
+        <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
+        >Team
+        </mat-label
+        >
 
 
+        <mat-form-field appearance="outline" class="" color="primary" style="width: 300px;">
+          <mat-select [multiple]="false" placeholder="Choose a Team"  >
+
+            <mat-select >
+              <input matInput placeholder="Search..." formControlName="bloc2">
+            </mat-select>
+
+            <mat-option *ngFor="let equipe of equipes" [value]="equipe">
+              {{ equipe }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
 
 
+        <!--
+                    <mat-option value="wael">wael</mat-option>
+                    <mat-option value="wassim">wassim</mat-option>
+                    <mat-option value="wael">wael</mat-option>
+                    <mat-option value="wassim">wassim</mat-option>
+                  </mat-select>
+                </mat-form-field>
 
+        -->
+
+      </div>
 
 
     </div>
@@ -160,7 +180,7 @@
 
 
         style="margin-right: 30px; width: 200px;background-color: Green; color: white;"
-        class="btn-lg btn-danger" (click)="toggleDrawerAndFiller()"
+        class="btn-lg btn-danger" (click)="update()"
       >
         Update
       </button>
@@ -172,7 +192,7 @@
     </div>
 
 
-
+    </form>
 
   </mat-card-content>
 

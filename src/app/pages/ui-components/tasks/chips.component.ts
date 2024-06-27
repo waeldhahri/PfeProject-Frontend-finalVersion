@@ -22,8 +22,11 @@ export class AppChipsComponent implements OnInit{
   objective :  Objective = new Objective();
 
   searchText!: string[];
+  searchText2!: string;
   persons: string[] = ['Wassim Chaaranna', 'Mohamed Zrelli', 'Mohamed Gharbi', 'Amine Fatnassi'];
 
+  types: string[] = ['Operations', 'IOT', 'DEVOPS', 'Développement Web / Mobile' ,'Cloud','UI/UX',
+    'Infrastructure IT et Gestion des Réseaux' , 'Intelligence Artificielle' ,' Big Data'];
 constructor(private objectifSevice :ObjectiveService ,
             private router : Router,public dialog: MatDialog) {
 }
@@ -53,6 +56,8 @@ goToObjectifList(){
 
 onSubmit(){
   if (this.searchText && this.searchText.length != 0)
+
+    this.objective.objectifType=this.searchText2
     this.objective.assigned = this.searchText.join("\n")
 console.log(this.objective)
   this.checkObjective();
@@ -116,6 +121,12 @@ console.log(this.objective)
   deleteReload() {
     window.location.reload();
 
+  }
+
+
+  gotoupdateobjectif(objectifId: any): void  {
+    this.router.navigate(['/ui-components/updateObjectif',objectifId]);
+    console.log(objectifId);
   }
 }
 

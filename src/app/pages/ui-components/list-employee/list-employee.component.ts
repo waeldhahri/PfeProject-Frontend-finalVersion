@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Employee} from "../../../models/Employee";
 import {EmployeeService} from "../../../services/employee.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {ObjectifListServiceService} from "../../../services/objectif-list-service.service";
 import {MatDialog} from "@angular/material/dialog";
 import {Objective} from "../../../models/Objective";
@@ -19,7 +19,8 @@ export class ListEmployeeComponent implements OnInit {
   employes: Employee[] = [];
   roleName: string = 'USER';
 
-  constructor(private employeService: EmployeeService, private router: Router, public dialog: MatDialog) {
+  constructor(private employeService: EmployeeService, private router: Router, public dialog: MatDialog ,
+              ) {
   }
 
   ngOnInit(): void {
@@ -42,8 +43,9 @@ export class ListEmployeeComponent implements OnInit {
     this.router.navigate(['/ui-components/register']);
   }
 
-  gotoupdateprofile() {
-    this.router.navigate(['/ui-components/Editprofile']);
+  gotoupdateprofile(employeeId: any): void  {
+    this.router.navigate(['/ui-components/Editprofile',employeeId]);
+    console.log(employeeId);
   }
 
   deleteEmployee(employe: Employee) {

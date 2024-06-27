@@ -35,10 +35,22 @@
         >Objective Type
         </mat-label
         >
-        <mat-form-field appearance="outline" class="w-100" color="primary" >
+    <!--    <mat-form-field appearance="outline" class="w-100" color="primary" >
           <input matInput  id="objectiveType" [(ngModel)]="objective.objectifType"/>
-        </mat-form-field>
+        </mat-form-field>-->
 
+        <mat-form-field appearance="outline" color="primary"  class="w-100" >
+          <mat-select [multiple]="false" placeholder="Choose a Type" [(ngModel)]="searchText2">
+
+            <mat-select>
+              <input matInput placeholder="Search...">
+            </mat-select>
+
+            <mat-option *ngFor="let type of types" [value]="type">
+              {{ type }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
 
 
       </div>

@@ -43,6 +43,14 @@
         >
           Assigned To
         </button>
+
+
+        <button mat-flat-button class="btn-lg mr-3"
+                style="margin-right:10px;width: 150px;border-radius: 10px;
+                background-color:#e6bc15 ; color:#0a0a0a" *ngIf="hasautority()"
+                (click)="gotoupdateobjectif(objectif.objectifId)">
+          Update
+        </button>
       </div>
 
 
@@ -58,7 +66,7 @@
                       class="btn-lg btn-danger" (click)="deleteObjectif(objectif)" *ngIf="hasautority()" >Canceled
               </button>
               <button mat-flat-button color="primary" style="margin-right: 20px; width: 100px;
-               background-color:#EBF9F1 ; color:#1F9254" class="btn-lg btn-danger">Compeled
+               background-color:#EBF9F1 ; color:#1F9254" class="btn-lg btn-danger">Completed
               </button>
               </div>
           </div>

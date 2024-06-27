@@ -2,6 +2,9 @@ import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular
 import { MatDrawer } from '@angular/material/sidenav';
 import { Employee } from 'src/app/models/Employee';
 import { EmployeeService } from 'src/app/services/employee.service';
+import {ActivatedRoute} from "@angular/router";
+import {FormBuilder, FormGroup} from "@angular/forms";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-edit-profile',
@@ -13,16 +16,16 @@ export class EditProfileComponent
     @ViewChild('drawer') drawer!: MatDrawer;
 
 
+  updateemploye!: Employee;
 
-
-
+  editProfileForm!: FormGroup;
 
 
     employees!:Employee[];
 
 
 
-
+  searchText2!: any;
 
 
     days : string = '00'
@@ -37,8 +40,10 @@ export class EditProfileComponent
     showFiller = false;
     isClicked= true;
 
-    searchText!: string;
-    persons: string[] = ['Employe', 'Manager', 'SuperManager'];
+    searchText!: any;
+
+  persons: any[] = [{name: 'Employe',role: 'USER'}, {name: 'Manager',role: 'ADMIN'}
+    ,{name: 'HR',role: 'SUPERADMIN'}];
     equipes : string[] = ['Team A', 'Team B' , 'Team C', 'Team D' ,'Team F '] ;
 
 
@@ -60,7 +65,7 @@ export class EditProfileComponent
 
 
 
-    constructor(private employee:EmployeeService) {}
+    constructor(private employee:EmployeeService, private route: ActivatedRoute , private fb: FormBuilder) {}
 
 
 
@@ -74,10 +79,35 @@ export class EditProfileComponent
 
     toggleDrawerAndFiller() {
       this.isClicked = !this.isClicked;
-      this.drawer.toggle();
+
+      this.showSuccessPopup;
+
     }
+
+
     ngOnInit() {
 
+
+      const employeeId = this.route.snapshot.paramMap.get('employeeId');
+      this.editProfileForm = this.fb.group({
+        name: [''],
+        email: [''],
+        identifiant: [''],
+        status: [''],
+        bloc2: ['']
+      });
+
+      if (employeeId) {
+        this.employee.getEmployeeById(employeeId).subscribe(employee => {
+          this.editProfileForm = this.fb.group({
+            name: [employee.name],
+            email: [employee.email],
+            identifiant : [employee.identifiant],
+            bloc2: [employee.bloc2],
+            roles: [employee.roles],
+          });
+        });
+      }
 
             this.getEmployees();
 
@@ -150,4 +180,61 @@ export class EditProfileComponent
 
     ngAfterViewInit(): void {
     }
+
+  onSubmit2(): void {
+    const employeeId : any = this.route.snapshot.paramMap.get('id');
+    if (this.editProfileForm.valid) {
+      this.employee.updateEmployee(employeeId , this.editProfileForm.value).subscribe(() => {
+        // Handle successful update
+      });
+    }
+  }
+
+
+  onSearchTextChange() {
+    // ** Nouvelle méthode ajoutée pour mettre à jour newemploye.roles **
+    if (this.searchText)
+      this.updateemploye.roles.name = this.searchText.role;
+  }
+
+
+
+  onSearchTextChange2() {
+    // ** Nouvelle méthode ajoutée pour mettre à jour newemploye.roles **
+    if (this.searchText2)
+      this.updateemploye.bloc2 = this.searchText2;
+  }
+
+  onSubmit(){
+
+    this.onSearchTextChange();
+    this.onSearchTextChange2();
+    console.log(this.updateemploye)
+
+    //this.dialog.open(DialogElementsExampleDialog3);
+
+
+  }
+  showSuccessPopup() {
+    Swal.fire({
+      title: 'Success!',
+      text: 'Your USER has been updated successfully.',
+      icon: 'success',
+      confirmButtonText: 'OK',
+      customClass: {
+        popup: 'my-popup',
+        title: 'my-title'}
+    }).then((result) => {
+      if (result.isConfirmed) {
+        //this.handleOkAction();
+        window.location.reload();
+      }
+
+    });
+  }
+
+  update() {
+    this.showSuccessPopup();
+
+  }
 }

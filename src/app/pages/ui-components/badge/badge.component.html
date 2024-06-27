@@ -1,6 +1,5 @@
-
-
 <!-- charts.component.html -->
+
 <!--<div id="chart">-->
 <!--  <apx-chart [series]="spark1.series" [chart]="spark1.chart" [stroke]="spark1.stroke" [markers]="spark1.markers"-->
 <!--             [grid]="spark1.grid" [colors]="spark1.colors" [tooltip]="spark1.tooltip"></apx-chart>-->
@@ -76,7 +75,7 @@
         </div>
       </mat-card-content>
       <div class="d-flex justify-content-center ">
-        <button mat-flat-button color="primary"  class="btn-lg mr-3" (click)="showPopupWithScrollView()"
+        <button mat-flat-button color="primary"  class="btn-lg mr-3" (click)="showPopupWithScrollView4()"
                 style="margin-bottom: 10px;width: 150px;border-radius: 10px;" >
           Details
         </button>
@@ -101,7 +100,7 @@
         </div>
       </mat-card-content>
       <div class="d-flex justify-content-center ">
-        <button mat-flat-button color="primary"  class="btn-lg mr-3" (click)="showPopupWithScrollView()"
+        <button mat-flat-button color="primary"  class="btn-lg mr-3" (click)="showPopupWithScrollView5()"
                 style="margin-bottom: 10px;width: 150px;border-radius: 10px;" >
           Details
         </button>
@@ -131,3 +130,78 @@
     </div>
   </mat-card-content>
 </mat-card>-->
+<dx-popup
+  [width]="500"
+  [height]="450"
+  [hideOnOutsideClick]="true"
+  [showCloseButton]="true"
+  [(visible)]="popupWithScrollViewVisible4"
+  title="Developer Work Week"
+>
+  <div *dxTemplate="let data of 'content'">
+    <dx-scroll-view width="100%" height="100%">
+      <div class="caption">Description</div>
+      The KPI "Developer Work Week" measures the average number of hours worked by developers within an IT or engineering team over a specific period, typically one week. This KPI
+      helps to assess the workload, work-life balance, and potential risk of burnout among team members.
+      <br /><br />
+      <div class="content">
+        Calculation Methodology
+        To calculate this KPI, use the following formulaire:
+
+        <div><B>Developer Work Week
+          =</B></div>
+        <br /><br />
+
+        <div class="d-flex justify-content-center"><B>TotalNumbersOfHoursWorked</B></div>
+        <div class="d-flex justify-content-center"> ---------------------------------------------</div>
+        <div class="d-flex justify-content-center"><B> Number of Developers</B></div>
+      </div>
+    </dx-scroll-view>
+  </div>
+  <dxi-toolbar-item
+    widget="dxButton"
+    toolbar="bottom"
+    location="center"
+    [options]="bookButtonOptions4"
+  >
+  </dxi-toolbar-item>
+</dx-popup>
+
+<dx-popup
+  [width]="500"
+  [height]="450"
+  [hideOnOutsideClick]="true"
+  [showCloseButton]="true"
+  [(visible)]="popupWithScrollViewVisible5"
+  title="Average Team Tasks Completed Per Week"
+>
+  <div *dxTemplate="let data of 'content'">
+    <dx-scroll-view width="100%" height="100%">
+      <div class="caption">Description</div>
+      The KPI "Average Team Tasks Completed Per Week" measures the average number of tasks completed by an IT or engineering team each week.
+      This KPI helps to assess the productivity and efficiency of the team on a weekly basis.
+      <br /><br />
+      <div class="content">
+        Calculation Methodology
+        To calculate this KPI, use the following formulaire:
+
+        <div><B>Average Team Tasks Completed Per Week
+
+
+          =</B></div>
+        <br /><br />
+
+        <div class="d-flex justify-content-center"><B>TotalNumbersOfTasksCompleted</B></div>
+        <div class="d-flex justify-content-center"> ---------------------------------------------</div>
+        <div class="d-flex justify-content-center"><B> Number of Weeks</B></div>
+      </div>
+    </dx-scroll-view>
+  </div>
+  <dxi-toolbar-item
+    widget="dxButton"
+    toolbar="bottom"
+    location="center"
+    [options]="bookButtonOptions5"
+  >
+  </dxi-toolbar-item>
+</dx-popup>

@@ -107,6 +107,9 @@ export class AppBadgeComponent  {
 
 
 
+
+  popupWithScrollViewVisible4 = false;
+
   constructor() {
     // this.spark1 = {
     //   chart: {
@@ -1096,6 +1099,7 @@ export class AppBadgeComponent  {
 
   popupWithScrollViewVisible = false;
   popupWithScrollViewVisible2 = false;
+  popupWithScrollViewVisible5 = false;
   bookButtonOptions: DxButtonTypes.Properties = {
     width: 300,
     text: 'Understood',
@@ -1103,7 +1107,7 @@ export class AppBadgeComponent  {
     stylingMode: 'contained',
     onClick: () => {
       this.popupVisible = false;
-      this.popupWithScrollViewVisible = false;
+      this.popupWithScrollViewVisible4 = false;
     },
   };
   showPopupWithScrollView() {
@@ -1114,6 +1118,34 @@ export class AppBadgeComponent  {
     this.popupWithScrollViewVisible2 = true;
   }
 
+  showPopupWithScrollView4() {
+    this.popupWithScrollViewVisible4 = true;
+  }
+
+  showPopupWithScrollView5() {
+    this.popupWithScrollViewVisible5 = true;
+  }
+  bookButtonOptions4: DxButtonTypes.Properties = {
+    width: 300,
+    text: 'Understood',
+    type: 'default',
+    stylingMode: 'contained',
+    onClick: () => {
+      this.popupVisible = false;
+      this.popupWithScrollViewVisible4 = false;
+    },
+  };
+
+  bookButtonOptions5: DxButtonTypes.Properties = {
+    width: 300,
+    text: 'Understood',
+    type: 'default',
+    stylingMode: 'contained',
+    onClick: () => {
+      this.popupVisible = false;
+      this.popupWithScrollViewVisible5 = false;
+    },
+  };
 }
 
 
