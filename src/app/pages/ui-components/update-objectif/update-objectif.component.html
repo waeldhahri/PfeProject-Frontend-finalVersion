@@ -1,0 +1,267 @@
+<mat-card class="cardWithShadow theme-card">
+  <mat-card-header>
+    <mat-card-title class="m-b-0">Objectives / Update Objective</mat-card-title>
+  </mat-card-header>
+
+
+
+  <mat-card-content class="b-t-2" >
+    <form [formGroup]="editProfileForm" >
+    <div class="row" >
+      <div class="col-sm-6 col-lg-6">
+
+
+
+
+        <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
+        >Objective Title
+        </mat-label
+        >
+        <mat-form-field appearance="outline" class="w-100" color="primary" >
+          <input matInput id="objectifTitle" formControlName="objectifTitle" />
+        </mat-form-field>
+
+
+
+
+
+      </div>
+
+      <div class="col-sm-6 col-lg-6">
+
+
+
+
+        <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block attention"
+        >Objective Type
+        </mat-label
+        >
+        <!--    <mat-form-field appearance="outline" class="w-100" color="primary" >
+              <input matInput  id="objectiveType" [(ngModel)]="objective.objectifType"/>
+            </mat-form-field>-->
+
+        <mat-form-field appearance="outline" color="primary"  class="w-100" >
+          <mat-select [multiple]="false" placeholder="Choose a Type" formControlName="objectifType">
+
+            <mat-select>
+              <input matInput placeholder="Search...">
+            </mat-select>
+
+            <mat-option *ngFor="let type of types" [value]="type">
+              {{ type }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+      </div>
+
+    </div>
+
+
+
+
+    <div class="container d-flex justify-content-sm-end">
+
+
+
+      <div class="col-sm-6 col-lg-4">
+
+
+
+
+        <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
+        >Objective Start Date
+        </mat-label
+        >
+        <mat-form-field appearance="outline"  color="primary" >
+          <input matInput [matDatepicker]="startPicker" placeholder="mm/ii/aaaa" formControlName="objectifStart"
+
+          >
+          <mat-datepicker-toggle matSuffix [for]="startPicker">
+
+          </mat-datepicker-toggle>
+          <mat-datepicker #startPicker></mat-datepicker>
+
+        </mat-form-field>
+
+
+
+      </div>
+
+
+
+      <div class="col-sm-6 col-lg-4">
+
+
+
+
+        <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
+        >Objective End Date
+        </mat-label
+        >
+        <mat-form-field appearance="outline"  color="primary" >
+          <input matInput [matDatepicker]="endPicker"
+                 placeholder="mm/ii/aaaa" formControlName="dateLimite"
+          >
+          <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+          <mat-datepicker #endPicker></mat-datepicker>
+
+        </mat-form-field>
+
+
+
+      </div>
+
+
+
+      <div class="col-sm-6 col-lg-4">
+
+
+
+
+        <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
+        >Assigned to
+        </mat-label
+        >
+
+
+
+
+
+
+
+
+
+
+
+        <mat-form-field appearance="outline" color="primary" >
+          <mat-select [multiple]="false" placeholder="choose a person" formControlName="assigned">
+
+            <mat-select>
+              <input matInput placeholder="Search...">
+            </mat-select>
+
+            <mat-option *ngFor="let person of persons" [value]="person">
+              {{ person }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+        <!--
+                    <mat-option value="wael">wael</mat-option>
+                    <mat-option value="wassim">wassim</mat-option>
+                    <mat-option value="wael">wael</mat-option>
+                    <mat-option value="wassim">wassim</mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+        -->
+
+      </div>
+
+
+
+
+
+
+
+    </div>
+
+
+    <!--
+
+      <div class="row mb-3 d-flex justify-content-center ">
+
+        <div class="form-selectgroup ">
+          <label class="form-selectgroup-item">
+            <input type="checkbox" name="name"  class="form-selectgroup-input" >
+            <span class="form-selectgroup-label">Wael Dhahri</span>
+          </label>
+          <label class="form-selectgroup-item">
+            <input type="checkbox" name="name"  class="form-selectgroup-input" >
+            <span class="form-selectgroup-label">Wassim Dhahri</span>
+          </label>
+          <label class="form-selectgroup-item">
+            <input type="checkbox" name="name" class="form-selectgroup-input">
+            <span class="form-selectgroup-label">Wael Dhahri</span>
+          </label>
+          <label class="form-selectgroup-item">
+            <input type="checkbox" name="name"  class="form-selectgroup-input">
+            <span class="form-selectgroup-label">Wassim Dhahri</span>
+          </label>
+        </div>
+      </div>
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="row ">
+
+      <div class="col-12">
+        <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
+        >Objective Description
+        </mat-label
+        >
+        <mat-form-field appearance="outline" class="w-100" color="primary" style="height: 200px;">
+          <input matInput formControlName="description" />
+        </mat-form-field>
+
+      </div>
+
+
+
+
+    </div>
+
+
+
+    <div class="row d-flex justify-content-end">
+
+      <div class="example-sidenav-content row d-flex justify-content-end" >
+
+        <button
+          mat-flat-button
+          color="primary"
+          (click)="updateObjective()"
+
+
+          style="margin-right: 30px; width: 200px;background-color: Green; color: white;"
+          class="btn-lg btn-danger"
+        >
+          Update
+        </button>
+
+
+
+
+
+      </div>
+
+
+    </div>
+    </form>
+  </mat-card-content>
+
+
+</mat-card>
+
+
+
+
+
+
+
+
+
+
